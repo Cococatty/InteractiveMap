@@ -16,9 +16,9 @@ library(colorRamps)
 travelMean <- c()
 
 #Read the data
-setwd("//file/UsersY$/yzh215/Home/Desktop/Map")
+setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
 
-geodata <- read.csv('./NewDoc/geodata.csv'
+geodata <- read.csv('geodata.csv'
                       , col.names= c('AreaCode','AreaDesc','AreaFull','MeanCode','MeanName','MeanFull','Ppl')
                       , header= FALSE
                       , sep = ','
@@ -56,7 +56,7 @@ for (i in 1:length(geodata$Percentage))
 #head(shape@data)
 
 #Reading and merging the shapefiles
-shape <- readShapeSpatial("./Shapefiles/2 ESRI/TA2013_GV_Clipped.shp")
+shape <- readShapeSpatial("./Shapefiles/TA2013_GV_Clipped.shp")
 shape <- shape[!(shape@data$TA2013_NAM == 'Chatham Islands Territory' | shape@data$TA2013_NAM == 'Area Outside Territorial Authority'),]
 shape@data <- merge(shape@data,geodata,by.x="TA2013",by.y="AreaCode", all.x= TRUE )#, replace = TRUE 
 shape@data$Ppl <- as.numeric(levels(shape@data$Ppl)[shape@data$Ppl])
