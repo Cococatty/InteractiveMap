@@ -1,0 +1,738 @@
+AreaCode,AreaDesc,AreaFull,MeanCode,MeanDesc,MeanFull,Ppl
+001,Far North District,001: Far North District,01,Worked at home,01: Worked at home,3393
+001,Far North District,001: Far North District,02,Did not go to work today,02: Did not go to work today,2118
+001,Far North District,001: Far North District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",9453
+001,Far North District,001: Far North District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2241
+001,Far North District,001: Far North District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",720
+001,Far North District,001: Far North District,06,Public bus,06: Public bus,51
+001,Far North District,001: Far North District,07,Train,07: Train,12
+001,Far North District,001: Far North District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,246
+001,Far North District,001: Far North District,09,Bicycle,09: Bicycle,126
+001,Far North District,001: Far North District,10,Walked or jogged,10: Walked or jogged,1083
+001,Far North District,001: Far North District,15,Other,15: Other,243
+002,Whangarei District,002: Whangarei District,01,Worked at home,01: Worked at home,3219
+002,Whangarei District,002: Whangarei District,02,Did not go to work today,02: Did not go to work today,3669
+002,Whangarei District,002: Whangarei District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",16389
+002,Whangarei District,002: Whangarei District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3948
+002,Whangarei District,002: Whangarei District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1389
+002,Whangarei District,002: Whangarei District,06,Public bus,06: Public bus,186
+002,Whangarei District,002: Whangarei District,07,Train,07: Train,12
+002,Whangarei District,002: Whangarei District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,375
+002,Whangarei District,002: Whangarei District,09,Bicycle,09: Bicycle,399
+002,Whangarei District,002: Whangarei District,10,Walked or jogged,10: Walked or jogged,1305
+002,Whangarei District,002: Whangarei District,15,Other,15: Other,192
+003,Kaipara District,003: Kaipara District,01,Worked at home,01: Worked at home,1689
+003,Kaipara District,003: Kaipara District,02,Did not go to work today,02: Did not go to work today,810
+003,Kaipara District,003: Kaipara District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",3270
+003,Kaipara District,003: Kaipara District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",867
+003,Kaipara District,003: Kaipara District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",267
+003,Kaipara District,003: Kaipara District,06,Public bus,06: Public bus,12
+003,Kaipara District,003: Kaipara District,07,Train,07: Train,3
+003,Kaipara District,003: Kaipara District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,249
+003,Kaipara District,003: Kaipara District,09,Bicycle,09: Bicycle,54
+003,Kaipara District,003: Kaipara District,10,Walked or jogged,10: Walked or jogged,417
+003,Kaipara District,003: Kaipara District,15,Other,15: Other,66
+076,Auckland,076: Auckland,01,Worked at home,01: Worked at home,44256
+076,Auckland,076: Auckland,02,Did not go to work today,02: Did not go to work today,61827
+076,Auckland,076: Auckland,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",340302
+076,Auckland,076: Auckland,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",65481
+076,Auckland,076: Auckland,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",24510
+076,Auckland,076: Auckland,06,Public bus,06: Public bus,33933
+076,Auckland,076: Auckland,07,Train,07: Train,9462
+076,Auckland,076: Auckland,08,Motor cycle or power cycle,08: Motor cycle or power cycle,5496
+076,Auckland,076: Auckland,09,Bicycle,09: Bicycle,6342
+076,Auckland,076: Auckland,10,Walked or jogged,10: Walked or jogged,26529
+076,Auckland,076: Auckland,15,Other,15: Other,7989
+011,Thames-Coromandel District,011: Thames-Coromandel District,01,Worked at home,01: Worked at home,1680
+011,Thames-Coromandel District,011: Thames-Coromandel District,02,Did not go to work today,02: Did not go to work today,1485
+011,Thames-Coromandel District,011: Thames-Coromandel District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",4770
+011,Thames-Coromandel District,011: Thames-Coromandel District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1386
+011,Thames-Coromandel District,011: Thames-Coromandel District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",327
+011,Thames-Coromandel District,011: Thames-Coromandel District,06,Public bus,06: Public bus,15
+011,Thames-Coromandel District,011: Thames-Coromandel District,07,Train,07: Train,3
+011,Thames-Coromandel District,011: Thames-Coromandel District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,120
+011,Thames-Coromandel District,011: Thames-Coromandel District,09,Bicycle,09: Bicycle,282
+011,Thames-Coromandel District,011: Thames-Coromandel District,10,Walked or jogged,10: Walked or jogged,855
+011,Thames-Coromandel District,011: Thames-Coromandel District,15,Other,15: Other,66
+012,Hauraki District,012: Hauraki District,01,Worked at home,01: Worked at home,1368
+012,Hauraki District,012: Hauraki District,02,Did not go to work today,02: Did not go to work today,801
+012,Hauraki District,012: Hauraki District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",3141
+012,Hauraki District,012: Hauraki District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",801
+012,Hauraki District,012: Hauraki District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",213
+012,Hauraki District,012: Hauraki District,06,Public bus,06: Public bus,12
+012,Hauraki District,012: Hauraki District,07,Train,07: Train,3
+012,Hauraki District,012: Hauraki District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,201
+012,Hauraki District,012: Hauraki District,09,Bicycle,09: Bicycle,81
+012,Hauraki District,012: Hauraki District,10,Walked or jogged,10: Walked or jogged,462
+012,Hauraki District,012: Hauraki District,15,Other,15: Other,39
+013,Waikato District,013: Waikato District,01,Worked at home,01: Worked at home,4371
+013,Waikato District,013: Waikato District,02,Did not go to work today,02: Did not go to work today,2814
+013,Waikato District,013: Waikato District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",14397
+013,Waikato District,013: Waikato District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3894
+013,Waikato District,013: Waikato District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",876
+013,Waikato District,013: Waikato District,06,Public bus,06: Public bus,126
+013,Waikato District,013: Waikato District,07,Train,07: Train,75
+013,Waikato District,013: Waikato District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,639
+013,Waikato District,013: Waikato District,09,Bicycle,09: Bicycle,228
+013,Waikato District,013: Waikato District,10,Walked or jogged,10: Walked or jogged,750
+013,Waikato District,013: Waikato District,15,Other,15: Other,159
+015,Matamata-Piako District,015: Matamata-Piako District,01,Worked at home,01: Worked at home,2664
+015,Matamata-Piako District,015: Matamata-Piako District,02,Did not go to work today,02: Did not go to work today,1497
+015,Matamata-Piako District,015: Matamata-Piako District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",6636
+015,Matamata-Piako District,015: Matamata-Piako District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1608
+015,Matamata-Piako District,015: Matamata-Piako District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",450
+015,Matamata-Piako District,015: Matamata-Piako District,06,Public bus,06: Public bus,30
+015,Matamata-Piako District,015: Matamata-Piako District,07,Train,07: Train,6
+015,Matamata-Piako District,015: Matamata-Piako District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,492
+015,Matamata-Piako District,015: Matamata-Piako District,09,Bicycle,09: Bicycle,222
+015,Matamata-Piako District,015: Matamata-Piako District,10,Walked or jogged,10: Walked or jogged,789
+015,Matamata-Piako District,015: Matamata-Piako District,15,Other,15: Other,78
+016,Hamilton City,016: Hamilton City,01,Worked at home,01: Worked at home,3126
+016,Hamilton City,016: Hamilton City,02,Did not go to work today,02: Did not go to work today,6570
+016,Hamilton City,016: Hamilton City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",35007
+016,Hamilton City,016: Hamilton City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",7032
+016,Hamilton City,016: Hamilton City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",2571
+016,Hamilton City,016: Hamilton City,06,Public bus,06: Public bus,1521
+016,Hamilton City,016: Hamilton City,07,Train,07: Train,15
+016,Hamilton City,016: Hamilton City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,618
+016,Hamilton City,016: Hamilton City,09,Bicycle,09: Bicycle,2016
+016,Hamilton City,016: Hamilton City,10,Walked or jogged,10: Walked or jogged,3450
+016,Hamilton City,016: Hamilton City,15,Other,15: Other,423
+017,Waipa District,017: Waipa District,01,Worked at home,01: Worked at home,2943
+017,Waipa District,017: Waipa District,02,Did not go to work today,02: Did not go to work today,2358
+017,Waipa District,017: Waipa District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",11550
+017,Waipa District,017: Waipa District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3081
+017,Waipa District,017: Waipa District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",672
+017,Waipa District,017: Waipa District,06,Public bus,06: Public bus,69
+017,Waipa District,017: Waipa District,07,Train,07: Train,3
+017,Waipa District,017: Waipa District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,501
+017,Waipa District,017: Waipa District,09,Bicycle,09: Bicycle,258
+017,Waipa District,017: Waipa District,10,Walked or jogged,10: Walked or jogged,789
+017,Waipa District,017: Waipa District,15,Other,15: Other,138
+018,Otorohanga District,018: Otorohanga District,01,Worked at home,01: Worked at home,1053
+018,Otorohanga District,018: Otorohanga District,02,Did not go to work today,02: Did not go to work today,378
+018,Otorohanga District,018: Otorohanga District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1593
+018,Otorohanga District,018: Otorohanga District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",408
+018,Otorohanga District,018: Otorohanga District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",114
+018,Otorohanga District,018: Otorohanga District,06,Public bus,06: Public bus,3
+018,Otorohanga District,018: Otorohanga District,07,Train,07: Train,3
+018,Otorohanga District,018: Otorohanga District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,309
+018,Otorohanga District,018: Otorohanga District,09,Bicycle,09: Bicycle,24
+018,Otorohanga District,018: Otorohanga District,10,Walked or jogged,10: Walked or jogged,225
+018,Otorohanga District,018: Otorohanga District,15,Other,15: Other,39
+019,South Waikato District,019: South Waikato District,01,Worked at home,01: Worked at home,1044
+019,South Waikato District,019: South Waikato District,02,Did not go to work today,02: Did not go to work today,963
+019,South Waikato District,019: South Waikato District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",4035
+019,South Waikato District,019: South Waikato District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",975
+019,South Waikato District,019: South Waikato District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",378
+019,South Waikato District,019: South Waikato District,06,Public bus,06: Public bus,9
+019,South Waikato District,019: South Waikato District,07,Train,07: Train,6
+019,South Waikato District,019: South Waikato District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,354
+019,South Waikato District,019: South Waikato District,09,Bicycle,09: Bicycle,162
+019,South Waikato District,019: South Waikato District,10,Walked or jogged,10: Walked or jogged,399
+019,South Waikato District,019: South Waikato District,15,Other,15: Other,42
+020,Waitomo District,020: Waitomo District,01,Worked at home,01: Worked at home,771
+020,Waitomo District,020: Waitomo District,02,Did not go to work today,02: Did not go to work today,390
+020,Waitomo District,020: Waitomo District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1674
+020,Waitomo District,020: Waitomo District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",435
+020,Waitomo District,020: Waitomo District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",219
+020,Waitomo District,020: Waitomo District,06,Public bus,06: Public bus,12
+020,Waitomo District,020: Waitomo District,07,Train,07: Train,3
+020,Waitomo District,020: Waitomo District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,186
+020,Waitomo District,020: Waitomo District,09,Bicycle,09: Bicycle,36
+020,Waitomo District,020: Waitomo District,10,Walked or jogged,10: Walked or jogged,267
+020,Waitomo District,020: Waitomo District,15,Other,15: Other,24
+021,Taupo District,021: Taupo District,01,Worked at home,01: Worked at home,1476
+021,Taupo District,021: Taupo District,02,Did not go to work today,02: Did not go to work today,1902
+021,Taupo District,021: Taupo District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",7224
+021,Taupo District,021: Taupo District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2217
+021,Taupo District,021: Taupo District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",669
+021,Taupo District,021: Taupo District,06,Public bus,06: Public bus,15
+021,Taupo District,021: Taupo District,07,Train,07: Train,6
+021,Taupo District,021: Taupo District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,372
+021,Taupo District,021: Taupo District,09,Bicycle,09: Bicycle,255
+021,Taupo District,021: Taupo District,10,Walked or jogged,10: Walked or jogged,777
+021,Taupo District,021: Taupo District,15,Other,15: Other,99
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,01,Worked at home,01: Worked at home,3597
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,02,Did not go to work today,02: Did not go to work today,2343
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",9351
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2511
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",600
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,06,Public bus,06: Public bus,45
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,07,Train,07: Train,9
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,243
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,09,Bicycle,09: Bicycle,135
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,10,Walked or jogged,10: Walked or jogged,630
+022,Western Bay of Plenty District,022: Western Bay of Plenty District,15,Other,15: Other,108
+023,Tauranga City,023: Tauranga City,01,Worked at home,01: Worked at home,3810
+023,Tauranga City,023: Tauranga City,02,Did not go to work today,02: Did not go to work today,6030
+023,Tauranga City,023: Tauranga City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",26493
+023,Tauranga City,023: Tauranga City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",6939
+023,Tauranga City,023: Tauranga City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1542
+023,Tauranga City,023: Tauranga City,06,Public bus,06: Public bus,684
+023,Tauranga City,023: Tauranga City,07,Train,07: Train,15
+023,Tauranga City,023: Tauranga City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,558
+023,Tauranga City,023: Tauranga City,09,Bicycle,09: Bicycle,1263
+023,Tauranga City,023: Tauranga City,10,Walked or jogged,10: Walked or jogged,1656
+023,Tauranga City,023: Tauranga City,15,Other,15: Other,330
+024,Rotorua District,024: Rotorua District,01,Worked at home,01: Worked at home,2271
+024,Rotorua District,024: Rotorua District,02,Did not go to work today,02: Did not go to work today,3015
+024,Rotorua District,024: Rotorua District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",14142
+024,Rotorua District,024: Rotorua District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3561
+024,Rotorua District,024: Rotorua District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1302
+024,Rotorua District,024: Rotorua District,06,Public bus,06: Public bus,393
+024,Rotorua District,024: Rotorua District,07,Train,07: Train,3
+024,Rotorua District,024: Rotorua District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,411
+024,Rotorua District,024: Rotorua District,09,Bicycle,09: Bicycle,687
+024,Rotorua District,024: Rotorua District,10,Walked or jogged,10: Walked or jogged,1116
+024,Rotorua District,024: Rotorua District,15,Other,15: Other,150
+025,Whakatane District,025: Whakatane District,01,Worked at home,01: Worked at home,1494
+025,Whakatane District,025: Whakatane District,02,Did not go to work today,02: Did not go to work today,1467
+025,Whakatane District,025: Whakatane District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",6450
+025,Whakatane District,025: Whakatane District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1494
+025,Whakatane District,025: Whakatane District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",597
+025,Whakatane District,025: Whakatane District,06,Public bus,06: Public bus,21
+025,Whakatane District,025: Whakatane District,07,Train,07: Train,3
+025,Whakatane District,025: Whakatane District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,276
+025,Whakatane District,025: Whakatane District,09,Bicycle,09: Bicycle,324
+025,Whakatane District,025: Whakatane District,10,Walked or jogged,10: Walked or jogged,681
+025,Whakatane District,025: Whakatane District,15,Other,15: Other,69
+026,Kawerau District,026: Kawerau District,01,Worked at home,01: Worked at home,66
+026,Kawerau District,026: Kawerau District,02,Did not go to work today,02: Did not go to work today,204
+026,Kawerau District,026: Kawerau District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",972
+026,Kawerau District,026: Kawerau District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",141
+026,Kawerau District,026: Kawerau District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",93
+026,Kawerau District,026: Kawerau District,06,Public bus,06: Public bus,0
+026,Kawerau District,026: Kawerau District,07,Train,07: Train,3
+026,Kawerau District,026: Kawerau District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,12
+026,Kawerau District,026: Kawerau District,09,Bicycle,09: Bicycle,45
+026,Kawerau District,026: Kawerau District,10,Walked or jogged,10: Walked or jogged,102
+026,Kawerau District,026: Kawerau District,15,Other,15: Other,6
+027,Opotiki District,027: Opotiki District,01,Worked at home,01: Worked at home,444
+027,Opotiki District,027: Opotiki District,02,Did not go to work today,02: Did not go to work today,294
+027,Opotiki District,027: Opotiki District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1386
+027,Opotiki District,027: Opotiki District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",339
+027,Opotiki District,027: Opotiki District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",156
+027,Opotiki District,027: Opotiki District,06,Public bus,06: Public bus,0
+027,Opotiki District,027: Opotiki District,07,Train,07: Train,0
+027,Opotiki District,027: Opotiki District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,66
+027,Opotiki District,027: Opotiki District,09,Bicycle,09: Bicycle,36
+027,Opotiki District,027: Opotiki District,10,Walked or jogged,10: Walked or jogged,159
+027,Opotiki District,027: Opotiki District,15,Other,15: Other,24
+028,Gisborne District,028: Gisborne District,01,Worked at home,01: Worked at home,1701
+028,Gisborne District,028: Gisborne District,02,Did not go to work today,02: Did not go to work today,1755
+028,Gisborne District,028: Gisborne District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",8787
+028,Gisborne District,028: Gisborne District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2199
+028,Gisborne District,028: Gisborne District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",978
+028,Gisborne District,028: Gisborne District,06,Public bus,06: Public bus,66
+028,Gisborne District,028: Gisborne District,07,Train,07: Train,6
+028,Gisborne District,028: Gisborne District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,270
+028,Gisborne District,028: Gisborne District,09,Bicycle,09: Bicycle,504
+028,Gisborne District,028: Gisborne District,10,Walked or jogged,10: Walked or jogged,810
+028,Gisborne District,028: Gisborne District,15,Other,15: Other,147
+029,Wairoa District,029: Wairoa District,01,Worked at home,01: Worked at home,378
+029,Wairoa District,029: Wairoa District,02,Did not go to work today,02: Did not go to work today,273
+029,Wairoa District,029: Wairoa District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1473
+029,Wairoa District,029: Wairoa District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",270
+029,Wairoa District,029: Wairoa District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",201
+029,Wairoa District,029: Wairoa District,06,Public bus,06: Public bus,3
+029,Wairoa District,029: Wairoa District,07,Train,07: Train,0
+029,Wairoa District,029: Wairoa District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,102
+029,Wairoa District,029: Wairoa District,09,Bicycle,09: Bicycle,42
+029,Wairoa District,029: Wairoa District,10,Walked or jogged,10: Walked or jogged,171
+029,Wairoa District,029: Wairoa District,15,Other,15: Other,42
+030,Hastings District,030: Hastings District,01,Worked at home,01: Worked at home,3147
+030,Hastings District,030: Hastings District,02,Did not go to work today,02: Did not go to work today,3294
+030,Hastings District,030: Hastings District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",16971
+030,Hastings District,030: Hastings District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3753
+030,Hastings District,030: Hastings District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1332
+030,Hastings District,030: Hastings District,06,Public bus,06: Public bus,132
+030,Hastings District,030: Hastings District,07,Train,07: Train,9
+030,Hastings District,030: Hastings District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,336
+030,Hastings District,030: Hastings District,09,Bicycle,09: Bicycle,1098
+030,Hastings District,030: Hastings District,10,Walked or jogged,10: Walked or jogged,1371
+030,Hastings District,030: Hastings District,15,Other,15: Other,201
+031,Napier City,031: Napier City,01,Worked at home,01: Worked at home,1542
+031,Napier City,031: Napier City,02,Did not go to work today,02: Did not go to work today,2895
+031,Napier City,031: Napier City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",13743
+031,Napier City,031: Napier City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3252
+031,Napier City,031: Napier City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1083
+031,Napier City,031: Napier City,06,Public bus,06: Public bus,225
+031,Napier City,031: Napier City,07,Train,07: Train,3
+031,Napier City,031: Napier City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,213
+031,Napier City,031: Napier City,09,Bicycle,09: Bicycle,750
+031,Napier City,031: Napier City,10,Walked or jogged,10: Walked or jogged,1143
+031,Napier City,031: Napier City,15,Other,15: Other,171
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,01,Worked at home,01: Worked at home,1110
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,02,Did not go to work today,02: Did not go to work today,582
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",2943
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",699
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",228
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,06,Public bus,06: Public bus,6
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,07,Train,07: Train,3
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,189
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,09,Bicycle,09: Bicycle,51
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,10,Walked or jogged,10: Walked or jogged,279
+032,Central Hawke's Bay District,032: Central Hawke's Bay District,15,Other,15: Other,36
+033,New Plymouth District,033: New Plymouth District,01,Worked at home,01: Worked at home,2943
+033,New Plymouth District,033: New Plymouth District,02,Did not go to work today,02: Did not go to work today,4062
+033,New Plymouth District,033: New Plymouth District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",18117
+033,New Plymouth District,033: New Plymouth District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",4203
+033,New Plymouth District,033: New Plymouth District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1434
+033,New Plymouth District,033: New Plymouth District,06,Public bus,06: Public bus,162
+033,New Plymouth District,033: New Plymouth District,07,Train,07: Train,6
+033,New Plymouth District,033: New Plymouth District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,489
+033,New Plymouth District,033: New Plymouth District,09,Bicycle,09: Bicycle,897
+033,New Plymouth District,033: New Plymouth District,10,Walked or jogged,10: Walked or jogged,1821
+033,New Plymouth District,033: New Plymouth District,15,Other,15: Other,306
+034,Stratford District,034: Stratford District,01,Worked at home,01: Worked at home,717
+034,Stratford District,034: Stratford District,02,Did not go to work today,02: Did not go to work today,492
+034,Stratford District,034: Stratford District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1980
+034,Stratford District,034: Stratford District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",432
+034,Stratford District,034: Stratford District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",141
+034,Stratford District,034: Stratford District,06,Public bus,06: Public bus,3
+034,Stratford District,034: Stratford District,07,Train,07: Train,0
+034,Stratford District,034: Stratford District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,114
+034,Stratford District,034: Stratford District,09,Bicycle,09: Bicycle,33
+034,Stratford District,034: Stratford District,10,Walked or jogged,10: Walked or jogged,234
+034,Stratford District,034: Stratford District,15,Other,15: Other,33
+035,South Taranaki District,035: South Taranaki District,01,Worked at home,01: Worked at home,2088
+035,South Taranaki District,035: South Taranaki District,02,Did not go to work today,02: Did not go to work today,1266
+035,South Taranaki District,035: South Taranaki District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",5211
+035,South Taranaki District,035: South Taranaki District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",999
+035,South Taranaki District,035: South Taranaki District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",426
+035,South Taranaki District,035: South Taranaki District,06,Public bus,06: Public bus,15
+035,South Taranaki District,035: South Taranaki District,07,Train,07: Train,0
+035,South Taranaki District,035: South Taranaki District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,636
+035,South Taranaki District,035: South Taranaki District,09,Bicycle,09: Bicycle,231
+035,South Taranaki District,035: South Taranaki District,10,Walked or jogged,10: Walked or jogged,882
+035,South Taranaki District,035: South Taranaki District,15,Other,15: Other,93
+036,Ruapehu District,036: Ruapehu District,01,Worked at home,01: Worked at home,777
+036,Ruapehu District,036: Ruapehu District,02,Did not go to work today,02: Did not go to work today,537
+036,Ruapehu District,036: Ruapehu District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",2124
+036,Ruapehu District,036: Ruapehu District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",645
+036,Ruapehu District,036: Ruapehu District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",294
+036,Ruapehu District,036: Ruapehu District,06,Public bus,06: Public bus,9
+036,Ruapehu District,036: Ruapehu District,07,Train,07: Train,3
+036,Ruapehu District,036: Ruapehu District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,153
+036,Ruapehu District,036: Ruapehu District,09,Bicycle,09: Bicycle,96
+036,Ruapehu District,036: Ruapehu District,10,Walked or jogged,10: Walked or jogged,477
+036,Ruapehu District,036: Ruapehu District,15,Other,15: Other,45
+037,Wanganui District,037: Wanganui District,01,Worked at home,01: Worked at home,1197
+037,Wanganui District,037: Wanganui District,02,Did not go to work today,02: Did not go to work today,1965
+037,Wanganui District,037: Wanganui District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",9180
+037,Wanganui District,037: Wanganui District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1872
+037,Wanganui District,037: Wanganui District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",708
+037,Wanganui District,037: Wanganui District,06,Public bus,06: Public bus,42
+037,Wanganui District,037: Wanganui District,07,Train,07: Train,9
+037,Wanganui District,037: Wanganui District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,270
+037,Wanganui District,037: Wanganui District,09,Bicycle,09: Bicycle,537
+037,Wanganui District,037: Wanganui District,10,Walked or jogged,10: Walked or jogged,849
+037,Wanganui District,037: Wanganui District,15,Other,15: Other,87
+038,Rangitikei District,038: Rangitikei District,01,Worked at home,01: Worked at home,1059
+038,Rangitikei District,038: Rangitikei District,02,Did not go to work today,02: Did not go to work today,657
+038,Rangitikei District,038: Rangitikei District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",3042
+038,Rangitikei District,038: Rangitikei District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",690
+038,Rangitikei District,038: Rangitikei District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",294
+038,Rangitikei District,038: Rangitikei District,06,Public bus,06: Public bus,9
+038,Rangitikei District,038: Rangitikei District,07,Train,07: Train,0
+038,Rangitikei District,038: Rangitikei District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,198
+038,Rangitikei District,038: Rangitikei District,09,Bicycle,09: Bicycle,84
+038,Rangitikei District,038: Rangitikei District,10,Walked or jogged,10: Walked or jogged,438
+038,Rangitikei District,038: Rangitikei District,15,Other,15: Other,39
+039,Manawatu District,039: Manawatu District,01,Worked at home,01: Worked at home,1737
+039,Manawatu District,039: Manawatu District,02,Did not go to work today,02: Did not go to work today,1476
+039,Manawatu District,039: Manawatu District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",6750
+039,Manawatu District,039: Manawatu District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1662
+039,Manawatu District,039: Manawatu District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",432
+039,Manawatu District,039: Manawatu District,06,Public bus,06: Public bus,66
+039,Manawatu District,039: Manawatu District,07,Train,07: Train,12
+039,Manawatu District,039: Manawatu District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,288
+039,Manawatu District,039: Manawatu District,09,Bicycle,09: Bicycle,177
+039,Manawatu District,039: Manawatu District,10,Walked or jogged,10: Walked or jogged,531
+039,Manawatu District,039: Manawatu District,15,Other,15: Other,90
+040,Palmerston North City,040: Palmerston North City,01,Worked at home,01: Worked at home,1911
+040,Palmerston North City,040: Palmerston North City,02,Did not go to work today,02: Did not go to work today,3963
+040,Palmerston North City,040: Palmerston North City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",19092
+040,Palmerston North City,040: Palmerston North City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3894
+040,Palmerston North City,040: Palmerston North City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1410
+040,Palmerston North City,040: Palmerston North City,06,Public bus,06: Public bus,606
+040,Palmerston North City,040: Palmerston North City,07,Train,07: Train,66
+040,Palmerston North City,040: Palmerston North City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,444
+040,Palmerston North City,040: Palmerston North City,09,Bicycle,09: Bicycle,1791
+040,Palmerston North City,040: Palmerston North City,10,Walked or jogged,10: Walked or jogged,2694
+040,Palmerston North City,040: Palmerston North City,15,Other,15: Other,294
+041,Tararua District,041: Tararua District,01,Worked at home,01: Worked at home,1488
+041,Tararua District,041: Tararua District,02,Did not go to work today,02: Did not go to work today,741
+041,Tararua District,041: Tararua District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",3252
+041,Tararua District,041: Tararua District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",729
+041,Tararua District,041: Tararua District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",285
+041,Tararua District,041: Tararua District,06,Public bus,06: Public bus,9
+041,Tararua District,041: Tararua District,07,Train,07: Train,3
+041,Tararua District,041: Tararua District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,369
+041,Tararua District,041: Tararua District,09,Bicycle,09: Bicycle,93
+041,Tararua District,041: Tararua District,10,Walked or jogged,10: Walked or jogged,483
+041,Tararua District,041: Tararua District,15,Other,15: Other,45
+042,Horowhenua District,042: Horowhenua District,01,Worked at home,01: Worked at home,1128
+042,Horowhenua District,042: Horowhenua District,02,Did not go to work today,02: Did not go to work today,1311
+042,Horowhenua District,042: Horowhenua District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",5751
+042,Horowhenua District,042: Horowhenua District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1293
+042,Horowhenua District,042: Horowhenua District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",453
+042,Horowhenua District,042: Horowhenua District,06,Public bus,06: Public bus,33
+042,Horowhenua District,042: Horowhenua District,07,Train,07: Train,87
+042,Horowhenua District,042: Horowhenua District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,204
+042,Horowhenua District,042: Horowhenua District,09,Bicycle,09: Bicycle,213
+042,Horowhenua District,042: Horowhenua District,10,Walked or jogged,10: Walked or jogged,648
+042,Horowhenua District,042: Horowhenua District,15,Other,15: Other,69
+043,Kapiti Coast District,043: Kapiti Coast District,01,Worked at home,01: Worked at home,2031
+043,Kapiti Coast District,043: Kapiti Coast District,02,Did not go to work today,02: Did not go to work today,2541
+043,Kapiti Coast District,043: Kapiti Coast District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",8898
+043,Kapiti Coast District,043: Kapiti Coast District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2556
+043,Kapiti Coast District,043: Kapiti Coast District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",861
+043,Kapiti Coast District,043: Kapiti Coast District,06,Public bus,06: Public bus,177
+043,Kapiti Coast District,043: Kapiti Coast District,07,Train,07: Train,1884
+043,Kapiti Coast District,043: Kapiti Coast District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,183
+043,Kapiti Coast District,043: Kapiti Coast District,09,Bicycle,09: Bicycle,351
+043,Kapiti Coast District,043: Kapiti Coast District,10,Walked or jogged,10: Walked or jogged,795
+043,Kapiti Coast District,043: Kapiti Coast District,15,Other,15: Other,171
+044,Porirua City,044: Porirua City,01,Worked at home,01: Worked at home,1215
+044,Porirua City,044: Porirua City,02,Did not go to work today,02: Did not go to work today,2460
+044,Porirua City,044: Porirua City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",10506
+044,Porirua City,044: Porirua City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2418
+044,Porirua City,044: Porirua City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1524
+044,Porirua City,044: Porirua City,06,Public bus,06: Public bus,399
+044,Porirua City,044: Porirua City,07,Train,07: Train,2400
+044,Porirua City,044: Porirua City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,201
+044,Porirua City,044: Porirua City,09,Bicycle,09: Bicycle,138
+044,Porirua City,044: Porirua City,10,Walked or jogged,10: Walked or jogged,603
+044,Porirua City,044: Porirua City,15,Other,15: Other,219
+045,Upper Hutt City,045: Upper Hutt City,01,Worked at home,01: Worked at home,951
+045,Upper Hutt City,045: Upper Hutt City,02,Did not go to work today,02: Did not go to work today,2112
+045,Upper Hutt City,045: Upper Hutt City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",9177
+045,Upper Hutt City,045: Upper Hutt City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2343
+045,Upper Hutt City,045: Upper Hutt City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",873
+045,Upper Hutt City,045: Upper Hutt City,06,Public bus,06: Public bus,432
+045,Upper Hutt City,045: Upper Hutt City,07,Train,07: Train,1785
+045,Upper Hutt City,045: Upper Hutt City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,207
+045,Upper Hutt City,045: Upper Hutt City,09,Bicycle,09: Bicycle,264
+045,Upper Hutt City,045: Upper Hutt City,10,Walked or jogged,10: Walked or jogged,693
+045,Upper Hutt City,045: Upper Hutt City,15,Other,15: Other,123
+046,Lower Hutt City,046: Lower Hutt City,01,Worked at home,01: Worked at home,2256
+046,Lower Hutt City,046: Lower Hutt City,02,Did not go to work today,02: Did not go to work today,4794
+046,Lower Hutt City,046: Lower Hutt City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",20304
+046,Lower Hutt City,046: Lower Hutt City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",4887
+046,Lower Hutt City,046: Lower Hutt City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",2286
+046,Lower Hutt City,046: Lower Hutt City,06,Public bus,06: Public bus,2352
+046,Lower Hutt City,046: Lower Hutt City,07,Train,07: Train,4602
+046,Lower Hutt City,046: Lower Hutt City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,414
+046,Lower Hutt City,046: Lower Hutt City,09,Bicycle,09: Bicycle,852
+046,Lower Hutt City,046: Lower Hutt City,10,Walked or jogged,10: Walked or jogged,1785
+046,Lower Hutt City,046: Lower Hutt City,15,Other,15: Other,522
+047,Wellington City,047: Wellington City,01,Worked at home,01: Worked at home,5640
+047,Wellington City,047: Wellington City,02,Did not go to work today,02: Did not go to work today,10161
+047,Wellington City,047: Wellington City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",34017
+047,Wellington City,047: Wellington City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",5742
+047,Wellington City,047: Wellington City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",4311
+047,Wellington City,047: Wellington City,06,Public bus,06: Public bus,14568
+047,Wellington City,047: Wellington City,07,Train,07: Train,3141
+047,Wellington City,047: Wellington City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,1641
+047,Wellington City,047: Wellington City,09,Bicycle,09: Bicycle,3729
+047,Wellington City,047: Wellington City,10,Walked or jogged,10: Walked or jogged,18183
+047,Wellington City,047: Wellington City,15,Other,15: Other,1353
+048,Masterton District,048: Masterton District,01,Worked at home,01: Worked at home,1038
+048,Masterton District,048: Masterton District,02,Did not go to work today,02: Did not go to work today,1254
+048,Masterton District,048: Masterton District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",5100
+048,Masterton District,048: Masterton District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1260
+048,Masterton District,048: Masterton District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",447
+048,Masterton District,048: Masterton District,06,Public bus,06: Public bus,21
+048,Masterton District,048: Masterton District,07,Train,07: Train,201
+048,Masterton District,048: Masterton District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,171
+048,Masterton District,048: Masterton District,09,Bicycle,09: Bicycle,294
+048,Masterton District,048: Masterton District,10,Walked or jogged,10: Walked or jogged,567
+048,Masterton District,048: Masterton District,15,Other,15: Other,75
+049,Carterton District,049: Carterton District,01,Worked at home,01: Worked at home,600
+049,Carterton District,049: Carterton District,02,Did not go to work today,02: Did not go to work today,474
+049,Carterton District,049: Carterton District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1761
+049,Carterton District,049: Carterton District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",396
+049,Carterton District,049: Carterton District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",129
+049,Carterton District,049: Carterton District,06,Public bus,06: Public bus,24
+049,Carterton District,049: Carterton District,07,Train,07: Train,243
+049,Carterton District,049: Carterton District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,54
+049,Carterton District,049: Carterton District,09,Bicycle,09: Bicycle,60
+049,Carterton District,049: Carterton District,10,Walked or jogged,10: Walked or jogged,153
+049,Carterton District,049: Carterton District,15,Other,15: Other,27
+050,South Wairarapa District,050: South Wairarapa District,01,Worked at home,01: Worked at home,783
+050,South Wairarapa District,050: South Wairarapa District,02,Did not go to work today,02: Did not go to work today,591
+050,South Wairarapa District,050: South Wairarapa District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1779
+050,South Wairarapa District,050: South Wairarapa District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",444
+050,South Wairarapa District,050: South Wairarapa District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",120
+050,South Wairarapa District,050: South Wairarapa District,06,Public bus,06: Public bus,30
+050,South Wairarapa District,050: South Wairarapa District,07,Train,07: Train,384
+050,South Wairarapa District,050: South Wairarapa District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,159
+050,South Wairarapa District,050: South Wairarapa District,09,Bicycle,09: Bicycle,54
+050,South Wairarapa District,050: South Wairarapa District,10,Walked or jogged,10: Walked or jogged,219
+050,South Wairarapa District,050: South Wairarapa District,15,Other,15: Other,33
+051,Tasman District,051: Tasman District,01,Worked at home,01: Worked at home,3195
+051,Tasman District,051: Tasman District,02,Did not go to work today,02: Did not go to work today,2709
+051,Tasman District,051: Tasman District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",10461
+051,Tasman District,051: Tasman District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2766
+051,Tasman District,051: Tasman District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",699
+051,Tasman District,051: Tasman District,06,Public bus,06: Public bus,81
+051,Tasman District,051: Tasman District,07,Train,07: Train,6
+051,Tasman District,051: Tasman District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,303
+051,Tasman District,051: Tasman District,09,Bicycle,09: Bicycle,1014
+051,Tasman District,051: Tasman District,10,Walked or jogged,10: Walked or jogged,1236
+051,Tasman District,051: Tasman District,15,Other,15: Other,168
+052,Nelson City,052: Nelson City,01,Worked at home,01: Worked at home,1656
+052,Nelson City,052: Nelson City,02,Did not go to work today,02: Did not go to work today,2742
+052,Nelson City,052: Nelson City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",10446
+052,Nelson City,052: Nelson City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2388
+052,Nelson City,052: Nelson City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",708
+052,Nelson City,052: Nelson City,06,Public bus,06: Public bus,186
+052,Nelson City,052: Nelson City,07,Train,07: Train,6
+052,Nelson City,052: Nelson City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,303
+052,Nelson City,052: Nelson City,09,Bicycle,09: Bicycle,1527
+052,Nelson City,052: Nelson City,10,Walked or jogged,10: Walked or jogged,1680
+052,Nelson City,052: Nelson City,15,Other,15: Other,222
+053,Marlborough District,053: Marlborough District,01,Worked at home,01: Worked at home,2556
+053,Marlborough District,053: Marlborough District,02,Did not go to work today,02: Did not go to work today,2349
+053,Marlborough District,053: Marlborough District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",10047
+053,Marlborough District,053: Marlborough District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2667
+053,Marlborough District,053: Marlborough District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",909
+053,Marlborough District,053: Marlborough District,06,Public bus,06: Public bus,24
+053,Marlborough District,053: Marlborough District,07,Train,07: Train,9
+053,Marlborough District,053: Marlborough District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,210
+053,Marlborough District,053: Marlborough District,09,Bicycle,09: Bicycle,810
+053,Marlborough District,053: Marlborough District,10,Walked or jogged,10: Walked or jogged,1362
+053,Marlborough District,053: Marlborough District,15,Other,15: Other,183
+054,Kaikoura District,054: Kaikoura District,01,Worked at home,01: Worked at home,351
+054,Kaikoura District,054: Kaikoura District,02,Did not go to work today,02: Did not go to work today,264
+054,Kaikoura District,054: Kaikoura District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",744
+054,Kaikoura District,054: Kaikoura District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",177
+054,Kaikoura District,054: Kaikoura District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",57
+054,Kaikoura District,054: Kaikoura District,06,Public bus,06: Public bus,0
+054,Kaikoura District,054: Kaikoura District,07,Train,07: Train,0
+054,Kaikoura District,054: Kaikoura District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,21
+054,Kaikoura District,054: Kaikoura District,09,Bicycle,09: Bicycle,60
+054,Kaikoura District,054: Kaikoura District,10,Walked or jogged,10: Walked or jogged,138
+054,Kaikoura District,054: Kaikoura District,15,Other,15: Other,12
+055,Buller District,055: Buller District,01,Worked at home,01: Worked at home,552
+055,Buller District,055: Buller District,02,Did not go to work today,02: Did not go to work today,642
+055,Buller District,055: Buller District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1728
+055,Buller District,055: Buller District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",702
+055,Buller District,055: Buller District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",474
+055,Buller District,055: Buller District,06,Public bus,06: Public bus,18
+055,Buller District,055: Buller District,07,Train,07: Train,0
+055,Buller District,055: Buller District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,117
+055,Buller District,055: Buller District,09,Bicycle,09: Bicycle,153
+055,Buller District,055: Buller District,10,Walked or jogged,10: Walked or jogged,396
+055,Buller District,055: Buller District,15,Other,15: Other,30
+056,Grey District,056: Grey District,01,Worked at home,01: Worked at home,540
+056,Grey District,056: Grey District,02,Did not go to work today,02: Did not go to work today,699
+056,Grey District,056: Grey District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",3090
+056,Grey District,056: Grey District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",936
+056,Grey District,056: Grey District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",318
+056,Grey District,056: Grey District,06,Public bus,06: Public bus,6
+056,Grey District,056: Grey District,07,Train,07: Train,0
+056,Grey District,056: Grey District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,84
+056,Grey District,056: Grey District,09,Bicycle,09: Bicycle,177
+056,Grey District,056: Grey District,10,Walked or jogged,10: Walked or jogged,420
+056,Grey District,056: Grey District,15,Other,15: Other,48
+057,Westland District,057: Westland District,01,Worked at home,01: Worked at home,627
+057,Westland District,057: Westland District,02,Did not go to work today,02: Did not go to work today,516
+057,Westland District,057: Westland District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1722
+057,Westland District,057: Westland District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",513
+057,Westland District,057: Westland District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",147
+057,Westland District,057: Westland District,06,Public bus,06: Public bus,3
+057,Westland District,057: Westland District,07,Train,07: Train,0
+057,Westland District,057: Westland District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,108
+057,Westland District,057: Westland District,09,Bicycle,09: Bicycle,132
+057,Westland District,057: Westland District,10,Walked or jogged,10: Walked or jogged,489
+057,Westland District,057: Westland District,15,Other,15: Other,42
+058,Hurunui District,058: Hurunui District,01,Worked at home,01: Worked at home,1551
+058,Hurunui District,058: Hurunui District,02,Did not go to work today,02: Did not go to work today,699
+058,Hurunui District,058: Hurunui District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",2166
+058,Hurunui District,058: Hurunui District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",753
+058,Hurunui District,058: Hurunui District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",177
+058,Hurunui District,058: Hurunui District,06,Public bus,06: Public bus,6
+058,Hurunui District,058: Hurunui District,07,Train,07: Train,0
+058,Hurunui District,058: Hurunui District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,174
+058,Hurunui District,058: Hurunui District,09,Bicycle,09: Bicycle,87
+058,Hurunui District,058: Hurunui District,10,Walked or jogged,10: Walked or jogged,339
+058,Hurunui District,058: Hurunui District,15,Other,15: Other,42
+059,Waimakariri District,059: Waimakariri District,01,Worked at home,01: Worked at home,2829
+059,Waimakariri District,059: Waimakariri District,02,Did not go to work today,02: Did not go to work today,2967
+059,Waimakariri District,059: Waimakariri District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",12927
+059,Waimakariri District,059: Waimakariri District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",4026
+059,Waimakariri District,059: Waimakariri District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",861
+059,Waimakariri District,059: Waimakariri District,06,Public bus,06: Public bus,189
+059,Waimakariri District,059: Waimakariri District,07,Train,07: Train,6
+059,Waimakariri District,059: Waimakariri District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,255
+059,Waimakariri District,059: Waimakariri District,09,Bicycle,09: Bicycle,351
+059,Waimakariri District,059: Waimakariri District,10,Walked or jogged,10: Walked or jogged,669
+059,Waimakariri District,059: Waimakariri District,15,Other,15: Other,129
+060,Christchurch City,060: Christchurch City,01,Worked at home,01: Worked at home,9912
+060,Christchurch City,060: Christchurch City,02,Did not go to work today,02: Did not go to work today,19146
+060,Christchurch City,060: Christchurch City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",89259
+060,Christchurch City,060: Christchurch City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",19902
+060,Christchurch City,060: Christchurch City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",5493
+060,Christchurch City,060: Christchurch City,06,Public bus,06: Public bus,5151
+060,Christchurch City,060: Christchurch City,07,Train,07: Train,48
+060,Christchurch City,060: Christchurch City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,1728
+060,Christchurch City,060: Christchurch City,09,Bicycle,09: Bicycle,9801
+060,Christchurch City,060: Christchurch City,10,Walked or jogged,10: Walked or jogged,6396
+060,Christchurch City,060: Christchurch City,15,Other,15: Other,1383
+062,Selwyn District,062: Selwyn District,01,Worked at home,01: Worked at home,3213
+062,Selwyn District,062: Selwyn District,02,Did not go to work today,02: Did not go to work today,2622
+062,Selwyn District,062: Selwyn District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",11907
+062,Selwyn District,062: Selwyn District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3561
+062,Selwyn District,062: Selwyn District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",615
+062,Selwyn District,062: Selwyn District,06,Public bus,06: Public bus,183
+062,Selwyn District,062: Selwyn District,07,Train,07: Train,12
+062,Selwyn District,062: Selwyn District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,450
+062,Selwyn District,062: Selwyn District,09,Bicycle,09: Bicycle,423
+062,Selwyn District,062: Selwyn District,10,Walked or jogged,10: Walked or jogged,999
+062,Selwyn District,062: Selwyn District,15,Other,15: Other,195
+063,Ashburton District,063: Ashburton District,01,Worked at home,01: Worked at home,2481
+063,Ashburton District,063: Ashburton District,02,Did not go to work today,02: Did not go to work today,1587
+063,Ashburton District,063: Ashburton District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",7047
+063,Ashburton District,063: Ashburton District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2274
+063,Ashburton District,063: Ashburton District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",570
+063,Ashburton District,063: Ashburton District,06,Public bus,06: Public bus,9
+063,Ashburton District,063: Ashburton District,07,Train,07: Train,0
+063,Ashburton District,063: Ashburton District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,621
+063,Ashburton District,063: Ashburton District,09,Bicycle,09: Bicycle,453
+063,Ashburton District,063: Ashburton District,10,Walked or jogged,10: Walked or jogged,858
+063,Ashburton District,063: Ashburton District,15,Other,15: Other,96
+064,Timaru District,064: Timaru District,01,Worked at home,01: Worked at home,1773
+064,Timaru District,064: Timaru District,02,Did not go to work today,02: Did not go to work today,2475
+064,Timaru District,064: Timaru District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",10935
+064,Timaru District,064: Timaru District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2748
+064,Timaru District,064: Timaru District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",831
+064,Timaru District,064: Timaru District,06,Public bus,06: Public bus,75
+064,Timaru District,064: Timaru District,07,Train,07: Train,3
+064,Timaru District,064: Timaru District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,291
+064,Timaru District,064: Timaru District,09,Bicycle,09: Bicycle,588
+064,Timaru District,064: Timaru District,10,Walked or jogged,10: Walked or jogged,1239
+064,Timaru District,064: Timaru District,15,Other,15: Other,147
+065,Mackenzie District,065: Mackenzie District,01,Worked at home,01: Worked at home,516
+065,Mackenzie District,065: Mackenzie District,02,Did not go to work today,02: Did not go to work today,234
+065,Mackenzie District,065: Mackenzie District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",693
+065,Mackenzie District,065: Mackenzie District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",279
+065,Mackenzie District,065: Mackenzie District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",78
+065,Mackenzie District,065: Mackenzie District,06,Public bus,06: Public bus,0
+065,Mackenzie District,065: Mackenzie District,07,Train,07: Train,0
+065,Mackenzie District,065: Mackenzie District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,42
+065,Mackenzie District,065: Mackenzie District,09,Bicycle,09: Bicycle,84
+065,Mackenzie District,065: Mackenzie District,10,Walked or jogged,10: Walked or jogged,279
+065,Mackenzie District,065: Mackenzie District,15,Other,15: Other,12
+066,Waimate District,066: Waimate District,01,Worked at home,01: Worked at home,798
+066,Waimate District,066: Waimate District,02,Did not go to work today,02: Did not go to work today,357
+066,Waimate District,066: Waimate District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",1308
+066,Waimate District,066: Waimate District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",408
+066,Waimate District,066: Waimate District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",120
+066,Waimate District,066: Waimate District,06,Public bus,06: Public bus,0
+066,Waimate District,066: Waimate District,07,Train,07: Train,0
+066,Waimate District,066: Waimate District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,153
+066,Waimate District,066: Waimate District,09,Bicycle,09: Bicycle,45
+066,Waimate District,066: Waimate District,10,Walked or jogged,10: Walked or jogged,189
+066,Waimate District,066: Waimate District,15,Other,15: Other,21
+067,Chatham Islands Territory,067: Chatham Islands Territory,01,Worked at home,01: Worked at home,48
+067,Chatham Islands Territory,067: Chatham Islands Territory,02,Did not go to work today,02: Did not go to work today,54
+067,Chatham Islands Territory,067: Chatham Islands Territory,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",117
+067,Chatham Islands Territory,067: Chatham Islands Territory,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",33
+067,Chatham Islands Territory,067: Chatham Islands Territory,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",6
+067,Chatham Islands Territory,067: Chatham Islands Territory,06,Public bus,06: Public bus,0
+067,Chatham Islands Territory,067: Chatham Islands Territory,07,Train,07: Train,0
+067,Chatham Islands Territory,067: Chatham Islands Territory,08,Motor cycle or power cycle,08: Motor cycle or power cycle,18
+067,Chatham Islands Territory,067: Chatham Islands Territory,09,Bicycle,09: Bicycle,3
+067,Chatham Islands Territory,067: Chatham Islands Territory,10,Walked or jogged,10: Walked or jogged,30
+067,Chatham Islands Territory,067: Chatham Islands Territory,15,Other,15: Other,3
+068,Waitaki District,068: Waitaki District,01,Worked at home,01: Worked at home,1368
+068,Waitaki District,068: Waitaki District,02,Did not go to work today,02: Did not go to work today,1101
+068,Waitaki District,068: Waitaki District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",4392
+068,Waitaki District,068: Waitaki District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1137
+068,Waitaki District,068: Waitaki District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",399
+068,Waitaki District,068: Waitaki District,06,Public bus,06: Public bus,12
+068,Waitaki District,068: Waitaki District,07,Train,07: Train,0
+068,Waitaki District,068: Waitaki District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,225
+068,Waitaki District,068: Waitaki District,09,Bicycle,09: Bicycle,189
+068,Waitaki District,068: Waitaki District,10,Walked or jogged,10: Walked or jogged,630
+068,Waitaki District,068: Waitaki District,15,Other,15: Other,66
+069,Central Otago District,069: Central Otago District,01,Worked at home,01: Worked at home,1293
+069,Central Otago District,069: Central Otago District,02,Did not go to work today,02: Did not go to work today,1005
+069,Central Otago District,069: Central Otago District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",3921
+069,Central Otago District,069: Central Otago District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1566
+069,Central Otago District,069: Central Otago District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",402
+069,Central Otago District,069: Central Otago District,06,Public bus,06: Public bus,6
+069,Central Otago District,069: Central Otago District,07,Train,07: Train,3
+069,Central Otago District,069: Central Otago District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,84
+069,Central Otago District,069: Central Otago District,09,Bicycle,09: Bicycle,348
+069,Central Otago District,069: Central Otago District,10,Walked or jogged,10: Walked or jogged,699
+069,Central Otago District,069: Central Otago District,15,Other,15: Other,45
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,01,Worked at home,01: Worked at home,1800
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,02,Did not go to work today,02: Did not go to work today,1884
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",6996
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",2100
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",477
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,06,Public bus,06: Public bus,225
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,07,Train,07: Train,3
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,84
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,09,Bicycle,09: Bicycle,516
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,10,Walked or jogged,10: Walked or jogged,1839
+070,Queenstown-Lakes District,070: Queenstown-Lakes District,15,Other,15: Other,159
+071,Dunedin City,071: Dunedin City,01,Worked at home,01: Worked at home,3150
+071,Dunedin City,071: Dunedin City,02,Did not go to work today,02: Did not go to work today,6645
+071,Dunedin City,071: Dunedin City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",27597
+071,Dunedin City,071: Dunedin City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",5559
+071,Dunedin City,071: Dunedin City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",2649
+071,Dunedin City,071: Dunedin City,06,Public bus,06: Public bus,1464
+071,Dunedin City,071: Dunedin City,07,Train,07: Train,18
+071,Dunedin City,071: Dunedin City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,441
+071,Dunedin City,071: Dunedin City,09,Bicycle,09: Bicycle,1224
+071,Dunedin City,071: Dunedin City,10,Walked or jogged,10: Walked or jogged,5085
+071,Dunedin City,071: Dunedin City,15,Other,15: Other,411
+072,Clutha District,072: Clutha District,01,Worked at home,01: Worked at home,1650
+072,Clutha District,072: Clutha District,02,Did not go to work today,02: Did not go to work today,798
+072,Clutha District,072: Clutha District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",3723
+072,Clutha District,072: Clutha District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",957
+072,Clutha District,072: Clutha District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",381
+072,Clutha District,072: Clutha District,06,Public bus,06: Public bus,9
+072,Clutha District,072: Clutha District,07,Train,07: Train,3
+072,Clutha District,072: Clutha District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,270
+072,Clutha District,072: Clutha District,09,Bicycle,09: Bicycle,87
+072,Clutha District,072: Clutha District,10,Walked or jogged,10: Walked or jogged,531
+072,Clutha District,072: Clutha District,15,Other,15: Other,42
+073,Southland District,073: Southland District,01,Worked at home,01: Worked at home,3897
+073,Southland District,073: Southland District,02,Did not go to work today,02: Did not go to work today,1545
+073,Southland District,073: Southland District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",5613
+073,Southland District,073: Southland District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",1896
+073,Southland District,073: Southland District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",429
+073,Southland District,073: Southland District,06,Public bus,06: Public bus,39
+073,Southland District,073: Southland District,07,Train,07: Train,6
+073,Southland District,073: Southland District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,939
+073,Southland District,073: Southland District,09,Bicycle,09: Bicycle,225
+073,Southland District,073: Southland District,10,Walked or jogged,10: Walked or jogged,885
+073,Southland District,073: Southland District,15,Other,15: Other,180
+074,Gore District,074: Gore District,01,Worked at home,01: Worked at home,744
+074,Gore District,074: Gore District,02,Did not go to work today,02: Did not go to work today,651
+074,Gore District,074: Gore District,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",2832
+074,Gore District,074: Gore District,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",795
+074,Gore District,074: Gore District,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",255
+074,Gore District,074: Gore District,06,Public bus,06: Public bus,15
+074,Gore District,074: Gore District,07,Train,07: Train,0
+074,Gore District,074: Gore District,08,Motor cycle or power cycle,08: Motor cycle or power cycle,81
+074,Gore District,074: Gore District,09,Bicycle,09: Bicycle,90
+074,Gore District,074: Gore District,10,Walked or jogged,10: Walked or jogged,345
+074,Gore District,074: Gore District,15,Other,15: Other,27
+075,Invercargill City,075: Invercargill City,01,Worked at home,01: Worked at home,999
+075,Invercargill City,075: Invercargill City,02,Did not go to work today,02: Did not go to work today,2841
+075,Invercargill City,075: Invercargill City,03,"Drove a private car, truck or van","03: Drove a private car, truck or van",13869
+075,Invercargill City,075: Invercargill City,04,"Drove a company car, truck or van","04: Drove a company car, truck or van",3282
+075,Invercargill City,075: Invercargill City,05,"Passenger in a car, truck, van or company bus","05: Passenger in a car, truck, van or company bus",1473
+075,Invercargill City,075: Invercargill City,06,Public bus,06: Public bus,156
+075,Invercargill City,075: Invercargill City,07,Train,07: Train,6
+075,Invercargill City,075: Invercargill City,08,Motor cycle or power cycle,08: Motor cycle or power cycle,168
+075,Invercargill City,075: Invercargill City,09,Bicycle,09: Bicycle,495
+075,Invercargill City,075: Invercargill City,10,Walked or jogged,10: Walked or jogged,1107
+075,Invercargill City,075: Invercargill City,15,Other,15: Other,165
