@@ -3,7 +3,7 @@ library(DT)
 #library(rsconnect)
 
 
-setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny/SlideBar")
+setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
 
 source("helper.R")
 
