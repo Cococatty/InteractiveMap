@@ -15,16 +15,15 @@ library(colorRamps)
 
 travelMean <- c()
 
-#Read the data
+#Set the working directory and read the required data
 setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
 
 geodata <- read.csv('geodata.csv'
-                      , col.names= c('AreaCode','AreaDesc','AreaFull','MeanCode','MeanName','MeanFull','Ppl')
+                      , col.names= c('AreaCode','AreaName','AreaFull','MeanCode','MeanName','MeanFull','Ppl')
                       , header= FALSE
                       , sep = ','
                       , numerals = c('no.loss'))
-
-
+# Remove 
 geodata <- geodata[!(geodata$MeanCode == 'MeanCode' & geodata$AreaCode == 'AreaCode'), ]
 #head(geodata)
 
@@ -74,7 +73,7 @@ newtable <- subset(newtable, select = -c(TA2013, TA2013_NAM, MeanFull, AreaFull)
 #Assigning data
 pal <- colorRampPalette(c("yellow","red"), space= "rgb")
 
-nz_map <- function(numQUan, travelMean = as.character(meandata$MeanCode[1]), classIntMethod)
+nz_map <- function(numQUan, travelMean, classIntMethod)
 {
   
   if (classIntMethod == "fixed") {
@@ -123,7 +122,6 @@ nz_map <- function(numQUan, travelMean = as.character(meandata$MeanCode[1]), cla
   }
 
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
-#  leafdat<-paste("/", "test", ".geojson", sep="") 
 }
 
 

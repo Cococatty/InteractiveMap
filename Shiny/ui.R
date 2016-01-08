@@ -25,12 +25,27 @@ shinyUI((fluidPage(
         ),
         
         br(),
-        selectInput("travelMean", "Travel Mean"
-                      , label = "Select the mean below:"
-                      , choices = meanChoices
-                      , multiple = TRUE
-                      , width = "100%"
+        
+# The following part is SelectInput format for the TravelMean
+#         selectInput("travelMean", "Travel Mean"
+#                       , label = "Select the mean below:"
+#                       , choices = meanChoices
+#                       , multiple = TRUE
+#                       , width = "100%"
+#         )
+
+# The following part is groupCheckBox format for the TravelMean
+        checkboxGroupInput(
+                    "travelMean"
+#                    , "Travel Mean"
+                    , label = "Select the mean below:"
+                    , selected = NULL
+                    , choices = meanChoices
+#                   , multiple = TRUE
+                    #, width = "100%"
+                    , inline = FALSE
         )
+
         , br()
       , height = "10%"
     ),
