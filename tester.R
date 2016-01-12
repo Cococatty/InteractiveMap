@@ -13,7 +13,7 @@ help(classIntervals)
 numQUan=5
 travelMean = c('03','09')
 classIntMethod="pretty"
-nz_map(numQUan, travelMean, classIntMethod)
+singleMap(numQUan, travelMean, classIntMethod)
 
 #Testing two-way table
 

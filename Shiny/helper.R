@@ -37,10 +37,14 @@ names(meanChoices) <- meandata$MeanName
 #Create a new column "Percentage" in geodata
 geodata$Percentage <- c(0)
 
+
 #Create a list with the Areas and the total numbers of ppl
 totalList <- setNames(aggregate(as.numeric(levels(geodata$Ppl)[geodata$Ppl]), by=list(Area=geodata$AreaCode), FUN = sum)
                       , c('AreaCode', 'Total')
 )
+
+
+#head(geodata)
 
 #Calculate the percentages within Areas
 for (i in 1:length(geodata$Percentage))
@@ -48,11 +52,12 @@ for (i in 1:length(geodata$Percentage))
   rowPpl <- as.numeric(levels(geodata$Ppl[i])[geodata$Ppl[i]])
   rowTotal <- ((totalList[totalList$AreaCode == geodata$AreaCode[i],]) $Total)
   geodata$Percentage[i] <- (rowPpl / rowTotal)
-  
 }
 
-#head(geodata)
-#head(shape@data)
+
+# Get ready for the two-way table
+maxList <- setNames(aggregate(geodata$Percentage, by=list(geodata$MeanCode), max), c('MeanCode', 'Max')) 
+
 
 #Reading and merging the shapefiles
 shape <- readShapeSpatial("./Shapefiles/TA2013_GV_Clipped.shp")
@@ -73,7 +78,7 @@ newtable <- subset(newtable, select = -c(TA2013, TA2013_NAM, MeanFull, AreaFull)
 #Assigning data
 pal <- colorRampPalette(c("yellow","red"), space= "rgb")
 
-nz_map <- function(numQUan, travelMean, classIntMethod)
+singleMap <- function(numQUan, travelMean, classIntMethod)
 {
   
   if (classIntMethod == "fixed") {
@@ -126,4 +131,4 @@ nz_map <- function(numQUan, travelMean, classIntMethod)
 
 
 
-#nz_map(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")
+#singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")

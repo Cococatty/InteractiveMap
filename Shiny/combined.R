@@ -132,8 +132,8 @@ server <- function(input, output, session) {
     #output$text1 <- renderText({paste("Travel mean: ", input$travelMean)})
     output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
     
-    output$oneMap <- renderPlot(nz_map(input$categories, input$travelMean, input$classIntMethod))
-    output$biMap  <- renderPlot(nz_map(input$categories, input$travelMean, input$classIntMethod))
+    output$oneMap <- renderPlot(singleMap(input$categories, input$travelMean, input$classIntMethod))
+    output$biMap  <- renderPlot(singleMap(input$categories, input$travelMean, input$classIntMethod))
 
 }
 
