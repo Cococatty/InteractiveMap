@@ -14,16 +14,17 @@ head(warpbreaks)
 
 
 test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+attributes(test) 
+test$class
+test$call
+
+as.table(test)
 
 
 
 listx <- subset(geodata[geodata$MeanCode=='02',], select=-c(MeanFull,AreaFull,AreaName, MeanName)) 
 head(listx)
 
-rgblist <- rgb(geodata$Percentage/)
-
-
-for (n in )
 
 
 

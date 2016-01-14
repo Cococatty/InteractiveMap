@@ -1,11 +1,17 @@
+# 
+# pck <- c("shiny", "DT")
+# require(pck) || install.packages(pck)
+# 
+# library(shiny)
+# library(DT)
 
-pck <- c("shiny", "DT")
-require(pck) || install.packages(pck)
+require("shiny") || install.packages("shiny")
+require("DT") || install.packages("DT")
 
-library(shiny)
-library(DT)
 
-setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
+#setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
+setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
+
 source("helper.R")
 
 minGrp <- 1
@@ -109,21 +115,35 @@ server <- function(input, output, session) {
       {
         updateCheckboxGroupInput(session, 'travelMean', selected = tail(input$travelMean,maxGrp))
       }
-#       
-#       if (length(input$travelMean) < minGrp)
-#       {
-#         updateCheckboxGroupInput(session, 'travelMean', selected = as.character(meandata$MeanCode[1]))  
-#       }
-   
     })
     
-    updatebiTable <- reactive({
-      biTable <- subset(newtable, newtable$MeanCode == input$travelMean, select = -c(MeanCode)
-                         , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
-      biTable <- biTable[order(biTable$Percentage),]
-    })
-    
-     output$biTable <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+#    updatebiTable <- reactive({
+      
+#       biTable <- subset(newtable, newtable$MeanCode == input$travelMean, select = -c(MeanCode)
+#                          , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
+#       biTable <- biTable[order(biTable$Percentage),]
+#    })
+#     
+      test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+      test <- test[!(test$dimnames$AreaCode == 'MeanCode' & test$dimnames$MeanCode == 'AreaCode'), ]
+      test <- test[!(test$MeanCode == 'MeanCode' & test$AreaCode == 'AreaCode'), ]
+      #test <- as.table(test, dnn=c("MeanCode", "AreaCode"))
+      
+      remove(test)
+      head(test)
+#      head(warpbreaks)
+#      warpbreaks$replicate <- rep(1:9, len = 54)
+#      ftable(xtabs(breaks ~ wool + tension + replicate, data = warpbreaks))
+      
+      
+      
+      output$biTable <- renderTable({
+        test
+      
+      })
+        
+        
+     
 #    renderTable({
 #       updatebiTable()}
 #       , include.rownames = FALSE

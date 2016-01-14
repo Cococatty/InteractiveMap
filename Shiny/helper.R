@@ -2,16 +2,21 @@
 #Clearing up the data
 rm(list=ls())
 
-
-pck <- c("maptools", "classInt", "stringr", "colorRamps")
-require(pck) || install.packages(pck)
-
-
 #Loading the requiring sources
+#
+# pck <- c("maptools", "classInt", "stringr", "colorRamps")
+# require(pck) || install.packages(pck)
+
 # library(maptools)
 # library(classInt)
 # library(stringr)
 # library(colorRamps)
+
+require("classInt") || install.packages("classInt")
+require("colorRamps") || install.packages("colorRamps")
+require("maptools") || install.packages("maptools")
+require("stringr") || install.packages("stringr")
+
 
 
 
@@ -20,7 +25,8 @@ require(pck) || install.packages(pck)
 travelMean <- c()
 
 #Set the working directory and read the required data
-setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
+#setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
+setwd("/home/cococatty/Desktop/InteractiveMap")
 
 geodata <- read.csv('geodata.csv'
                       , col.names= c('AreaCode','AreaName','AreaFull','MeanCode','MeanName','MeanFull','Ppl')
