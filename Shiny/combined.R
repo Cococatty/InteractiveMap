@@ -19,7 +19,7 @@ maxGrp <- 2
 
 
 #Definte UI for the application
-ui <- shinyUI(pageWithSidebar(
+ui <- fluidPage(sidebarPanel(
       sliderInput("categories", "Number of Categories", min = 1, max = 10, value = 5
       )
       
