@@ -4,13 +4,18 @@ bike <- subset(geodata[((geodata$MeanCode %in% c('09', '02'))
                         #, '15')
 ),] , select=-c(AreaName, AreaFull, MeanFull,MeanName)) 
 
+
 library(colorRamps)
 
 head(geodata)
 head(shape@data)
-head(probList)
+head(bike)
+head(warpbreaks)
 
-# 02-R, 09-B
+
+test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+
+
 
 listx <- subset(geodata[geodata$MeanCode=='02',], select=-c(MeanFull,AreaFull,AreaName, MeanName)) 
 head(listx)

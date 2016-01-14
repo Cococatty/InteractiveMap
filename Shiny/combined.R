@@ -1,3 +1,7 @@
+
+pck <- c("shiny", "DT")
+require(pck) || install.packages(pck)
+
 library(shiny)
 library(DT)
 
@@ -98,8 +102,8 @@ server <- function(input, output, session) {
     )
     #test <- reactive({ length(input$travelMean)})
     #test1 <- reactive({ input$travelMean})
-    test <- reactive({summary(input$travelMean) })
-    test
+    #test <- reactive({summary(input$travelMean) })
+    #test
     observe({
       if (length(input$travelMean) > maxGrp)
       {
@@ -119,14 +123,15 @@ server <- function(input, output, session) {
       biTable <- biTable[order(biTable$Percentage),]
     })
     
-    output$biTable <- renderTable({
-      updatebiTable()}
-      , include.rownames = FALSE
-      , options = list(paging = FALSE, searching = FALSE)
-      , caption = paste("Travel mean: ", input$travelMean, 1)
-      , caption.placement = getOption("xtable.caption.placement", "top")
-      , caption.width = getOption("xtable.caption.width", NULL)
-    )
+     output$biTable <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+#    renderTable({
+#       updatebiTable()}
+#       , include.rownames = FALSE
+#       , options = list(paging = FALSE, searching = FALSE)
+#       , caption = paste("Travel mean: ", input$travelMean, 1)
+#       , caption.placement = getOption("xtable.caption.placement", "top")
+#       , caption.width = getOption("xtable.caption.width", NULL)
+#     )
     
     output$text1 <- renderText({paste("Travel mean: ", input$travelMean, collapse = ',')})
     #output$text1 <- renderText({paste("Travel mean: ", input$travelMean)})

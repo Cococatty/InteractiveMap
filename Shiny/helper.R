@@ -3,11 +3,15 @@
 rm(list=ls())
 
 
+pck <- c("maptools", "classInt", "stringr", "colorRamps")
+require(pck) || install.packages(pck)
+
+
 #Loading the requiring sources
-library(maptools)
-library(classInt)
-library(stringr)
-library(colorRamps)
+# library(maptools)
+# library(classInt)
+# library(stringr)
+# library(colorRamps)
 
 
 
