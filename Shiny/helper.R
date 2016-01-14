@@ -102,7 +102,7 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   plot(shape, legend=FALSE, border = "Black", col= colPal)
   #title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))
   
-  
+#  attributes(colPal)
   #Setting up the legend text in the proper percentages format
   legendT <- c()
   legendText <- c()
@@ -129,6 +129,38 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
 }
 
-
+biMap <- function(numQUan, travelMean, classIntMethod)
+{
+  redpal <-
+  #Draw the coloured map and relevant details
+  plot(shape, legend=FALSE, border = "Black", col= colPal)
+  #title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))
+  
+  
+  #Setting up the legend text in the proper percentages format
+  legendT <- c()
+  legendText <- c()
+  newText <- c()
+  
+  for (i in 1:length(nclass$brks))
+  {
+    newText <- str_trim(paste(round(nclass$brks[i], digits = 2), '%'))
+    legendT <- c(legendT, newText)
+  }
+  
+  for (i in 1:(length(nclass$brks)-1))
+  {
+    newText <- c()
+    if (i == 1 && classIntMethod != "fixed") {
+      newText <- paste('0 % -', legendT[i])
+    }
+    else {
+      newText <- paste(legendT[i], '-', legendT[i+1])
+    }
+    legendText <- c(legendText, newText)
+  }
+  
+  legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
+}
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")

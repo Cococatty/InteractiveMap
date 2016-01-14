@@ -12,7 +12,13 @@ head(probList)
 
 # 02-R, 09-B
 
+listx <- subset(geodata[geodata$MeanCode=='02',], select=-c(MeanFull,AreaFull,AreaName, MeanName)) 
+head(listx)
+
 rgblist <- rgb(geodata$Percentage/)
+
+
+for (n in )
 
 
 
@@ -24,6 +30,11 @@ colb <- colorRampPalette(c("white", "blue"), space= "rgb")
 n <- length(levels(bike$AreaCode))
 newMatrix <- matrix(nrow = n, ncol = n)
 
+plot(1,col = rgb(1,0,0,alpha =1)) 
+# as long as alpha < 1, there is no point in the plot. 
+
+plot(1,col = rgb(0,0,255, alpha=254, 
+                 maxColorValue=255)) 
 
 rgb(255,255,0)
 
