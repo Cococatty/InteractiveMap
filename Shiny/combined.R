@@ -19,8 +19,7 @@ maxGrp <- 2
 
 
 #Definte UI for the application
-ui <- fluidPage(
-    sidebarPanel(
+ui <- shinyUI(pageWithSidebar(
       sliderInput("categories", "Number of Categories", min = 1, max = 10, value = 5
       )
       
@@ -106,10 +105,7 @@ server <- function(input, output, session) {
       , caption.width = getOption("xtable.caption.width", NULL)
       #, colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight')
     )
-    #test <- reactive({ length(input$travelMean)})
-    #test1 <- reactive({ input$travelMean})
-    #test <- reactive({summary(input$travelMean) })
-    #test
+    
     observe({
       if (length(input$travelMean) > maxGrp)
       {
@@ -117,29 +113,15 @@ server <- function(input, output, session) {
       }
     })
     
-#    updatebiTable <- reactive({
-      
-#       biTable <- subset(newtable, newtable$MeanCode == input$travelMean, select = -c(MeanCode)
-#                          , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
-#       biTable <- biTable[order(biTable$Percentage),]
-#    })
-#     
+
       test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
-      test <- test[!(test$dimnames$AreaCode == 'MeanCode' & test$dimnames$MeanCode == 'AreaCode'), ]
-      test <- test[!(test$MeanCode == 'MeanCode' & test$AreaCode == 'AreaCode'), ]
-      #test <- as.table(test, dnn=c("MeanCode", "AreaCode"))
-      
-      remove(test)
-      head(test)
-#      head(warpbreaks)
-#      warpbreaks$replicate <- rep(1:9, len = 54)
-#      ftable(xtabs(breaks ~ wool + tension + replicate, data = warpbreaks))
-      
-      
+      test <- as.table(test)
+      test <- test[, input$travelMean, drop=FALSE]
+      #test <- test[!(test$dimnames$AreaCode == 'MeanCode' & test$dimnames$MeanCode == 'AreaCode'), ]
+      #test <- test[!(test$MeanCode == 'MeanCode' & test$AreaCode == 'AreaCode'), ]
       
       output$biTable <- renderTable({
         test
-      
       })
         
         
