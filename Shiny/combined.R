@@ -42,22 +42,12 @@ ui <- fluidPage(
     
     , br()
     
-    # The following part is SelectInput format for the TravelMean
-    #         selectInput("travelMean", "Travel Mean"
-    #                       , label = "Select the mean below:"
-    #                       , choices = meanChoices
-    #                       , multiple = TRUE
-    #                       , width = "100%"
-    #         )
-    
     # The following part is groupCheckBox format for the TravelMean
     , checkboxGroupInput(
       "travelMean"
-      #                    , "Travel Mean"
       , label = "Select the mean below:"
       , choices = meanChoices
       , selected = NULL
-      #, inline = FALSE
     )
     
     , br()
@@ -106,55 +96,22 @@ server <- function(input, output, session) {
     , caption.width = getOption("xtable.caption.width", NULL)
     #, colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight')
   )
-  #test <- reactive({ length(input$travelMean)})
-  #test1 <- reactive({ input$travelMean})
-  #test <- reactive({summary(input$travelMean) })
-  #test
+ 
   observe({
     if (length(input$travelMean) > maxGrp)
     {
       updateCheckboxGroupInput(session, 'travelMean', selected = tail(input$travelMean,maxGrp))
     }
   })
-  
-  #    updatebiTable <- reactive({
-  
-  #       biTable <- subset(newtable, newtable$MeanCode == input$travelMean, select = -c(MeanCode)
-  #                          , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
-  #       biTable <- biTable[order(biTable$Percentage),]
-  #    })
-  #     
-  test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
-  #test <- test[!(test$dimnames$AreaCode == 'MeanCode' & test$dimnames$MeanCode == 'AreaCode'), ]
-  #test <- test[!(test$MeanCode == 'MeanCode' & test$AreaCode == 'AreaCode'), ]
-  #test <- as.table(test, dnn=c("MeanCode", "AreaCode"))
-  
-  #remove(test)
-  #head(test)
-  #      head(warpbreaks)
-  #      warpbreaks$replicate <- rep(1:9, len = 54)
-  #      ftable(xtabs(breaks ~ wool + tension + replicate, data = warpbreaks))
-  
-  
+
   
   output$biTable <- renderTable({
-    test
+    test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
     
   })
   
-  
-  
-  #    renderTable({
-  #       updatebiTable()}
-  #       , include.rownames = FALSE
-  #       , options = list(paging = FALSE, searching = FALSE)
-  #       , caption = paste("Travel mean: ", input$travelMean, 1)
-  #       , caption.placement = getOption("xtable.caption.placement", "top")
-  #       , caption.width = getOption("xtable.caption.width", NULL)
-  #     )
-  
+
   output$text1 <- renderText({paste("Travel mean: ", input$travelMean, collapse = ',')})
-  #output$text1 <- renderText({paste("Travel mean: ", input$travelMean)})
   output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
   
   output$oneMap <- renderPlot(singleMap(input$categories, input$travelMean, input$classIntMethod))
@@ -163,3 +120,34 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui = ui, server = server)
+
+
+#FROM UI
+# The following part is SelectInput format for the TravelMean
+#         selectInput("travelMean", "Travel Mean"
+#                       , label = "Select the mean below:"
+#                       , choices = meanChoices
+#                       , multiple = TRUE
+#                       , width = "100%"
+#         )
+
+
+
+#WORKING two-way table (not desired thou)
+#test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+#test <- test[!(test$dimnames$AreaCode == 'MeanCode' & test$dimnames$MeanCode == 'AreaCode'), ]
+#test <- test[!(test$MeanCode == 'MeanCode' & test$AreaCode == 'AreaCode'), ]
+#test <- as.table(test, dnn=c("MeanCode", "AreaCode"))
+
+#test <- reactive({ length(input$travelMean)})
+#test1 <- reactive({ input$travelMean})
+#test <- reactive({summary(input$travelMean) })
+#test
+
+#    updatebiTable <- reactive({
+
+#       biTable <- subset(newtable, newtable$MeanCode == input$travelMean, select = -c(MeanCode)
+#                          , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
+#       biTable <- biTable[order(biTable$Percentage),]
+#    })
+#     
