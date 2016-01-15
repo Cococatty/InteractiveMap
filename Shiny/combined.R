@@ -42,9 +42,9 @@ ui <- fluidPage(
     
     , br()
     
-    # The following part is groupCheckBox format for the TravelMean
+    # The following part is groupCheckBox format for the travelMeans
     , checkboxGroupInput(
-      "travelMean"
+      "travelMeans"
       , label = "Select the mean below:"
       , choices = meanChoices
       , selected = NULL
@@ -82,7 +82,7 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   
   updateoneTable <- reactive({
-    onetable <- subset(newtable, newtable$MeanCode == tail(input$travelMean, 1), select = -c(MeanCode)
+    onetable <- subset(newtable, newtable$MeanCode == tail(input$travelMeans, 1), select = -c(MeanCode)
                        , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
     onetable <- onetable[order(onetable$Percentage),]
   })
@@ -91,31 +91,30 @@ server <- function(input, output, session) {
     updateoneTable()}
     , include.rownames = FALSE
     , options = list(paging = FALSE, searching = FALSE)
-    , caption = paste("Travel mean: ", tail(input$travelMean, 1))
+    , caption = paste("Travel mean: ", tail(input$travelMeans, 1))
     , caption.placement = getOption("xtable.caption.placement", "top")
     , caption.width = getOption("xtable.caption.width", NULL)
     #, colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight')
   )
  
   observe({
-    if (length(input$travelMean) > maxGrp)
+    if (length(input$travelMeans) > maxGrp)
     {
-      updateCheckboxGroupInput(session, 'travelMean', selected = tail(input$travelMean,maxGrp))
+      updateCheckboxGroupInput(session, 'travelMeans', selected = tail(input$travelMeans,maxGrp))
     }
   })
 
   
   output$biTable <- renderTable({
-    test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
-    
+    retrivingBiTable(input$travelMeans)
   })
   
 
-  output$text1 <- renderText({paste("Travel mean: ", input$travelMean, collapse = ',')})
+  output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
   output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
   
-  output$oneMap <- renderPlot(singleMap(input$categories, input$travelMean, input$classIntMethod))
-  output$biMap  <- renderPlot(singleMap(input$categories, input$travelMean, input$classIntMethod))
+  output$oneMap <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
+  output$biMap  <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
   
 }
 
@@ -123,8 +122,8 @@ shinyApp(ui = ui, server = server)
 
 
 #FROM UI
-# The following part is SelectInput format for the TravelMean
-#         selectInput("travelMean", "Travel Mean"
+# The following part is SelectInput format for the travelMeans
+#         selectInput("travelMeans", "Travel Mean"
 #                       , label = "Select the mean below:"
 #                       , choices = meanChoices
 #                       , multiple = TRUE
@@ -139,14 +138,14 @@ shinyApp(ui = ui, server = server)
 #test <- test[!(test$MeanCode == 'MeanCode' & test$AreaCode == 'AreaCode'), ]
 #test <- as.table(test, dnn=c("MeanCode", "AreaCode"))
 
-#test <- reactive({ length(input$travelMean)})
-#test1 <- reactive({ input$travelMean})
-#test <- reactive({summary(input$travelMean) })
+#test <- reactive({ length(input$travelMeans)})
+#test1 <- reactive({ input$travelMeans})
+#test <- reactive({summary(input$travelMeans) })
 #test
 
 #    updatebiTable <- reactive({
 
-#       biTable <- subset(newtable, newtable$MeanCode == input$travelMean, select = -c(MeanCode)
+#       biTable <- subset(newtable, newtable$MeanCode == input$travelMeans, select = -c(MeanCode)
 #                          , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
 #       biTable <- biTable[order(biTable$Percentage),]
 #    })
