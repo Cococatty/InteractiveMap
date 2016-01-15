@@ -176,4 +176,11 @@ biMap <- function(numQUan, travelMean, classIntMethod)
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
 }
 
+
+
+retrivingBiTable <- function(travelMeans) {
+  
+  
+}
+
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")

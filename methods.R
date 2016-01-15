@@ -61,3 +61,29 @@ geodata[row.names( unique(geodata[, c('MeanCode', 'MeanDesc', 'MeanFull') ]) ),]
 
 unique(geodata[c('MeanCode', 'MeanDesc', 'MeanFull') ] )
 
+
+
+# Retriving the biTable
+listx <- subset(geodata[geodata$MeanCode=='02',], select = -c( AreaFull,MeanName,MeanFull))
+listx <- listx[order(listx$Percentage),] 
+#& geodata$AreaCode %in% c("001","002","003","004")
+
+listy <- subset(geodata[geodata$MeanCode=='09',], select = -c( AreaFull,MeanName,MeanFull))
+listy <- listy[order(listy$Percentage),] 
+
+
+listx$xpos <- seq(length=nrow(listx))
+listy$ypos <- seq(length=nrow(listy))
+
+listx <- merge(listx, listy, by.x = c("AreaName"), by.y = c("AreaName"), all=TRUE)
+
+len <- length(listy$AreaName)
+testmat <- matrix(data = "-", nrow = len, ncol = len)#, dimnames = list("")
+
+for (n in 1:len) {
+  x <- listx$xpos[n]
+  y <- listx$ypos[n]
+  testmat[x,y] <- as.character(listx$AreaName[n]) 
+}
+
+head(testmat)
