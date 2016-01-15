@@ -14,12 +14,36 @@ head(warpbreaks)
 
 
 test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+test <- xtabs(as.numeric(Ppl) ~ MeanCode + AreaCode, data=geodata)
 attributes(test) 
 test$class
 test$call
 
-as.table(test)
+names(bike)
 
+
+
+
+colnames(biTableDraft)
+
+biTableDraft$MeanCode
+biTableDraft[biTableDraft$MeanCode=="01"]
+biTableDraft["MeanCode"=="09"]
+
+levels(biTableDraft["MeanCode"])
+
+head(biTableDraft)
+x<-as.data.frame(biTableDraft)
+head(x)
+attributes(x)
+
+biTableDraft[1,2]
+
+biTableDraft[["MeanCode"]]
+summary(biTableDraft)
+getElement(biTableDraft, "MeanCode")
+
+attributes(biTableDraft)
 
 
 listx <- subset(geodata[geodata$MeanCode=='02',], select=-c(MeanFull,AreaFull,AreaName, MeanName)) 

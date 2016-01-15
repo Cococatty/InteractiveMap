@@ -25,8 +25,8 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 #Set the working directory and read the required data
-#setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
-setwd("/home/cococatty/Desktop/InteractiveMap")
+setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
+#setwd("/home/cococatty/Desktop/InteractiveMap")
 
 geodata <- read.csv('geodata.csv'
                       , col.names= c('AreaCode','AreaName','AreaFull','MeanCode','MeanName','MeanFull','Ppl')
@@ -63,6 +63,9 @@ for (i in 1:length(geodata$Percentage))
   rowTotal <- ((totalList[totalList$AreaCode == geodata$AreaCode[i],]) $Total)
   geodata$Percentage[i] <- (rowPpl / rowTotal)
 }
+
+#BiTable draft
+biTableDraft <- as.table(xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata), dimnames=list("MeanCode","AreaCode"))
 
 
 # Get ready for the two-way table
