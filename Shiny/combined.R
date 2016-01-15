@@ -20,8 +20,7 @@ server <- function(input, output, session) {
     })
       
     output$classIntMethod <- renderUI({
-      selectInput(
-        "classIntMethod"#, "Division Method"
+      selectInput("classIntMethod"#, "Division Method"
         , label = "Select the intervals"
         , choices = list("Equal" = "equal"
                          , "Fisher" = "fisher"
@@ -37,10 +36,9 @@ server <- function(input, output, session) {
     })
       
     
-    output$selectedMeans <- renderTable({
+    output$travelMean <- renderUI({
       # The following part is groupCheckBox format for the TravelMean
-      checkboxGroupInput(
-        "travelMean"
+      checkboxGroupInput("travelMean"
         , "Travel Mean"
         , label = "Select the mean below:"
         , choices = meanChoices
@@ -90,33 +88,33 @@ server <- function(input, output, session) {
 
 #Definte UI for the application
 ui <- shinyUI(pageWithSidebar(
-          headerPanel(""),
+        headerPanel(""),
+        
+        sidebarPanel(
+            uiOutput("categories")
+          , br()
+          , uiOutput("classIntMethod")
+          , br()
+          , uiOutput("travelMean")
+        )  
+        , mainPanel(
           
-          sidebarPanel(
-              uiOutput("categories")
-            , br()
-            , uiOutput("classIntMethod")
-            , br()
-            , uiOutput("selectedMeans")
-          )  
-          , mainPanel(
-            
-            h3("Map of New Zealand", align = "center")
-            , h4(textOutput("text1"), align = "center")
-            , h4(textOutput("text2"), align = "center")
-            , h4("Data is in percentages", align = "center")
-            
-            , tabsetPanel(#type = "tabs",
-                tabPanel("Single-Mean Table", tableOutput("onetable")  )
-              , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
-              , tabPanel("Two-Mean Table", tableOutput("biTable")  )
-              , tabPanel("Two-Mean Plot", plotOutput("biMap"))
-            )
-            
-            , position="center"
-            , width= "auto"
-            , height= "auto"
-          )       
+          h3("Map of New Zealand", align = "center")
+          , h4(textOutput("text1"), align = "center")
+          , h4(textOutput("text2"), align = "center")
+          , h4("Data is in percentages", align = "center")
+          
+          , tabsetPanel(#type = "tabs",
+              tabPanel("Single-Mean Table", tableOutput("onetable")  )
+            , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
+            , tabPanel("Two-Mean Table", tableOutput("biTable")  )
+            , tabPanel("Two-Mean Plot", plotOutput("biMap"))
+          )
+          
+          , position="center"
+          , width= "auto"
+          , height= "auto"
+        )       
     )
 )
           
