@@ -1,44 +1,56 @@
 # This script is used for testing new method
 
-bike <- subset(geodata[((geodata$MeanCode %in% c('09', '02'))
-                        #, '15')
-),] , select=-c(AreaName, AreaFull, MeanFull,MeanName)) 
+remove(testmat)
+remove(listx)
+remove(listy)
+remove(x)
+remove(y)
 
-
-library(colorRamps)
-
-head(geodata)
-head(shape@data)
-head(bike)
-head(warpbreaks)
-
-
-listx <- bike[bike$MeanCode=='02',]
+#Draft to the method
+listx <- subset(geodata[geodata$MeanCode=='02',], select = -c(AreaCode, AreaFull,MeanName,MeanFull))
 listx <- listx[order(listx$Percentage),] 
 
-head(listx)
-
-
-listy <- bike[bike$MeanCode=='09',]
+listy <- subset(geodata[geodata$MeanCode=='09',], select = -c(AreaCode, AreaFull,MeanName,MeanFull))
 listy <- listy[order(listy$Percentage),] 
 
+listx$xpos <- seq(length=nrow(listx))
+listy$ypos <- seq(length=nrow(listy))
+
+
+listx <- merge(listx, listy, by.x = c("AreaName"), by.y = c("AreaName"), all.x=TRUE)
+
+#head(listx)
+#head(listy)
+
 len <- length(listy$Percentage)
-testmat <- matrix(data=0, nrow = len, ncol = len)#, dimnames = list("")
+testmat <- matrix(data = " ", nrow = len, ncol = len)#, dimnames = list("")
+
+for (n in 1:length(listy$Percentage)) {
+  #n=1
+  x <- listx$xpos[n]
+  y <- listx$ypos[n]
+  testmat[x,y] <- listx$AreaName[n]
+}
+
+listx$AreaName[1]
 
 
 head(testmat)
+testmat[10,50]
+#rownames(listx) <- seq(length=nrow(listx))
+#rownames(listy) <- seq(length=nrow(listy))
 
-colx(length(listx$Percentage))
+names(listx)
+attributes(listx)
 
 
-(length(listy$Percentage)/255)*
-  
-  names(listy)
-summary(listy)
-attributes(listy)
+testmat[1,] <- 123
 
-rownames(listx) <- seq(length=nrow(listx))
-rownames(listy) <- seq(length=nrow(listy))
+head(testmat)
+remove(testmat)
+
+
+
 
 
 
@@ -164,3 +176,11 @@ summary(biTableDraft)
 getElement(biTableDraft, "MeanCode")
 
 attributes(biTableDraft)
+library(colorRamps)
+
+
+
+
+bike <- subset(geodata[((geodata$MeanCode %in% c('09', '02'))
+                        #, '15')
+),] , select=-c(AreaName, AreaFull, MeanFull,MeanName)) 
