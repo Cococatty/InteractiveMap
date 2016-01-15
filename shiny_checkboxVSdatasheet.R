@@ -1,3 +1,5 @@
+require("shiny") || install.packages("shiny")
+
 data_sets <- c("mtcars", "morley", "rock")
 
 server <- function(input, output) {

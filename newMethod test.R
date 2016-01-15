@@ -13,41 +13,57 @@ head(bike)
 head(warpbreaks)
 
 
-test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
-test <- xtabs(as.numeric(Ppl) ~ MeanCode + AreaCode, data=geodata)
-attributes(test) 
-test$class
-test$call
+listx <- bike[bike$MeanCode=='02',]
+listx <- listx[order(listx$Percentage),] 
 
-names(bike)
-
-
-
-
-colnames(biTableDraft)
-
-biTableDraft$MeanCode
-biTableDraft[biTableDraft$MeanCode=="01"]
-biTableDraft["MeanCode"=="09"]
-
-levels(biTableDraft["MeanCode"])
-
-head(biTableDraft)
-x<-as.data.frame(biTableDraft)
-head(x)
-attributes(x)
-
-biTableDraft[1,2]
-
-biTableDraft[["MeanCode"]]
-summary(biTableDraft)
-getElement(biTableDraft, "MeanCode")
-
-attributes(biTableDraft)
-
-
-listx <- subset(geodata[geodata$MeanCode=='02',], select=-c(MeanFull,AreaFull,AreaName, MeanName)) 
 head(listx)
+
+
+listy <- bike[bike$MeanCode=='09',]
+listy <- listy[order(listy$Percentage),] 
+
+len <- length(listy$Percentage)
+testmat <- matrix(data=0, nrow = len, ncol = len)#, dimnames = list("")
+
+
+head(testmat)
+
+colx(length(listx$Percentage))
+
+
+(length(listy$Percentage)/255)*
+  
+  names(listy)
+summary(listy)
+attributes(listy)
+
+rownames(listx) <- seq(length=nrow(listx))
+rownames(listy) <- seq(length=nrow(listy))
+
+
+
+library(classInt)
+classx <- classIntervals(xlist$Percentage, n= 5, style = 'quantile', dataPrecision = 2)
+classy <- classIntervals(ylist$Percentage, n= 5, style = 'quantile', dataPrecision = 2)
+
+palx <- findColours(classx, redt(length(classx$brks-1)))
+paly <- findColours(classy, bluet(length(classy$brks-1)))
+
+listy$row09 <- rownames(listy)
+listy$rowOrder <- NULL
+
+bike$row09 <- 0
+
+head(bike)
+
+
+maxy <- max(listy$Percentage)
+
+meandata
+for (n in 1:length(bike$Percentage)) {
+  bike$col09 <- 
+}
+
 
 
 
@@ -115,46 +131,36 @@ head(bike)
 #remove(bike)
 head(listx)
 
-listx <- bike[bike$MeanCode=='02',]
-listx <- listx[order(listx$Percentage),] 
-
-listy <- bike[bike$MeanCode=='09',]
-listy <- listy[order(listy$Percentage),] 
 
 
+test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
+test <- xtabs(as.numeric(Ppl) ~ MeanCode + AreaCode, data=geodata)
+attributes(test) 
+test$class
+test$call
 
-colx(length(listx$Percentage))
-length(listy$Percentage)
-
-(length(listy$Percentage)/255)*
-
-names(listy)
-summary(listy)
-attributes(listy)
-
-rownames(listx) <- seq(length=nrow(listx))
-rownames(listy) <- seq(length=nrow(listy))
+names(bike)
 
 
 
-library(classInt)
-classx <- classIntervals(xlist$Percentage, n= 5, style = 'quantile', dataPrecision = 2)
-classy <- classIntervals(ylist$Percentage, n= 5, style = 'quantile', dataPrecision = 2)
 
-palx <- findColours(classx, redt(length(classx$brks-1)))
-paly <- findColours(classy, bluet(length(classy$brks-1)))
+colnames(biTableDraft)
 
-listy$row09 <- rownames(listy)
-listy$rowOrder <- NULL
+biTableDraft$MeanCode
+biTableDraft[biTableDraft$MeanCode=="01"]
+biTableDraft["MeanCode"=="09"]
 
-bike$row09 <- 0
+levels(biTableDraft["MeanCode"])
 
-head(bike)
+head(biTableDraft)
+x<-as.data.frame(biTableDraft)
+head(x)
+attributes(x)
 
+biTableDraft[1,2]
 
-maxy <- max(listy$Percentage)
+biTableDraft[["MeanCode"]]
+summary(biTableDraft)
+getElement(biTableDraft, "MeanCode")
 
-meandata
-for (n in 1:length(bike$Percentage)) {
-  bike$col09 <- 
-}
+attributes(biTableDraft)
