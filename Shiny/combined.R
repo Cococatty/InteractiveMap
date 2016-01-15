@@ -103,13 +103,11 @@ server <- function(input, output, session) {
       updateCheckboxGroupInput(session, 'travelMeans', selected = tail(input$travelMeans,maxGrp))
     }
   })
-
   
   output$biTable <- renderTable({
     retrivingBiTable(input$travelMeans)
   })
   
-
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
   output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
   
