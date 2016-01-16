@@ -1,3 +1,6 @@
+
+require("shiny") || install.packages("shiny")
+
 data_sets <- c("mtcars", "morley", "rock")
 
 server <- function(input, output) {
@@ -33,7 +36,7 @@ server <- function(input, output) {
     # Get the data set
     dat <- get(input$dataset)
     
-    # Make sure columns are correct for data set (when data set changes, the
+    # Make sure columns are correct for data set when data set changes, the
     # columns will initially be for the previous data set)
     if (is.null(input$columns) || !(input$columns %in% names(dat)))
       return()
