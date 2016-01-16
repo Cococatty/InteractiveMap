@@ -1,136 +1,50 @@
 # This script is used for testing new method
 
-bike <- subset(geodata[((geodata$MeanCode %in% c('09', '02'))
-                        #, '15')
-),] , select=-c(AreaName, AreaFull, MeanFull,MeanName)) 
+#remove(testmat)
+
+travelMeans <- c("02","04")
+t <- c("02","04")
+test <- retrivingBiTable(t)
+head(test)
+
+filled.contour(test, color = colorRampPalette(c("red","blue")), asp = 1) # simple
 
 
-library(colorRamps)
+colors()[c(552,254,26)]
 
-head(geodata)
-head(shape@data)
-head(bike)
-head(warpbreaks)
+maxx <- maxList[maxList$MeanCode == t[1],]$Max
+maxy <- maxList[maxList$MeanCode == t[2],]$Max
 
-
-test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
-attributes(test) 
-test$class
-test$call
-
-as.table(test)
-
-
-
-listx <- subset(geodata[geodata$MeanCode=='02',], select=-c(MeanFull,AreaFull,AreaName, MeanName)) 
+listx
 head(listx)
 
+xpos <- 4
+ypos <- 2
+rgb(xpos*maxx, 0, ypos*maxy, maxColorValue=1)
+
+rgb(xpos*maxx/255, 0, ypos*maxy/255)
+
+
+maxx <- length(geodata[geodata$MeanCode == travelMeans[1],]$AreaCode)
+maxy <- length(geodata[geodata$MeanCode == travelMeans[2],]$AreaCode)
+rgb(xpos*255/maxx, 0, ypos*255/maxy, maxColorValue=255)
+#rgb(xpos*255/maxx, 0, ypos*(255/maxy), maxColorValue=1) #  not working
+
+rgb(255, 255, 0, maxColorValue=255)
+
+biTableMat
 
 
 
-colr <- colorRampPalette(c("white", "red"), space= "rgb")
-colb <- colorRampPalette(c("white", "blue"), space= "rgb")
+retrivingBiTable(travelMeans)
+  biTableMat
 
-
-#palX <- 
-n <- length(levels(bike$AreaCode))
-newMatrix <- matrix(nrow = n, ncol = n)
-
-plot(1,col = rgb(1,0,0,alpha =1)) 
-# as long as alpha < 1, there is no point in the plot. 
-
-plot(1,col = rgb(0,0,255, alpha=254, 
-                 maxColorValue=255)) 
-
-rgb(255,255,0)
-
-rgb(0.4,0.5,0)
-
+  require("plotrix")
+  color.gradient(c(0,1),c(1,0.6,0.4,0.3,0),c(0.1,0.6))
   
-is.matrix(as.matrix(1:10))
-!is.matrix(warpbreaks)  # data.frame, NOT matrix!
-warpbreaks[1:10,]
-as.matrix(warpbreaks[1:10,])  # using as.matrix.data.frame(.) method
+#testmat[10,50]
+#listx$AreaName[1]
 
-## Example of setting row and column names
-mdat <- matrix(c(1,2,3, 11,12,13), nrow = 2, ncol = 3, byrow = TRUE,
-               dimnames = list(c("row1", "row2"),
-                               c("C.1", "C.2", "C.3")))
-mdat
+#colr <- colorRampPalette(c("white", "red"), space= "rgb")
+#colb <- colorRampPalette(c("white", "blue"), space= "rgb")
 
-
-
-dim(as.array(letters))
-array(1:3, c(2,4)) # recycle 1:3 "2 2/3 times"
-#     [,1] [,2] [,3] [,4]
-#[1,]    1    3    2    1
-#[2,]    2    1    3    2
-
-
-array(2:6, c(68,68))
-
-
-r <- matrix(runif(9, 0, 1), 3)
-g <- matrix(runif(9, 0, 1), 3)
-b <- matrix(runif(9, 0, 1), 3)
-
-col <- rgb(r, g, b)
-dim(col) <- dim(r)
-
-plot(r)
-plot(g)
-plot(b)
-
-library(grid)
-grid.raster(col, interpolate=FALSE)
-
-
-
-bike
-head(bike)
-#remove(bike)
-head(listx)
-
-listx <- bike[bike$MeanCode=='02',]
-listx <- listx[order(listx$Percentage),] 
-
-listy <- bike[bike$MeanCode=='09',]
-listy <- listy[order(listy$Percentage),] 
-
-
-
-colx(length(listx$Percentage))
-length(listy$Percentage)
-
-(length(listy$Percentage)/255)*
-
-names(listy)
-summary(listy)
-attributes(listy)
-
-rownames(listx) <- seq(length=nrow(listx))
-rownames(listy) <- seq(length=nrow(listy))
-
-
-
-library(classInt)
-classx <- classIntervals(xlist$Percentage, n= 5, style = 'quantile', dataPrecision = 2)
-classy <- classIntervals(ylist$Percentage, n= 5, style = 'quantile', dataPrecision = 2)
-
-palx <- findColours(classx, redt(length(classx$brks-1)))
-paly <- findColours(classy, bluet(length(classy$brks-1)))
-
-listy$row09 <- rownames(listy)
-listy$rowOrder <- NULL
-
-bike$row09 <- 0
-
-head(bike)
-
-
-maxy <- max(listy$Percentage)
-
-meandata
-for (n in 1:length(bike$Percentage)) {
-  bike$col09 <- 
-}

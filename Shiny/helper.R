@@ -64,6 +64,9 @@ for (i in 1:length(geodata$Percentage))
   geodata$Percentage[i] <- (rowPpl / rowTotal)
 }
 
+#BiTable draft
+biTableDraft <- as.table(xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata), dimnames=list("MeanCode","AreaCode"))
+
 
 # Get ready for the two-way table
 maxList <- setNames(aggregate(geodata$Percentage, by=list(geodata$MeanCode), max), c('MeanCode', 'Max')) 
@@ -171,6 +174,31 @@ biMap <- function(numQUan, travelMean, classIntMethod)
   }
   
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
+}
+
+
+
+retrivingBiTable <- function(travelMeans) {
+  listx <- subset(geodata[geodata$MeanCode==travelMeans[1],], select = -c( AreaFull,MeanName,MeanFull))
+  listx <- listx[order(listx$Percentage),] 
+  
+  listy <- subset(geodata[geodata$MeanCode==travelMeans[2],], select = -c( AreaFull,MeanName,MeanFull))
+  listy <- listy[order(listy$Percentage),] 
+  
+  listx$xpos <- seq(length=nrow(listx))
+  listy$ypos <- seq(length=nrow(listy))
+  
+  listx <- merge(listx, listy, by.x = c("AreaName"), by.y = c("AreaName"), all=TRUE)
+  
+  len <- length(listy$AreaName)
+  biTableMat <- matrix(data = "-", nrow = len, ncol = len)#, dimnames = list("")
+  
+  for (n in 1:len) {
+    x <- listx$xpos[n]
+    y <- listx$ypos[n]
+    biTableMat[x,y] <- as.character(listx$AreaName[n]) 
+  }
+  biTableMat
 }
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4c520f7e083846a8b82c28c00cc1d90cda831a8
 require("shiny") || install.packages("shiny")
 
 data_sets <- c("mtcars", "morley", "rock")
