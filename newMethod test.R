@@ -7,7 +7,14 @@ t <- c("02","04")
 test <- retrivingBiTable(t)
 head(test)
 
+# POTENTIAL SOLUTIONS
+
 filled.contour(test, color = colorRampPalette(c("red","blue")), asp = 1) # simple
+
+color2D.matplot(test,c(1,0),c(0,0),c(0,1),show.legend=TRUE,
+                xlab="Columns",ylab="Rows",main="2D matrix plot")
+
+
 
 
 colors()[c(552,254,26)]
