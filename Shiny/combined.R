@@ -1,19 +1,15 @@
-# 
-# pck <- c("shiny", "DT")
-# require(pck) || install.packages(pck)
-# 
-# library(shiny)
-# library(DT)
+# LAST UPDATED AT 18.28 17/1
 
+# Loading the requiring sources
 require("shiny") || install.packages("shiny")
 require("DT") || install.packages("DT")
 
-
+# Set the working directory and read the required data
 #setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
 setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
-
 source("helper.R")
 
+# Initializing the variables
 minGrp <- 1
 maxGrp <- 2
 
@@ -35,9 +31,7 @@ ui <- fluidPage(
                        , "Standard Deviation" = "sd"
       )
       , selected = "quantile"
-      #                        , selectize = FALSE
       , multiple = FALSE
-      #                        , width = "auto"
     )
     
     , br()
@@ -94,7 +88,7 @@ server <- function(input, output, session) {
     , caption = paste("Travel mean: ", tail(input$travelMeans, 1))
     , caption.placement = getOption("xtable.caption.placement", "top")
     , caption.width = getOption("xtable.caption.width", NULL)
-    #, colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight')
+    
   )
   
   observe({
@@ -148,3 +142,4 @@ shinyApp(ui = ui, server = server)
 #       biTable <- biTable[order(biTable$Percentage),]
 #    })
 #  
+#, colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight')

@@ -1,60 +1,48 @@
-# LAST UPDATED AT 18.55 16/1
-#Clearing up the data
+# LAST UPDATED AT 18.28 17/1
+# Clearing up the data
 rm(list=ls())
 
-#Loading the requiring sources
-#
-# pck <- c("maptools", "classInt", "stringr", "colorRamps")
-# require(pck) || install.packages(pck)
-
-# library(maptools)
-# library(classInt)
-# library(stringr)
-# library(colorRamps)
-
+# Loading the requiring sources
 require("classInt") || install.packages("classInt")
 require("colorRamps") || install.packages("colorRamps")
 require("maptools") || install.packages("maptools")
 require("stringr") || install.packages("stringr")
 
 
-
-
-#Initializing the variables
-
+# Initializing the variables
 travelMean <- c()
 
-#Set the working directory and read the required data
+# Set the working directory and read the required data
 #setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
 setwd("/home/cococatty/Desktop/InteractiveMap")
 
+# Reading required data
+# geodata contains various travel means and the number of people travel in the means
 geodata <- read.csv('geodata.csv'
                       , col.names= c('AreaCode','AreaName','AreaFull','MeanCode','MeanName','MeanFull','Ppl')
                       , header= FALSE
                       , sep = ','
                       , numerals = c('no.loss'))
-# Remove 
-geodata <- geodata[!(geodata$MeanCode == 'MeanCode' & geodata$AreaCode == 'AreaCode'), ]
-#head(geodata)
 
+# Remove the header from the data - cannot set "header = TRUE" in previous section because it
+# would trim the 0s away from Mean codes and Area codes.
+geodata <- geodata[!(geodata$MeanCode == 'MeanCode' & geodata$AreaCode == 'AreaCode'), ]
+
+# Generating the details of travel means
 meandata <- unique(geodata[c('MeanCode', 'MeanName', 'MeanFull') ] )
 meandata <- meandata[order(meandata$MeanName),]
 
-
+# Generating the list of choices for the Travel means input in UI
 meanChoices <- as.character(meandata$MeanCode)
 names(meanChoices) <- meandata$MeanName
 
-#Create a new column "Percentage" in geodata
+# Create a new column "Percentage" in geodata
 geodata$Percentage <- c(0)
 
-
-#Create a list with the Areas and the total numbers of ppl
+# Create a list with the Areas and the total numbers of ppl
 totalList <- setNames(aggregate(as.numeric(levels(geodata$Ppl)[geodata$Ppl]), by=list(Area=geodata$AreaCode), FUN = sum)
                       , c('AreaCode', 'Total')
 )
-
-
-#head(geodata)
 
 #Calculate the percentages within Areas
 for (i in 1:length(geodata$Percentage))
@@ -64,15 +52,7 @@ for (i in 1:length(geodata$Percentage))
   geodata$Percentage[i] <- (rowPpl / rowTotal)
 }
 
-#BiTable draft
-biTableDraft <- as.table(xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata), dimnames=list("MeanCode","AreaCode"))
-
-
-# Get ready for the two-way table
-maxList <- setNames(aggregate(geodata$Percentage, by=list(geodata$MeanCode), max), c('MeanCode', 'Max')) 
-
-
-#Reading and merging the shapefiles
+# Reading and merging the shapefiles
 shape <- readShapeSpatial("./Shapefiles/TA2013_GV_Clipped.shp")
 shape <- shape[!(shape@data$TA2013_NAM == 'Chatham Islands Territory' | shape@data$TA2013_NAM == 'Area Outside Territorial Authority'),]
 shape@data <- merge(shape@data,geodata,by.x="TA2013",by.y="AreaCode", all.x= TRUE )#, replace = TRUE 
@@ -80,19 +60,16 @@ shape@data$Ppl <- as.numeric(levels(shape@data$Ppl)[shape@data$Ppl])
 shape@data$Percentage[is.na(shape@data$Percentage)] <- 0
 shape@data$Percentage <- round(shape@data$Percentage*100,2)
 
+# Generating the base of the singleTable (table for single travel mean) in UI
 newtable <- subset(shape@data)
 newtable <- subset(newtable, select = -c(TA2013, TA2013_NAM, MeanFull, AreaFull))
 
 
-#head(newtable)
-#remove(newtable)
-
-
-#Assigning data
-pal <- colorRampPalette(c("yellow","red"), space= "rgb")
-
+# This function plots the colored map of single travel mean
 singleMap <- function(numQUan, travelMean, classIntMethod)
 {
+  # Defining the color data for single table
+  pal <- colorRampPalette(c("yellow","red"), space= "rgb")
   
   if (classIntMethod == "fixed") {
     breakList <- c(min(shape@data$Percentage[shape@data$Mean==travelMean]))
@@ -109,13 +86,10 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   }
 
   colPal <- findColours(nclass, pal(length(nclass$brks-1)))
-  #head(shape@data)
   
   #Draw the coloured map and relevant details
   plot(shape, legend=FALSE, border = "Black", col= colPal)
-  #title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))
   
-#  attributes(colPal)
   #Setting up the legend text in the proper percentages format
   legendT <- c()
   legendText <- c()
@@ -142,12 +116,12 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
 }
 
+# This function plots the colored map of two travel means
 biMap <- function(numQUan, travelMean, classIntMethod)
 {
   redpal <-
   #Draw the coloured map and relevant details
   plot(shape, legend=FALSE, border = "Black", col= colPal)
-  #title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))
   
   
   #Setting up the legend text in the proper percentages format
@@ -177,7 +151,7 @@ biMap <- function(numQUan, travelMean, classIntMethod)
 }
 
 
-
+# This function generates the two-way table of two travel means
 retrivingBiTable <- function(travelMeans) {
   listx <- subset(geodata[geodata$MeanCode==travelMeans[1],], select = -c( AreaFull,MeanName,MeanFull))
   listx <- listx[order(listx$Percentage),] 
@@ -202,3 +176,4 @@ retrivingBiTable <- function(travelMeans) {
 }
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")
+#title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))

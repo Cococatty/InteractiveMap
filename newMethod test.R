@@ -16,6 +16,9 @@ color2D.matplot(test,c(1,0),c(0,0),c(0,1),show.legend=TRUE,
 
 
 
+# Get ready for the two-way table
+maxList <- setNames(aggregate(geodata$Percentage, by=list(geodata$MeanCode), max), c('MeanCode', 'Max')) 
+
 
 colors()[c(552,254,26)]
 
