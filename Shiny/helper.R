@@ -14,7 +14,9 @@ travelMean <- c()
 
 # Set the working directory and read the required data
 #setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap")
-setwd("/home/cococatty/Desktop/InteractiveMap")
+# setwd("/home/cococatty/Desktop/InteractiveMap")
+setwd("C:/Users/User/Desktop/InteractiveMap")
+
 
 # Reading required data
 # geodata contains various travel means and the number of people travel in the means

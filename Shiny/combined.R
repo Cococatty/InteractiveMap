@@ -9,7 +9,9 @@ require("DT") || install.packages("DT")
 
 # Set the working directory and read the required data
 # setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
-setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
+# setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
+setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
+
 source("helper.R")
 
 # Initializing the variables
@@ -57,12 +59,11 @@ ui <- fluidPage(
     
     , tabsetPanel(#type = "tabs",
         tabPanel("Single-Mean Table", DT::dataTableOutput("onetable")
-                 , textOutput("singleTblText")
+                 , verbatimTextOutput("singleTblText")
         )
       , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
-      , tabPanel(
-                "Two-Mean Table", DT::dataTableOutput("biTable", height = "100%"),
-                verbatimTextOutput("biTableText")
+      , tabPanel("Two-way table", DT::dataTableOutput("biTable", height = "100%")
+              , verbatimTextOutput("biTableText")
       )
        
       , tabPanel("Two-Mean Plot", plotOutput("biMap"))
@@ -96,8 +97,17 @@ server <- function(input, output, session) {
     #, caption = paste("Travel mean: ", tail(input$travelMeans, 1)) ######## NOT WORKING
     , caption.placement = getOption("xtable.caption.placement", "top")
     , caption.width = getOption("xtable.caption.width", NULL)
-    
+    , server = TRUE
   )
+  
+  output$singleTblText <- renderPrint({
+    s = input$onetable_rows_selected
+    if (length(s)) {
+      cat('These rows were selected:\n\n')
+      cat(s, sep = ', ')
+    }
+  })
+  
   
   observe({
     if (length(input$travelMeans) > maxGrp)
