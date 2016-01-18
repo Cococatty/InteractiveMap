@@ -57,6 +57,7 @@ ui <- fluidPage(
     
     , tabsetPanel(#type = "tabs",
         tabPanel("Single-Mean Table", DT::dataTableOutput("onetable")
+                 , textOutput("singleTblText")
         )
       , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
       , tabPanel(
@@ -126,7 +127,9 @@ server <- function(input, output, session) {
    )
   })
   
-  output$biTableText <- renderText("x47")
+  ######## TBC -- NOT WORKING!! ######################################################################
+  output$biTableText <- renderPrint(input$biTable_rows_selected)
+  #geodata[geodata$AreaCode] "x47"
   
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
   output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
