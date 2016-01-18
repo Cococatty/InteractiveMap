@@ -29,10 +29,6 @@ attributes(dat)
 as.table(dat)
 as.data.frame(dat)
 
-L3 <- LETTERS[1:3]
-fac <- sample(L3, 10, replace = TRUE)
-(d <- data.frame(x = 1, y = 1:10, fac = fac))
-
 
 
 

@@ -170,7 +170,7 @@ retrivingBiTable <- function(travelMeans) {
   for (n in 1:len) {
     x <- listx$xpos[n]
     y <- listx$ypos[n]
-    biTableMat[x,y] <- as.character(listx$AreaCode[n]) #listx$AreaName[n]
+    biTableMat[x,y] <- as.character(listx$AreaName[n]) #listx$AreaCode[n]
   }
   biTableMat
 }

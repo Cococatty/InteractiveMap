@@ -4,6 +4,7 @@
 require("shiny") || install.packages("shiny")
 require("DT") || install.packages("DT")
 
+
 # Set the working directory and read the required data
 #setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
 setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
@@ -59,7 +60,7 @@ ui <- fluidPage(
     , tabsetPanel(#type = "tabs",
       tabPanel("Single-Mean Table", tableOutput("onetable")  )
       , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
-      , tabPanel("Two-Mean Table", tableOutput("biTable")  )
+      , tabPanel("Two-Mean Table", DT::dataTableOutput("biTable")  )
       , tabPanel("Two-Mean Plot", plotOutput("biMap"))
     )
     
@@ -98,21 +99,25 @@ server <- function(input, output, session) {
     }
   })
   
-  test <- reactive({
-    retrivingBiTable(input$travelMeans)
+  biTable <- reactive({
+    return(retrivingBiTable(input$travelMeans))
   })
     
-    
-  output$biTable <- renderTable({
-#       datatable(test()
-#       , extensions = "Scroller"
-#       , options = list(
-#           deferRender = TRUE
-#           , dom = "ft"#frtiS
-#           , scrollY = 200
-#           , scrollCollapse = TRUE
-#         )
-    test()
+  ######## TBC -- NEED TO SHOW THE ROW NUMBER!! ######################################################################
+  output$biTable <- DT::renderDataTable({
+    DT::datatable(
+      biTable()
+       , extensions = "Scroller"
+      , options = list(
+          deferRender = TRUE
+          , dom = "frtiS"#frtiS
+          , scrollY = 200
+          , scrollCollapse = TRUE
+          , autoWidth = TRUE
+         )
+      , selection = "none"
+      , rownames = TRUE
+   )
   })
   
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
