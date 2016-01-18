@@ -8,9 +8,11 @@ require("DT") || install.packages("DT")
 
 
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
+ setwd("//file/UsersY$/yzh215/Home//InteractiveMap/Shiny")
 # setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
-setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
+# setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
+
+
 
 source("helper.R")
 
