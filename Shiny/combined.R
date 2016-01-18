@@ -1,4 +1,6 @@
-# LAST UPDATED AT 18/1
+# LAST UPDATED AT 18/1 17.38
+# 
+# NEXT TO DO: LINE 129
 
 # Loading the requiring sources
 require("shiny") || install.packages("shiny")
@@ -6,7 +8,7 @@ require("DT") || install.packages("DT")
 
 
 # Set the working directory and read the required data
-#setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/GitHub/InteractiveMap/Shiny")
 setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
 source("helper.R")
 
@@ -51,22 +53,23 @@ ui <- fluidPage(
   
   #Show the map
   mainPanel(
-    
     h3("Map of New Zealand", align = "center")
-    , h4(textOutput("text1"), align = "center")
-    , h4(textOutput("text2"), align = "center")
-    , h4("Data is in percentages", align = "center")
     
     , tabsetPanel(#type = "tabs",
-      tabPanel("Single-Mean Table", tableOutput("onetable")  )
+        tabPanel("Single-Mean Table", DT::dataTableOutput("onetable")
+        )
       , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
-      , tabPanel("Two-Mean Table", DT::dataTableOutput("biTable")  )
+      , tabPanel(
+                "Two-Mean Table", DT::dataTableOutput("biTable", height = "100%"),
+                verbatimTextOutput("biTableText")
+      )
+       
       , tabPanel("Two-Mean Plot", plotOutput("biMap"))
     )
     
     , position="center"
-    , width= "auto"
-    , height= "auto"
+    #, width= "auto" # THIS MAKES THE "UGLY LOOK" (DETAILS AT THE BOTTOM)
+   , height= "auto"
   )
 )
 
@@ -82,11 +85,14 @@ server <- function(input, output, session) {
     onetable <- onetable[order(onetable$Percentage),]
   })
   
-  output$onetable <- renderTable({
-    updateoneTable()}
+  ######## TBC -- NEED TO FIX THE ROW NUMBER!! ######################################################################
+  output$onetable <- DT::renderDataTable({
+    DT::datatable(
+      updateoneTable(), selection = "single" #list(target="cell")
+    )}
     , include.rownames = FALSE
-    , options = list(paging = FALSE, searching = FALSE)
-    , caption = paste("Travel mean: ", tail(input$travelMeans, 1))
+    , options = list(paging = FALSE, searching = TRUE)
+    #, caption = paste("Travel mean: ", tail(input$travelMeans, 1)) ######## NOT WORKING
     , caption.placement = getOption("xtable.caption.placement", "top")
     , caption.width = getOption("xtable.caption.width", NULL)
     
@@ -115,10 +121,12 @@ server <- function(input, output, session) {
           , scrollCollapse = TRUE
           , autoWidth = TRUE
          )
-      , selection = "none"
-      , rownames = TRUE
+    
+      # , rownames = TRUE ######## NOT WORKING
    )
   })
+  
+  output$biTableText <- renderText("x47")
   
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
   output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
@@ -129,35 +137,3 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui = ui, server = server)
-
-
-#FROM UI
-# The following part is SelectInput format for the travelMeans
-#         selectInput("travelMeans", "Travel Mean"
-#                       , label = "Select the mean below:"
-#                       , choices = meanChoices
-#                       , multiple = TRUE
-#                       , width = "100%"
-#         )
-
-
-
-#WORKING two-way table (not desired thou)
-#test <- xtabs(as.numeric(Ppl) ~ AreaCode + MeanCode, data=geodata)
-#test <- test[!(test$dimnames$AreaCode == 'MeanCode' & test$dimnames$MeanCode == 'AreaCode'), ]
-#test <- test[!(test$MeanCode == 'MeanCode' & test$AreaCode == 'AreaCode'), ]
-#test <- as.table(test, dnn=c("MeanCode", "AreaCode"))
-
-#test <- reactive({ length(input$travelMeans)})
-#test1 <- reactive({ input$travelMeans})
-#test <- reactive({summary(input$travelMeans) })
-#test
-
-#    updatebiTable <- reactive({
-
-#       biTable <- subset(newtable, newtable$MeanCode == input$travelMeans, select = -c(MeanCode)
-#                          , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
-#       biTable <- biTable[order(biTable$Percentage),]
-#    })
-#  
-#, colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight')
