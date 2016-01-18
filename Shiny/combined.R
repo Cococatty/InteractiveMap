@@ -58,11 +58,11 @@ ui <- fluidPage(
     h3("Map of New Zealand", align = "center")
     
     , tabsetPanel(#type = "tabs",
-        tabPanel("Single-Mean Table", DT::dataTableOutput("onetable")
-                 , verbatimTextOutput("singleTblText")
+        tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr()
+                 , verbatimTextOutput("singleTableText")
         )
       , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
-      , tabPanel("Two-way table", DT::dataTableOutput("biTable", height = "100%")
+      , tabPanel("Two-way table", DT::dataTableOutput("biTable") # , height = "100%"
               , verbatimTextOutput("biTableText")
       )
        
@@ -100,7 +100,7 @@ server <- function(input, output, session) {
     , server = TRUE
   )
   
-  output$singleTblText <- renderPrint({
+  output$singleTableText <- renderPrint({
     s = input$onetable_rows_selected
     if (length(s)) {
       cat('These rows were selected:\n\n')
@@ -138,7 +138,13 @@ server <- function(input, output, session) {
   })
   
   ######## TBC -- NOT WORKING!! ######################################################################
-  output$biTableText <- renderPrint(input$biTable_rows_selected)
+  output$biTableText <- renderPrint({
+    sb = input$biTable_rows_selected
+    if (length(sb)) {
+      cat('These rows were selected:\n\n')
+      cat(sb, sep = ', ')
+    }
+  })
   #geodata[geodata$AreaCode] "x47"
   
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
