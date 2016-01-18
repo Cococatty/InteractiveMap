@@ -156,7 +156,7 @@ retrivingBiTable <- function(travelMeans) {
   listx <- subset(geodata[geodata$MeanCode==travelMeans[1],], select = -c( AreaFull,MeanName,MeanFull))
   listx <- listx[order(listx$Percentage),] 
   
-  listy <- subset(geodata[geodata$MeanCode==travelMeans[2],], select = -c( AreaFull,MeanName,MeanFull))
+  listy <- subset(geodata[geodata$MeanCode==travelMeans[2],], select = -c( AreaFull,MeanName,MeanFull,AreaCode))
   listy <- listy[order(listy$Percentage),] 
   
   listx$xpos <- seq(length=nrow(listx))
@@ -170,7 +170,7 @@ retrivingBiTable <- function(travelMeans) {
   for (n in 1:len) {
     x <- listx$xpos[n]
     y <- listx$ypos[n]
-    biTableMat[x,y] <- as.character(listx$AreaName[n]) 
+    biTableMat[x,y] <- as.character(listx$AreaCode[n]) #listx$AreaName[n]
   }
   biTableMat
 }

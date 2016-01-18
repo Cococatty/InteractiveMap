@@ -1,11 +1,58 @@
 # This script is used for testing new method
 
-#remove(testmat)
+# The following is for "selecting the cell and information shall be displayed on the RHS
+# 
+travelMeans <- c("02","04")
+test <- retrivingBiTable(t)
 
+head(test)
+head( as.table(test) )
+head( as.data.frame (test) )
+
+
+names(as.data.frame (test) )
+attributes(as.data.frame (test) )
+
+head(geodata[geodata$AreaCode=="060",])
+totalList[totalList$AreaCode=="060",]
+
+
+
+t1 <- data.frame("-", nrow=3,ncol=3)
+t2 <- table("-", nrow=3,ncol=3)
+
+
+dat <- read.csv("http://personal.colby.edu/personal/m/mgimond/R/Data/FAO_grains_NA.csv", header=TRUE)
+dat <- dat[1:10,]
+attributes(dat)
+
+as.table(dat)
+as.data.frame(dat)
+
+L3 <- LETTERS[1:3]
+fac <- sample(L3, 10, replace = TRUE)
+(d <- data.frame(x = 1, y = 1:10, fac = fac))
+
+
+
+
+
+
+
+
+
+
+
+
+# The follownig is for - Coloring the matrix
 travelMeans <- c("02","04")
 t <- c("02","04")
 test <- retrivingBiTable(t)
 head(test)
+head(geodata[geodata$AreaCode=="060",])
+totalList[totalList$AreaCode=="060",]
+
+
 
 # POTENTIAL SOLUTIONS
 

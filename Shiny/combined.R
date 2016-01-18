@@ -1,4 +1,4 @@
-# LAST UPDATED AT 18.28 17/1
+# LAST UPDATED AT 18/1
 
 # Loading the requiring sources
 require("shiny") || install.packages("shiny")
@@ -98,8 +98,21 @@ server <- function(input, output, session) {
     }
   })
   
-  output$biTable <- renderTable({
+  test <- reactive({
     retrivingBiTable(input$travelMeans)
+  })
+    
+    
+  output$biTable <- renderTable({
+#       datatable(test()
+#       , extensions = "Scroller"
+#       , options = list(
+#           deferRender = TRUE
+#           , dom = "ft"#frtiS
+#           , scrollY = 200
+#           , scrollCollapse = TRUE
+#         )
+    test()
   })
   
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
