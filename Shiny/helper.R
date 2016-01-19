@@ -1,4 +1,7 @@
 # LAST UPDATED AT 19/1 1pm
+# 
+# NEXT TO DO: LINE 
+
 
 # Clearing up the data
 rm(list=ls())
@@ -157,8 +160,9 @@ biMap <- function(travelMeans)
   fullList <- prepareTwoMeans(travelMeans)
   len <- length(fullList$AreaName)
   fullList <- within(fullList, mix <- rgb(red=fullList$x, green=0, blue=fullList$y, maxColorValue=len))
+  #alpha=255, 
   
-  for (n in 1:67) {
+  for (n in 1:len) {
     fullList$r[n] <- col2rgb(fullList$mix[n])[,1][1]
     fullList$g[n] <- col2rgb(fullList$mix[n])[,1][2]
     fullList$b[n] <- col2rgb(fullList$mix[n])[,1][3]

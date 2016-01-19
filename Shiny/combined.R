@@ -1,6 +1,6 @@
 # LAST UPDATED AT 19/1 1pm
 # 
-# NEXT TO DO: LINE 129
+# NEXT TO DO: LINE 
 
 # Loading the requiring sources
 require("shiny") || install.packages("shiny")
@@ -138,7 +138,9 @@ server <- function(input, output, session) {
   })
   
   output$biMapText <- renderText({
-    paste("Red: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[1]], "Blue: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[2]], sep = "\n")
+    paste("Red: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[1]]
+          , "Purple: A combination of both travel means"
+          , "Blue: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[2]], sep = "\n")
   })
   
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
