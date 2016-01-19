@@ -65,10 +65,10 @@ ui <- fluidPage(
         )
       , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
       , tabPanel("Two-way table", DT::dataTableOutput("biTable") # , height = "100%"
-              , verbatimTextOutput("biTableText")
       )
        
-      , tabPanel("Two-Mean Plot", plotOutput("biMap"))
+      , tabPanel("Two-Mean Plot", plotOutput("biMap")
+                 , verbatimTextOutput("biMapText"))
     )
     
     , position="center"
@@ -134,20 +134,12 @@ server <- function(input, output, session) {
           , scrollCollapse = TRUE
           , autoWidth = TRUE
          )
-    
-      # , rownames = TRUE ######## NOT WORKING
    )
   })
   
-  ######## TBC -- NOT WORKING!! ######################################################################
-  output$biTableText <- renderPrint({
-    sb = input$biTable_rows_selected
-    if (length(sb)) {
-      cat('These rows were selected:\n\n')
-      cat(sb, sep = ', ')
-    }
+  output$biMapText <- renderText({
+    paste("Red: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[1]], "Blue: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[2]], sep = "\n")
   })
-  #geodata[geodata$AreaCode] "x47"
   
   output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
   output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
