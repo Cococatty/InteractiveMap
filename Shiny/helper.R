@@ -1,4 +1,5 @@
-# LAST UPDATED AT 18.28 17/1
+# LAST UPDATED AT 19/1 1pm
+
 # Clearing up the data
 rm(list=ls())
 
@@ -13,7 +14,7 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 # Set the working directory and read the required data
-setwd("//file/UsersY$/yzh215/Home//InteractiveMap/Shiny")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
 # setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
@@ -118,43 +119,9 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
 }
 
-# This function plots the colored map of two travel means
-biMap <- function(numQUan, travelMean, classIntMethod)
-{
-  redpal <-
-  #Draw the coloured map and relevant details
-  plot(shape, legend=FALSE, border = "Black", col= colPal)
-  
-  
-  #Setting up the legend text in the proper percentages format
-  legendT <- c()
-  legendText <- c()
-  newText <- c()
-  
-  for (i in 1:length(nclass$brks))
-  {
-    newText <- str_trim(paste(round(nclass$brks[i], digits = 2), '%'))
-    legendT <- c(legendT, newText)
-  }
-  
-  for (i in 1:(length(nclass$brks)-1))
-  {
-    newText <- c()
-    if (i == 1 && classIntMethod != "fixed") {
-      newText <- paste('0 % -', legendT[i])
-    }
-    else {
-      newText <- paste(legendT[i], '-', legendT[i+1])
-    }
-    legendText <- c(legendText, newText)
-  }
-  
-  legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
-}
 
 
-# This function generates the two-way table of two travel means
-retrivingBiTable <- function(travelMeans) {
+prepareTwoMeans <- function(travelMeans) {
   listx <- subset(geodata[geodata$MeanCode==travelMeans[1],], select = -c( AreaFull,MeanName,MeanFull))
   listx <- listx[order(listx$Percentage),] 
   
@@ -165,16 +132,40 @@ retrivingBiTable <- function(travelMeans) {
   listy$ypos <- seq(length=nrow(listy))
   
   listx <- merge(listx, listy, by.x = c("AreaName"), by.y = c("AreaName"), all=TRUE)
-  
-  len <- length(listy$AreaName)
-  biTableMat <- matrix(data = "-", nrow = len, ncol = len)#, dimnames = list("")
+  return(listx)  
+}
+
+
+# This function generates the two-way table of two travel means
+biTableMatrix <- function(travelMeans) {
+  fullList <- prepareTwoMeans(travelMeans)
+  len <- length(fullList$AreaName)
+  biTableMat <- matrix(data = "", nrow = len, ncol = len)#, dimnames = list("")
   
   for (n in 1:len) {
-    x <- listx$xpos[n]
-    y <- listx$ypos[n]
-    biTableMat[x,y] <- as.character(listx$AreaName[n]) #listx$AreaCode[n]
+    x <- fullList$xpos[n]
+    y <- fullList$ypos[n]
+    biTableMat[x,y] <- as.character(fullList$AreaName[n]) #fullList$AreaCode[n]
   }
-  biTableMat
+  return(biTableMat)
+}
+
+
+# This function plots the colored map of two travel means
+biMap <- function(travelMeans)
+{
+  fullList <- prepareTwoMeans(travelMeans)
+  len <- length(fullList$AreaName)
+  fullList <- within(fullList, mix <- rgb(red=fullList$x, green=0, blue=fullList$y, maxColorValue=len))
+  
+  for (n in 1:67) {
+    fullList$r[n] <- col2rgb(fullList$mix[n])[,1][1]
+    fullList$g[n] <- col2rgb(fullList$mix[n])[,1][2]
+    fullList$b[n] <- col2rgb(fullList$mix[n])[,1][3]
+  }
+  
+  fullList[order(fullList$xpos,fullList$ypos),] 
+  plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
 }
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")

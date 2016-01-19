@@ -2,10 +2,71 @@
 
 # The following is for "selecting the cell and information shall be displayed on the RHS
 # 
-travelMeans <- c("02","04")
-test <- retrivingBiTable(t)
+colPal <- findColours(nclass, pal(length(nclass$brks-1)))
+
+
+names(listx)
+
+library(ggplot2)
+ggplot(listx, aes(x=listx$x, y=listx$y)) + 
+  geom_tile(aes(fill=mix), color="white") + 
+  scale_fill_identity()
+
+
+
+dat <- expand.grid(blue=seq(0, 100, by=10), red=seq(0, 100, by=10))
+dat <- within(dat, mix <- rgb(green=0, red=red, blue=blue, maxColorValue=100))
+
+library(ggplot2)
+ggplot(dat, aes(x=red, y=blue)) + 
+  geom_tile(aes(fill=mix), color="white") + 
+  scale_fill_identity()
+
+
+
+
+
+
+
+
+
+
+test <- retrivingBiTable(travelMeans)
+
+colnames(test) <- 1:length(test[1,])
+rownames(test) <- 1:length(test[1,])
+ 
+
+filled.contour(x=1:67,y=1:67,z=biMatrix)
+
+a <- expand.grid(1:20, 1:20)
+b <- matrix(a[,1] + a[,2], 20)
+t <- filled.contour(x = 1:20, y = 1:20, z = b,
+               plot.axes = { axis(1); axis(2); points(10, 10) })
+
+
+# Defining the color data for single table
+pal <- colorRampPalette(c("yellow","red"), space= "rgb")
+
+colPal <- findColours(nclass, pal(length(nclass$brks-1)))
+
+#Draw the coloured map and relevant details
+plot(shape, legend=FALSE, border = "Black", col= colPal)
+
+
+
+
+temp <- compute.cor(test, 'pearson')
+library(graphics)
+library("quantmod")
+require("quantmod")
+require('quantmod') || install.packages('quantmod')
+
+plot.table(test,  highlight=TRUE, colorbar = TRUE)
+
 
 head(test)
+attributes(biMatrix)
 head( as.table(test) )
 head( as.data.frame (test) )
 

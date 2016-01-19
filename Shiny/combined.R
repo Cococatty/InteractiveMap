@@ -1,4 +1,4 @@
-# LAST UPDATED AT 18/1 17.38
+# LAST UPDATED AT 19/1 1pm
 # 
 # NEXT TO DO: LINE 129
 
@@ -8,7 +8,7 @@ require("DT") || install.packages("DT")
 
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home//InteractiveMap/Shiny")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/Shiny")
 # setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
 # setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
 
@@ -119,7 +119,7 @@ server <- function(input, output, session) {
   })
   
   biTable <- reactive({
-    return(retrivingBiTable(input$travelMeans))
+    return(biTableMatrix(input$travelMeans))
   })
     
   ######## TBC -- NEED TO SHOW THE ROW NUMBER!! ######################################################################
@@ -153,7 +153,7 @@ server <- function(input, output, session) {
   output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
   
   output$oneMap <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
-  output$biMap  <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
+  output$biMap  <- renderPlot(biMap(input$travelMeans))
   
 }
 

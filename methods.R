@@ -87,3 +87,27 @@ for (n in 1:len) {
 }
 
 head(testmat)
+
+
+
+# The method to mix two colours together by xpos and ypos from the two-mean table
+travelMeans <- c("02","04")
+biMatrix <- retrivingBiTable(travelMeans)
+
+len <- length(biMatrix[1,])
+listx <- within(listx, mix <- rgb(red=listx$x, green=0, blue=listx$y, maxColorValue=len))
+
+for (n in 1:67) {
+  listx$r[n] <- col2rgb(listx$mix[n])[,1][1]
+  listx$g[n] <- col2rgb(listx$mix[n])[,1][2]
+  listx$b[n] <- col2rgb(listx$mix[n])[,1][3]
+}
+
+listx[order(listx$xpos,listx$ypos),] 
+plot(shape, legend=FALSE, border = "Black", col= listx$mix)
+
+# rpal <- colorRampPalette(c("white", "red"))
+# bpal <- colorRampPalette(c("white", "Blue"))
+# rcolors <- rpal(len)
+# bcolors <- bpal(len)
+
