@@ -143,14 +143,15 @@ prepareTwoMeans <- function(travelMeans) {
 biTableMatrix <- function(travelMeans) {
   fullList <- prepareTwoMeans(travelMeans)
   len <- length(fullList$AreaName)
-  biTableMat <- matrix(data = "", nrow = len, ncol = len)#, dimnames = list("")
+  biTableMat <- matrix(data = "", nrow = len, ncol = len, dimnames = list(seq(length = len), seq(length = len)))#, 
   
   for (n in 1:len) {
     x <- fullList$xpos[n]
     y <- fullList$ypos[n]
     biTableMat[x,y] <- as.character(fullList$AreaName[n]) #fullList$AreaCode[n]
   }
-  return(biTableMat)
+
+  return(as.data.frame(biTableMat) )
 }
 
 

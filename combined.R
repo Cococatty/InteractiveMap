@@ -23,10 +23,12 @@ maxGrp <- 2
 
 #Definte UI for the application
 ui <- fluidPage(
+  titlePanel(title = "Interactive Map of New Zealand", windowTitle = "Interactive Map of New Zealand"),
+  
   sidebarPanel(
     sliderInput("categories", "Number of Categories", min = 1, max = 10, value = 5
     )
-    
+    , br()
     , selectInput(
       "classIntMethod"#, "Division Method"
       , label = "Select the intervals"
@@ -40,7 +42,6 @@ ui <- fluidPage(
       , selected = "quantile"
       , multiple = FALSE
     )
-    
     , br()
     
     # The following part is groupCheckBox format for the travelMeans
@@ -52,27 +53,30 @@ ui <- fluidPage(
     )
     
     , br()
-    , height = "10%"
+#    , height = "10%"
+#     ,tags$head(
+#       tags$style(type="text/css", "select { max-width: 0px; }"),
+#       tags$style(type="text/css", ".span4 { max-width: 0px; }"),
+#       tags$style(type="text/css", ".well { max-width: 300px; }")
+#     )
+#    , width = 3
   ),
   
   #Show the map
   mainPanel(
-    h3("Map of New Zealand", align = "center")
+    #h3("Map of New Zealand", align = "center"),
     
-    , tabsetPanel(#type = "tabs",
-        tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr()
-                 , verbatimTextOutput("singleTableText")
-        )
-      , tabPanel("Single-Mean Plot", plotOutput("oneMap"))
-      , tabPanel("Two-way table", DT::dataTableOutput("biTable") # , height = "100%"
-      )
+    tabsetPanel(#type = "tabs",
+        tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
+        
+      , tabPanel("Single-Mean Plot", plotOutput("oneMap", width = "1200px", height = "800px"))
+      , tabPanel("Two-way table", DT::dataTableOutput("biTable"), hr(), verbatimTextOutput("biTableText"))
        
-      , tabPanel("Two-Mean Plot", plotOutput("biMap")
+      , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "1200px", height = "800px")
                  , verbatimTextOutput("biMapText"))
     )
     
     , position="center"
-    #, width= "auto" # THIS MAKES THE "UGLY LOOK" (DETAILS AT THE BOTTOM)
    , height= "auto"
   )
 )
@@ -87,29 +91,23 @@ server <- function(input, output, session) {
     onetable <- subset(newtable, newtable$MeanCode == tail(input$travelMeans, 1), select = -c(MeanCode)
                        , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
     onetable <- onetable[order(onetable$Percentage),]
+    row.names(onetable) <- seq(length = nrow(onetable))
+    return (onetable)
   })
   
-  ######## TBC -- NEED TO FIX THE ROW NUMBER!! ######################################################################
   output$onetable <- DT::renderDataTable({
     DT::datatable(
-      updateoneTable(), selection = "single" #list(target="cell")
+        updateoneTable(), selection = "none"
+      , extensions = list("Scroller")
+      , options = list(
+            scrollY = 700
+          , pageLength = 30
+          , lengthMenu = list(c(30, -1), c("30", "All"))
+      )
     )}
-    , include.rownames = FALSE
-    , options = list(paging = FALSE, searching = TRUE)
-    #, caption = paste("Travel mean: ", tail(input$travelMeans, 1)) ######## NOT WORKING
-    , caption.placement = getOption("xtable.caption.placement", "top")
-    , caption.width = getOption("xtable.caption.width", NULL)
     , server = TRUE
   )
-  
-  output$singleTableText <- renderPrint({
-    s = input$onetable_rows_selected
-    if (length(s)) {
-      cat('These rows were selected:\n\n')
-      cat(s, sep = ', ')
-    }
-  })
-  
+
   
   observe({
     if (length(input$travelMeans) > maxGrp)
@@ -118,33 +116,36 @@ server <- function(input, output, session) {
     }
   })
   
-  biTable <- reactive({
+  biTableT <- reactive({
     return(biTableMatrix(input$travelMeans))
   })
     
   ######## TBC -- NEED TO SHOW THE ROW NUMBER!! ######################################################################
   output$biTable <- DT::renderDataTable({
     DT::datatable(
-      biTable()
-       , extensions = "Scroller"
+        biTable()
+        , selection = list(mode = 'single', target = 'cell')
+      , extensions = list("Scroller", "RowReorder")
       , options = list(
-          deferRender = TRUE
-          , dom = "frtiS"#frtiS
-          , scrollY = 200
-          , scrollCollapse = TRUE
-          , autoWidth = TRUE
-         )
-   )
-  })
+            scrollX = 500
+          , scrollY = 700
+          , rowReorder = FALSE
+        )
+      
+    )
+    }
+    , options = list(
+        searchHighlight = TRUE
+      )
+  )
+  
+  output$biTableText <- renderPrint(input$biTable_cells_selected$value)
   
   output$biMapText <- renderText({
     paste("Red: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[1]]
           , "Purple: A combination of both travel means"
           , "Blue: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[2]], sep = "\n")
   })
-  
-  output$text1 <- renderText({paste("Travel mean: ", input$travelMeans, collapse = ',')})
-  output$text2 <- renderText({paste("Selected ", input$categories, " categories")})
   
   output$oneMap <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
   output$biMap  <- renderPlot(biMap(input$travelMeans))
