@@ -1,4 +1,4 @@
-# LAST UPDATED AT 19/1 1pm
+# LAST UPDATED AT 19/1 20.00
 # 
 # NEXT TO DO: LINE 
 
@@ -17,8 +17,8 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
-# setwd("/home/cococatty/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 

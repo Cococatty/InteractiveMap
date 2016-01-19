@@ -1,4 +1,4 @@
-# LAST UPDATED AT 19/1 1pm
+# LAST UPDATED AT 19/1 20.00
 # 
 # NEXT TO DO: LINE 
 
@@ -8,8 +8,8 @@ require("DT") || install.packages("DT")
 
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/Shiny")
-# setwd("/home/cococatty/Desktop/InteractiveMap/Shiny")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/Shiny")
+ setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
 
 
