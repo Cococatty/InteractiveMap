@@ -1,4 +1,4 @@
-# LAST UPDATED AT 19/1 20.00
+# LAST UPDATED AT 20/1, 2.00
 # 
 # NEXT TO DO: LINE 
 
@@ -53,19 +53,10 @@ ui <- fluidPage(
     )
     
     , br()
-#    , height = "10%"
-#     ,tags$head(
-#       tags$style(type="text/css", "select { max-width: 0px; }"),
-#       tags$style(type="text/css", ".span4 { max-width: 0px; }"),
-#       tags$style(type="text/css", ".well { max-width: 300px; }")
-#     )
-#    , width = 3
   ),
   
   #Show the map
   mainPanel(
-    #h3("Map of New Zealand", align = "center"),
-    
     tabsetPanel(#type = "tabs",
         tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
         
@@ -116,7 +107,7 @@ server <- function(input, output, session) {
     }
   })
   
-  biTableT <- reactive({
+  biTable <- reactive({
     return(biTableMatrix(input$travelMeans))
   })
     
@@ -124,7 +115,7 @@ server <- function(input, output, session) {
   output$biTable <- DT::renderDataTable({
     DT::datatable(
         biTable()
-        , selection = list(mode = 'single', target = 'cell')
+        , selection = list(mode = "single", target = "cell")
       , extensions = list("Scroller", "RowReorder")
       , options = list(
             scrollX = 500
