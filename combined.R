@@ -11,6 +11,8 @@ require("scatterD3") || install.packages("scatterD3")
 
 #devtools::install_github("rstudio/shiny")
 
+library(scatterD3)
+
 # Set the working directory and read the required data
  setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
 # setwd("/home/cococatty/Desktop/InteractiveMap")
@@ -63,10 +65,8 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(#type = "tabs",
       tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
-      
       , tabPanel("Single-Mean Plot", plotOutput("oneMap", width = "1200px", height = "800px"))
-      , tabPanel("Two-way table", DT::dataTableOutput("biTable"), hr(), verbatimTextOutput("biTableText"))
-      , tabPanel("Two-way Scatterplot", scatterD3Output("biScatter"), hr())
+      , tabPanel("Two-way Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "1200px", height = "800px")
                  , verbatimTextOutput("biMapText"))
     )
@@ -111,30 +111,6 @@ server <- function(input, output, session) {
     }
   })
   
-  biTable <- reactive({
-    return(biTableMatrix(input$travelMeans))
-  })
-  
-  ######## TBC -- NEED TO SHOW THE ROW NUMBER!! ######################################################################
-  output$biTable <- DT::renderDataTable({
-    DT::datatable(
-      biTable()
-      #, selection = list(mode = "single", target = "cell")
-      , extensions = list("Scroller", "RowReorder")
-      , options = list(
-        scrollX = 500
-        , scrollY = 700
-        , rowReorder = FALSE
-      )
-      
-    )
-  }
-  , options = list(
-    searchHighlight = TRUE
-  )
-  )
-  
-  output$biTableText <- renderPrint(input$biTable_cells_selected$value)
   
   output$biMapText <- renderText({
     paste("Red: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[1]]
@@ -145,20 +121,22 @@ server <- function(input, output, session) {
   output$oneMap <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
   output$biMap  <- renderPlot(biMap(input$travelMeans))
   
+  biList <- reactive({
+    prepareTwoMeans(input$travelMeans)
+  })
   
   output$biScatter <- renderScatterD3({
-    biList <- prepareTwoMeans(input$travelMeans)
-    
     tooltips <- paste("Territory Authority: ", biList$AreaName,"</strong><br /> Percentage of x: "
                       , biList$Percentage.x, "<br />"
                       , "Percentage of y: ", biList$Percentage.y)
     
     #</strong><br />
-    scatterD3(x = biList$Percentage.x, y = biList$Percentage.y
+    plot <- scatterD3(x = biList$Percentage.x, y = biList$Percentage.y
               , xlab = meandata$MeanName[meandata$MeanCode == unique(biList$MeanCode.x)]
               , ylab = meandata$MeanName[meandata$MeanCode == unique(biList$MeanCode.y)]
               , tooltip_text = tooltips
     )
+    return (plot)
   })
   
 }

@@ -1,6 +1,4 @@
-# This script is used for testing new method
-
-# The following is for "selecting the cell and information shall be displayed on the RHS
+# Scatterplot methods
 
 travelMeans <- c('02', '04')
 test <- prepareTwoMeans(travelMeans)
@@ -24,7 +22,7 @@ plot_ly(test
         #, color = test$Percentage.x
         #, size = test$Percentage.x
         , colors = test$mix
-        )
+)
 
 
 ##########################################
@@ -36,5 +34,5 @@ scatterD3(x = test$Percentage.x, y = test$Percentage.y
           , xlab = meandata$MeanName[meandata$MeanCode == unique(test$MeanCode.x)]
           , ylab = meandata$MeanName[meandata$MeanCode == unique(test$MeanCode.y)]
           , tooltip_text = tooltips
-          )
+)
 

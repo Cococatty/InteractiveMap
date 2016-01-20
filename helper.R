@@ -135,34 +135,19 @@ prepareTwoMeans <- function(travelMeans) {
   listy$ypos <- seq(length=nrow(listy))
   
   listx <- merge(listx, listy, by.x = c("AreaName"), by.y = c("AreaName"), all=TRUE)
+  len <- length(listx$AreaName)
+  listx <- within(listx, mix <- rgb(red=listx$x, green=0, blue=listx$y, maxColorValue=len))
+  
   return(listx)  
 }
 
-
-# This function generates the two-way table of two travel means
-biTableMatrix <- function(travelMeans) {
-  fullList <- prepareTwoMeans(travelMeans)
-  len <- length(fullList$AreaName)
-  biTableMat <- matrix(data = "", nrow = len, ncol = len, dimnames = list(seq(length = len), seq(length = len)))#, 
-  
-  for (n in 1:len) {
-    x <- fullList$xpos[n]
-    y <- fullList$ypos[n]
-    biTableMat[x,y] <- as.character(fullList$AreaName[n]) #fullList$AreaCode[n]
-  }
-  
-  return(as.data.frame(biTableMat) )
-}
 
 
 # This function plots the colored map of two travel means
 biMap <- function(travelMeans)
 {
   fullList <- prepareTwoMeans(travelMeans)
-  len <- length(fullList$AreaName)
-  fullList <- within(fullList, mix <- rgb(red=fullList$x, green=0, blue=fullList$y, maxColorValue=len))
-  #alpha=255, 
-  
+
   for (n in 1:len) {
     fullList$r[n] <- col2rgb(fullList$mix[n])[,1][1]
     fullList$g[n] <- col2rgb(fullList$mix[n])[,1][2]
