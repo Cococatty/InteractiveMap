@@ -1,18 +1,22 @@
-# LAST UPDATED AT 20/1, 2.00
+# LAST UPDATED AT 20/1, 12pm
 # 
 # NEXT TO DO: LINE 
 
 # Loading the requiring sources
+# update.packages(ask = FALSE)
+# update.packages(list("shiny","DT"))
 require("shiny") || install.packages("shiny")
 require("DT") || install.packages("DT")
+require("scatterD3") || install.packages("scatterD3")
 
+#devtools::install_github("rstudio/shiny")
 
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/Shiny")
- setwd("/home/cococatty/Desktop/InteractiveMap")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
 
-
+ 
 
 source("helper.R")
 
@@ -58,17 +62,17 @@ ui <- fluidPage(
   #Show the map
   mainPanel(
     tabsetPanel(#type = "tabs",
-        tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
-        
+      tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
+      
       , tabPanel("Single-Mean Plot", plotOutput("oneMap", width = "1200px", height = "800px"))
       , tabPanel("Two-way table", DT::dataTableOutput("biTable"), hr(), verbatimTextOutput("biTableText"))
-       
+      , tabPanel("Two-way Scatterplot", scatterD3Output("biScatter"), hr())
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "1200px", height = "800px")
                  , verbatimTextOutput("biMapText"))
     )
     
     , position="center"
-   , height= "auto"
+    , height= "auto"
   )
 )
 
@@ -88,17 +92,17 @@ server <- function(input, output, session) {
   
   output$onetable <- DT::renderDataTable({
     DT::datatable(
-        updateoneTable(), selection = "none"
+      updateoneTable(), selection = "none"
       , extensions = list("Scroller")
       , options = list(
-            scrollY = 700
-          , pageLength = 30
-          , lengthMenu = list(c(30, -1), c("30", "All"))
+        scrollY = 700
+        , pageLength = 30
+        , lengthMenu = list(c(30, -1), c("30", "All"))
       )
     )}
     , server = TRUE
   )
-
+  
   
   observe({
     if (length(input$travelMeans) > maxGrp)
@@ -110,24 +114,24 @@ server <- function(input, output, session) {
   biTable <- reactive({
     return(biTableMatrix(input$travelMeans))
   })
-    
+  
   ######## TBC -- NEED TO SHOW THE ROW NUMBER!! ######################################################################
   output$biTable <- DT::renderDataTable({
     DT::datatable(
-        biTable()
-        , selection = list(mode = "single", target = "cell")
+      biTable()
+      #, selection = list(mode = "single", target = "cell")
       , extensions = list("Scroller", "RowReorder")
       , options = list(
-            scrollX = 500
-          , scrollY = 700
-          , rowReorder = FALSE
-        )
+        scrollX = 500
+        , scrollY = 700
+        , rowReorder = FALSE
+      )
       
     )
-    }
-    , options = list(
-        searchHighlight = TRUE
-      )
+  }
+  , options = list(
+    searchHighlight = TRUE
+  )
   )
   
   output$biTableText <- renderPrint(input$biTable_cells_selected$value)
@@ -140,6 +144,22 @@ server <- function(input, output, session) {
   
   output$oneMap <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
   output$biMap  <- renderPlot(biMap(input$travelMeans))
+  
+  
+  output$biScatter <- renderScatterD3({
+    biList <- prepareTwoMeans(input$travelMeans)
+    
+    tooltips <- paste("Territory Authority: ", biList$AreaName,"</strong><br /> Percentage of x: "
+                      , biList$Percentage.x, "<br />"
+                      , "Percentage of y: ", biList$Percentage.y)
+    
+    #</strong><br />
+    scatterD3(x = biList$Percentage.x, y = biList$Percentage.y
+              , xlab = meandata$MeanName[meandata$MeanCode == unique(biList$MeanCode.x)]
+              , ylab = meandata$MeanName[meandata$MeanCode == unique(biList$MeanCode.y)]
+              , tooltip_text = tooltips
+    )
+  })
   
 }
 

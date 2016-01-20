@@ -3,45 +3,19 @@
 # The following is for "selecting the cell and information shall be displayed on the RHS
 
 travelMeans <- c('02', '04')
-test <- biTableMatrix(travelMeans)
-head(test[1:6, 1:6])
-attributes(test) 
-
-t <- iris[1:3,1:3]
-attributes(t)
-
-t[3,3]
-
-tt <- data.frame("", row.names = seq(67), col.names=seq(67))
+test <- prepareTwoMeans(travelMeans)
+head(test[1:6,])
+#attributes(test) 
 
 
-
-output$x31 = DT::renderDataTable(
-  df, server = FALSE, selection = list(mode = 'single', target = 'cell')
-)
-output$y31 = renderPrint(input$x31_cells_selected)
-
-
-output$x33 = DT::renderDataTable(
-  df, selection = list(mode = 'single', target = 'cell')
-)
-output$y33 = renderPrint(input$x33_cells_selected)
+library(scatterD3)
+tooltips <- paste("Territory Authority: ", test$AreaName,"</strong><br /> Percentage of x: "
+                  , test$Percentage.x, "<br />"
+                  , "Percentage of y: ", test$Percentage.y)
+scatterD3(x = test$Percentage.x, y = test$Percentage.y
+          , xlab = meandata$MeanName[meandata$MeanCode == unique(test$MeanCode.x)]
+          , ylab = meandata$MeanName[meandata$MeanCode == unique(test$MeanCode.y)]
+          , tooltip_text = tooltips
+          )
 
 
-
-6, h1('Client-side / Single selection'), hr(),
-DT::dataTableOutput('x31'),
-verbatimTextOutput('y31')
-),
-column(
-  6, h1('Client-side / Multiple selection'), hr(),
-  DT::dataTableOutput('x32'),
-  verbatimTextOutput('y32')
-)
-),
-fluidRow(
-  column(
-    6, h1('Server-side / Single selection'), hr(),
-    DT::dataTableOutput('x33'),
-    verbatimTextOutput('y33')
-  ),
