@@ -6,7 +6,9 @@ head(test[1:6,])
 #attributes(test) 
 
 
-
+library(googleVis)
+library(shiny)
+runGist(4970975)
 
 
 
