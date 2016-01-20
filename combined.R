@@ -3,24 +3,18 @@
 # NEXT TO DO: LINE 
 
 # Loading the requiring sources
-# update.packages(ask = FALSE)
-# update.packages(list("shiny","DT"))
+require("devtools") || install.packages("devtools")
+# devtools::install_github("juba/scatterD3")
 require("shiny") || install.packages("shiny")
 require("DT") || install.packages("DT")
-# require("scatterD3") || install.packages("scatterD3")
-require("googleVis") || install.packages("googleVis")
+require("scatterD3") || install.packages("scatterD3")
 
-#devtools::install_github("rstudio/shiny")
-
-#library(scatterD3)
-library(googleVis)
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
-# setwd("/home/cococatty/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
 
- 
 
 source("helper.R")
 
@@ -68,8 +62,7 @@ ui <- fluidPage(
     tabsetPanel(#type = "tabs",
       tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
       , tabPanel("Single-Mean Plot", plotOutput("oneMap", width = "1200px", height = "800px"))
-      #, tabPanel("Two-way Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
-      , tabPanel("Two-way Scatterplot", htmlOutput("biScatter"))
+      , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "1200px", height = "800px")
                  , verbatimTextOutput("biMapText"))
     )
@@ -128,22 +121,17 @@ server <- function(input, output, session) {
     prepareTwoMeans(input$travelMeans)
   })
   
-#   output$biScatter <- renderScatterD3({
-#     tooltips <- paste("Territory Authority: ", biList$AreaName,"</strong><br /> Percentage of x: "
-#                       , biList$Percentage.x, "<br />"
-#                       , "Percentage of y: ", biList$Percentage.y)
-#     
-#     #</strong><br />
-#     plot <- scatterD3(x = biList$Percentage.x, y = biList$Percentage.y
-#               , xlab = meandata$MeanName[meandata$MeanCode == unique(biList$MeanCode.x)]
-#               , ylab = meandata$MeanName[meandata$MeanCode == unique(biList$MeanCode.y)]
-#               , tooltip_text = tooltips
-#     )
-#     return (plot)
-#   })
-  
-  output$biScatter <- renderGvis({
-    gvisScatterChart(biList(), options=list(width=400, height=450))
+  output$biScatter <- renderScatterD3({
+    tooltips <- paste("<strong>Territory Authority: ", biList()$AreaName,"</strong><br /> Percentage of x: "
+                      , biList()$Percentage.x, "<br />"
+                      , "Percentage of y: ", biList()$Percentage.y)
+
+    plot <- scatterD3(x = biList()$Percentage.x, y = biList()$Percentage.y
+              , xlab = meandata$MeanName[meandata$MeanCode == unique(biList()$MeanCode.x)]
+              , ylab = meandata$MeanName[meandata$MeanCode == unique(biList()$MeanCode.y)]
+              , tooltip_text = tooltips
+    )
+    return (plot)
   })
 }
 

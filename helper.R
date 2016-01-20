@@ -17,8 +17,8 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
-# setwd("/home/cococatty/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
@@ -51,7 +51,7 @@ totalList <- setNames(aggregate(as.numeric(levels(geodata$Ppl)[geodata$Ppl]), by
 )
 
 #Calculate the percentages within Areas
-for (i in 1:length(geodata$Percentage))
+for (i in 1:nrow(geodata))
 {
   rowPpl <- as.numeric(levels(geodata$Ppl[i])[geodata$Ppl[i]])
   rowTotal <- ((totalList[totalList$AreaCode == geodata$AreaCode[i],]) $Total)
@@ -91,7 +91,7 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
                              , dataPrecision = 2)  
   }
   
-  colPal <- findColours(nclass, pal(length(nclass$brks-1)))
+  colPal <- findColours(nclass, pal(length(nclass$brks)-1))
   
   #Draw the coloured map and relevant details
   plot(shape, legend=FALSE, border = "Black", col= colPal)
@@ -131,12 +131,11 @@ prepareTwoMeans <- function(travelMeans) {
   listy <- subset(newtable[newtable$MeanCode==travelMeans[2],], select = -c(MeanName))
   listy <- listy[order(listy$Percentage),] 
   
-  listx$xpos <- seq(length=nrow(listx))
-  listy$ypos <- seq(length=nrow(listy))
+  listx$xpos <- seq(nrow(listx))
+  listy$ypos <- seq(nrow(listy))
   
   listx <- merge(listx, listy, by.x = c("AreaName"), by.y = c("AreaName"), all=TRUE)
-  len <- length(listx$AreaName)
-  listx <- within(listx, mix <- rgb(red=listx$x, green=0, blue=listx$y, maxColorValue=len))
+  listx <- within(listx, mix <- rgb(red=listx$x, green=0, blue=listx$y, maxColorValue=nrow(listx)))
   
   return(listx)  
 }
@@ -148,7 +147,7 @@ biMap <- function(travelMeans)
 {
   fullList <- prepareTwoMeans(travelMeans)
 
-  for (n in 1:len) {
+  for (n in 1:nrow(fullList)) {
     fullList$r[n] <- col2rgb(fullList$mix[n])[,1][1]
     fullList$g[n] <- col2rgb(fullList$mix[n])[,1][2]
     fullList$b[n] <- col2rgb(fullList$mix[n])[,1][3]

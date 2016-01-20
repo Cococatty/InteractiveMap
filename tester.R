@@ -11,7 +11,8 @@ help(classIntervals)
 
 #Testing the code
 numQUan=5
-travelMean = c('03')#c('03','09')
+#travelMean = c('03')
+travelMean = c('03','09')
 classIntMethod="pretty"
 singleMap(numQUan, travelMean, classIntMethod)
 
