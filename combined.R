@@ -1,18 +1,39 @@
-# LAST UPDATED AT 20/1, 12pm
+# LAST UPDATED AT 21/1, 13.00
 # 
 # NEXT TO DO: LINE 
 
+# defining a function 
+is.installed <- function(pkg_list) {
+  if (install.packages(pkg_list))
+  
+  #is.element(mypkg, installed.packages()[,1]) 
+}
+
+update.packages("DT")
+update.packages("htmltools")
+
+
+if (!require("devtools"))
+  install.packages("devtools")
+devtools::install_github("rstudio/shiny")
+
 # Loading the requiring sources
 require("devtools") || install.packages("devtools")
-# devtools::install_github("juba/scatterD3")
 require("shiny") || install.packages("shiny")
 require("DT") || install.packages("DT")
+
 require("scatterD3") || install.packages("scatterD3")
+library(scatterD3)
+library(shiny)
+#devtools::install_github("juba/scatterD3")
+
+
+
 
 
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
- setwd("/home/cococatty/Desktop/InteractiveMap")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap/Shiny")
 
 
@@ -24,7 +45,7 @@ maxGrp <- 2
 
 
 #Definte UI for the application
-ui <- fluidPage(
+ui <- shinyUI(fluidPage(
   titlePanel(title = "Interactive Map of New Zealand", windowTitle = "Interactive Map of New Zealand"),
   
   sidebarPanel(
@@ -61,9 +82,9 @@ ui <- fluidPage(
   mainPanel(
     tabsetPanel(#type = "tabs",
       tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
-      , tabPanel("Single-Mean Plot", plotOutput("oneMap", width = "1200px", height = "800px"))
+      , tabPanel("Single-Mean Plot", plotOutput("oneMap", width = "800px", height = "800px"))
       , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
-      , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "1200px", height = "800px")
+      , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")
                  , verbatimTextOutput("biMapText"))
     )
     
@@ -71,7 +92,7 @@ ui <- fluidPage(
     , height= "auto"
   )
 )
-
+)
 
 
 
@@ -82,7 +103,7 @@ server <- function(input, output, session) {
     onetable <- subset(newtable, newtable$MeanCode == tail(input$travelMeans, 1), select = -c(MeanCode)
                        , colnames = c('Territory', 'Mean Name', 'Number of People', 'Overall weight'))
     onetable <- onetable[order(onetable$Percentage),]
-    row.names(onetable) <- seq(length = nrow(onetable))
+    rownames(onetable) <- seq(length=nrow(onetable))
     return (onetable)
   })
   

@@ -1,0 +1,1 @@
+levelplot(matrix(1:100, 100), region=TRUE, col.regions=rainbow(100) )

@@ -1,0 +1,18 @@
+{
+    "contents" : "\n\n.libPaths( c( .libPaths(), \"~/userLibrary\") )\n.libPaths()[1]\n.libPaths()[2] <- NULL\n\n.libPaths()\n\n.lib.loc <- \"\\\\\\\\file/UsersY$/yzh215/Home/My Documents/R/win-library/3.2\"\n.libPaths( c(\"\\\\\\\\file/UsersY$/yzh215/Home/My Documents/R/win-library/3.2\") )",
+    "created" : 1453335757036.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "401046424",
+    "id" : "3646E21C",
+    "lastKnownWriteTime" : 1453337570,
+    "path" : "//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/library.R",
+    "project_path" : "library.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

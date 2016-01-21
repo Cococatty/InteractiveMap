@@ -1,4 +1,4 @@
-# LAST UPDATED AT 20/1, 12pm
+# LAST UPDATED AT 21/1, 13.00
 # 
 # NEXT TO DO: LINE 
 
@@ -17,8 +17,8 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
- setwd("/home/cococatty/Desktop/InteractiveMap")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
@@ -91,7 +91,8 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
                              , dataPrecision = 2)  
   }
   
-  colPal <- findColours(nclass, pal(length(nclass$brks)-1))
+  len <- length(nclass$brks)
+  colPal <- findColours(nclass, pal(len))
   
   #Draw the coloured map and relevant details
   plot(shape, legend=FALSE, border = "Black", col= colPal)
@@ -101,13 +102,13 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   legendText <- c()
   newText <- c()
   
-  for (i in 1:length(nclass$brks))
+  for (i in 1:len)
   {
     newText <- str_trim(paste(round(nclass$brks[i], digits = 2), '%'))
     legendT <- c(legendT, newText)
   }
   
-  for (i in 1:(length(nclass$brks)-1))
+  for (i in 1:(len-1))
   {
     newText <- c()
     if (i == 1 && classIntMethod != "fixed") {
@@ -119,7 +120,7 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
     legendText <- c(legendText, newText)
   }
   
-  legend('bottomright', legend= legendText, title = 'Legend', fill= pal(length(nclass$brks)-1), bty = 'o')#, pch= 1
+  legend('bottomright', legend= legendText, title = 'Legend', fill= pal(len), bty = 'o')#, pch= 1
 }
 
 
@@ -146,15 +147,8 @@ prepareTwoMeans <- function(travelMeans) {
 biMap <- function(travelMeans)
 {
   fullList <- prepareTwoMeans(travelMeans)
-
-  for (n in 1:nrow(fullList)) {
-    fullList$r[n] <- col2rgb(fullList$mix[n])[,1][1]
-    fullList$g[n] <- col2rgb(fullList$mix[n])[,1][2]
-    fullList$b[n] <- col2rgb(fullList$mix[n])[,1][3]
-  }
-  
-  fullList[order(fullList$xpos,fullList$ypos),] 
   plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
+  #legend('bottomright', legend = "x,y", title = 'Legend', fill= pal(fullList$mix), bty = 'o')#, pch= 1
 }
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")
