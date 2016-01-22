@@ -3,19 +3,19 @@
 # NEXT TO DO: LINE 
 
 # defining a function 
-is.installed <- function(pkg_list) {
-  if (install.packages(pkg_list))
+# is.installed <- function(pkg_list) {
+#   if (install.packages(pkg_list))
   
   #is.element(mypkg, installed.packages()[,1]) 
-}
+# }
 
-update.packages("DT")
-update.packages("htmltools")
+# update.packages("DT")
+# update.packages("htmltools")
 
 
 if (!require("devtools"))
   install.packages("devtools")
-devtools::install_github("rstudio/shiny")
+# devtools::install_github("rstudio/shiny")
 
 # Loading the requiring sources
 require("devtools") || install.packages("devtools")

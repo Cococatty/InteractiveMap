@@ -64,7 +64,7 @@ shape <- shape[!(shape@data$TA2013_NAM == 'Chatham Islands Territory' | shape@da
 shape@data <- merge(shape@data,geodata,by.x="TA2013",by.y="AreaCode", all.x= TRUE )#, replace = TRUE 
 shape@data$Ppl <- as.numeric(levels(shape@data$Ppl)[shape@data$Ppl])
 shape@data$Percentage[is.na(shape@data$Percentage)] <- 0
-shape@data$Percentage <- round(shape@data$Percentage*100,4)
+shape@data$Percentage <- round(shape@data$Percentage*100,1)
 
 # Generating the base of the singleTable (table for single travel mean) in UI
 newtable <- subset(shape@data)
@@ -79,16 +79,16 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   
   if (classIntMethod == "fixed") {
     breakList <- c(min(shape@data$Percentage[shape@data$Mean==travelMean]))
-    unit <- round(max(shape@data$Percentage[shape@data$Mean==travelMean])/numQUan, digits = 2)
+    unit <- round(max(shape@data$Percentage[shape@data$Mean==travelMean])/numQUan, digits = 1)
     for (i in 1:numQUan) {
       breakList <- c(breakList, unit*i)
     }
     
     nclass <- classIntervals(shape@data$Percentage[shape@data$MeanCode==travelMean], n= numQUan, style = classIntMethod
-                             , fixedBreaks = breakList, dataPrecision = 2)
+                             , fixedBreaks = breakList, dataPrecision = 1)
   } else {
     nclass <- classIntervals(shape@data$Percentage[shape@data$MeanCode==travelMean], n= numQUan, style = classIntMethod
-                             , dataPrecision = 2)  
+                             , dataPrecision = 1)  
   }
   
   len <- length(nclass$brks)
@@ -104,7 +104,7 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   
   for (i in 1:len)
   {
-    newText <- str_trim(paste(round(nclass$brks[i], digits = 2), '%'))
+    newText <- str_trim(paste(round(nclass$brks[i], digits = 1), '%'))
     legendT <- c(legendT, newText)
   }
   
@@ -136,7 +136,8 @@ prepareTwoMeans <- function(travelMeans) {
   listy$ypos <- seq(nrow(listy))
   
   listx <- merge(listx, listy, by.x = c("AreaName"), by.y = c("AreaName"), all=TRUE)
-  listx <- within(listx, mix <- rgb(red=listx$x, green=0, blue=listx$y, maxColorValue=nrow(listx)))
+  listx <- within(listx, mix <- rgb(red=255*listx$x/nrow(listx), green=0, blue=255*listx$y/nrow(listx)
+                                    , maxColorValue=255))
   
   return(listx)  
 }

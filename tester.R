@@ -14,7 +14,7 @@ numQUan=5; travelMean = c('03'); classIntMethod="pretty";
 singleMap(numQUan, travelMean, classIntMethod)
 
 
-numQUan=5; travelMean = c('03','09'); classIntMethod="pretty";
+numQUan=5; travelMeans = c('03','09'); classIntMethod="pretty";
 t <- prepareTwoMeans(travelMean)
 head(t)
 biMap(travelMean)
