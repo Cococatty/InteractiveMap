@@ -56,7 +56,6 @@ ui <- shinyUI(fluidPage(
       "classIntMethod"#, "Division Method"
       , label = "Select the intervals"
       , choices = list("Equal" = "equal"
-                       , "Fisher" = "fisher"
                        , "Fixed"= "fixed"
                        , "Pretty" = "pretty"
                        , "Quantiles" = "quantile"
