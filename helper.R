@@ -50,7 +50,7 @@ totalList <- setNames(aggregate(as.numeric(levels(geodata$Ppl)[geodata$Ppl]), by
                       , c('AreaCode', 'Total')
 )
 
-#Calculate the percentages within Areas
+# Calculate the percentages within Areas
 for (i in 1:nrow(geodata))
 {
   rowPpl <- as.numeric(levels(geodata$Ppl[i])[geodata$Ppl[i]])
@@ -94,7 +94,7 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   len <- length(nclass$brks)
   colPal <- findColours(nclass, pal(len))
   
-  #Draw the coloured map and relevant details
+  # Draw the coloured map and relevant details
   plot(shape, legend=FALSE, border = "Black", col= colPal)
   
   #Setting up the legend text in the proper percentages format
@@ -121,6 +121,7 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   }
   
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(len), bty = 'o')#, pch= 1
+  #legend('bottomright', legend= nclass$brk, title = 'Legend', fill= pal(len), bty = 'o')#, pch= 1
 }
 
 
