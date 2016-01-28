@@ -1,6 +1,6 @@
-# LAST UPDATED AT 21/1, 13.00
+# LAST UPDATED AT 28/1 17.26
 # 
-# NEXT TO DO: LINE 
+# NEXT TO DO: CHANGE THE "MIX" TO A MEANINGFUL NAME
 
 # defining a function 
 # is.installed <- function(pkg_list) {
@@ -32,9 +32,9 @@ library(shiny)
 
 
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
 # setwd("/home/cococatty/Desktop/InteractiveMap")
- setwd("C:/Users/User/Desktop/InteractiveMap")
+# setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
 source("helper.R")
