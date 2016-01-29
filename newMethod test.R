@@ -7,58 +7,38 @@ test <- prepareTwoMeans(travelMeans)
 head(test[1:6,])
 #attributes(test) 
 
-
-colorList <- list()
-
-pts <- list(x = cars[,1], y = cars[,2])
-
-t <- list(c(0,255,255), c(0,0,255))
+dat <- expand.grid(blue=seq(255, 0, by=10), red=seq(255, 0, by=10))
 
 
+# 1. NEED TO FIX THE 0,0 SAME AS 2.
+dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10))
+dat <- within(dat, mix <- rgb(green=0, red=red, blue=blue, maxColorValue=255))
+library(ggplot2)
+ggplot(dat, aes(x=red, y=blue)) + 
+  geom_tile(aes(fill=mix)) + 
+  scale_fill_identity()
 
-df <- data.frame(row.names = 67, col.names = 67)
+head(dat)
 
-mat <- matrix(nrow=5, ncol=5, dimnames = list(1:5, 1:5))
-mat <- matrix(nrow=6, ncol=6)
-mat[1,] <- 1 #row
-mat["1","1"]
-mat[,] <- colnames(mat)
-mat[[1]]
-mat[[2]]
-attributes(mat)
-mat["dim"]
-mat[0,0]
-mat[1,1]
-mat[1,2] <- 3
-n <- 1
-for (n in 1:mat[1,n]) {
-  
-}
-colnames(mat)[1]
-rgb(0, 1, 0)
+dat(dat[red==0 && blue==0,])
 
-rgb((0:15)/15, green = 0, blue = 0, names = paste("red", 0:15, sep = "."))
-
-g <- rgb(0, 0:12, 0, max = 15) # integer input
-
-ramp <- colorRamp(c("red", "white"))
-plot.new()
-rgb( ramp(seq(0, 1, length = 5)), max = 255)
-legend('bottomright',legend = 1:5, fill = rgb( ramp(seq(0, 1, length = 5)), max = 255))
-legend('bottomright',legend = 1:5, fill = g)
+dat[dat$red==1,]
 
 
-legend('bottomright', legend= legendText, title = 'Legend', fill= pal(len), bty = 'o')#, pch= 1
+# 2. NEED TO FIX THE 0,0 SAME AS 1.
+dat <- expand.grid(blue=seq(0, 255, by=10), red=seq(0, 255, by=10))
+dat <- within(dat, mix <- rgb(green=0, red=red, blue=blue, maxColorValue=255))
+
+library(ggplot2)
+ggplot(dat, aes(x=red, y=blue)) + 
+  geom_tile(aes(fill=mix)) + 
+  scale_fill_identity()
 
 
-rgbpal <- rgb(0:255, 0, 0:255, maxColorValue = 255)
-legend('bottomright',legend = 0:10, fill = rgbpal)
-
-
-mat <- matrix(nrow=5, ncol=5)
-pal <- rgb(red=)
-
-
-
-mix <- rgb(red=255*listx$x/nrow(listx), green=0, blue=255*listx$y/nrow(listx)
-           , maxColorValue=255)
+# 3. NEED TO FIX THE 0,0 SAME AS 2.
+dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10))
+dat <- within(dat, mix <- rgb(green=0, red=rev(red), blue=rev(blue), maxColorValue=255))
+library(ggplot2)
+ggplot(dat, aes(x=red, y=blue)) + 
+  geom_tile(aes(fill=mix)) + 
+  scale_fill_identity()

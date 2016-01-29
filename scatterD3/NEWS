@@ -1,0 +1,63 @@
+scatterD3 0.6
+------------------------------------------------------
+
+* New feature : allow to draw confidence ellipses for all points or for col_var groups
+* Bugfix : underscores appearing instead of spaces in legend text (thanks @TimBock)
+* Bugfix : xlim and ylim not taken ignored when fixed = TRUE (thanks @TimBock)
+* Bugfix : legend must not be displayed when legend_width = 0 and fixed = TRUE (thanks @TimBock)
+* Bugfix : wrong legend hover highlighting when the label is "0"
+
+
+scatterD3 0.5.1
+------------------------------------------------------
+
+* Fix zoom reset when several charts in the same shiny app
+* Switch to 20 colors ordinary scales if there are more than 10 color variable levels
+* Bugfix : wrong svg reference passed to hover legend functions when several scatterD3 instances in the same shiny app
+* Make point labels updatable
+* Manage changes of unit_circle settings
+
+
+scatterD3 0.5
+------------------------------------------------------
+
+* Bugfixes for when several scatterD3 instances are in the same shiny app
+* Fix `fixed` 1:1 aspect ratio not working as intended
+* New `unit_circle` argument to draw a unit circle around origin
+* Text labels are placed below the corresponding arrow by default when y < 0
+* New `type_var` argument, which allows to selectively draw arrows (starting from origin) instead of points
+
+
+scatterD3 0.4
+------------------------------------------------------
+
+* A temporary line is drawn between text and point when dragging a label
+* Fix plots updating when several widgets are in the same shiny app
+* Fix tooltips not showing in Firefox
+* Fix clip-path URL problems when exporting to SVG
+
+
+scatterD3 0.3
+------------------------------------------------------
+
+* Charts integrated into a shiny app are now fully updatable : when data or settings change, the plot is updated with smooth transitions instead of being redrawn. See the `transitions` and `key_var` arguments.
+* HTML DOM id of elements linked to the "Reset zoom" and "Export to SVG" features can now be given as arguments.
+
+
+scatterD3 0.2
+------------------------------------------------------
+
+* Add `colors` argument to specify a custom set of point colors. A named vector can be used to directly map values to colors (Thanks @timelyportfolio)
+* Complete code reorganisation, much cleaner
+* New `legend_width` argument
+* Use `d3-legend` plugin for legend generation (http://d3-legend.susielu.com/)
+* New `xlim` and `ylim` arguments for manual axis limits specification (Thanks @tinyheero)
+* Fix tooltips not showing under Shiny/Bootstrap (Thanks @tinyheero for reporting)
+* Fix tooltip content when several scatter plots are displayed on the same page
+* Respect custom label position when zooming
+
+
+scatterD3 0.1.1
+------------------------------------------------------
+
+* First version
