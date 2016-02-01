@@ -85,6 +85,7 @@ ui <- shinyUI(fluidPage(
       , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")
                  , verbatimTextOutput("biMapText"))
+      , tabPanel("legend", plotOutput("legend"))
     )
     
     , position="center"
@@ -153,6 +154,15 @@ server <- function(input, output, session) {
     )
     return (plot)
   })
+  
+  biLegend <- reactive({
+    
+      colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), -10)
+    #, input$travelMeans)
+    
+  })
+  
+  output$legend <- renderPlot({biLegend()})
 }
 
 shinyApp(ui = ui, server = server)
