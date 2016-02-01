@@ -17,8 +17,8 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
-# setwd("/home/cococatty/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
@@ -121,7 +121,6 @@ singleMap <- function(numQUan, travelMean, classIntMethod)
   }
   
   legend('bottomright', legend= legendText, title = 'Legend', fill= pal(len), bty = 'o')#, pch= 1
-  #legend('bottomright', legend= nclass$brk, title = 'Legend', fill= pal(len), bty = 'o')#, pch= 1
 }
 
 
@@ -144,28 +143,29 @@ prepareTwoMeans <- function(travelMeans) {
 }
 
 
-
-# This function plots the colored map of two travel means
-biMap <- function(travelMeans)
-{
-  fullList <- prepareTwoMeans(travelMeans)
-  plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
-  #legend('bottomright', legend = "x,y", title = 'Legend', fill= pal(fullList$mix), bty = 'o')#, pch= 1
-}
-
-
 # Function to plot color bar
-colorbar <- function(lut, min, max=-min, nticks=5, ticks=seq(min, max, len=nticks)) {#, travelMeans
+colorbar <- function(lut, travelMeans, min, max=-min, nticks=5, ticks=seq(min, max, len=nticks)) {#, travelMeans
   scale = (length(lut)-1)/(max-min)
   
-#  dev.new(width=1.75, height=5)
-  plot(c(0,10), c(min,max), type='n', bty='n', xaxt='n', xlab=travelMeans[1], yaxt='n', ylab=travelMeans[2], main='Legend', border = 'black')
+  plot(c(0,10), c(min,max), type='n', bty='n', xaxt='n', xlab=travelMeans[1], yaxt='n', ylab=travelMeans[2]
+       , main='Legend', border = 'black')
   axis(2, ticks, las=1)
   for (i in 1:(length(lut)-1)) {
     y = (i-1)/scale + min
     rect(0,y,10,y+1/scale, col=lut[i], border= NA)#, border= "solid"
   }
 }
+
+
+# This function plots the colored map of two travel means
+biMap <- function(travelMeans)
+{
+  fullList <- prepareTwoMeans(travelMeans)
+  par(mfrow=c(1,2))
+  plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
+  colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), travelMeans, -10)
+}
+
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")
 #title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))

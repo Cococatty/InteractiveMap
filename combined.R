@@ -32,8 +32,8 @@ library(shiny)
 
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
-# setwd("/home/cococatty/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
@@ -156,10 +156,7 @@ server <- function(input, output, session) {
   })
   
   biLegend <- reactive({
-    
-      colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), -10)
-    #, input$travelMeans)
-    
+      colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), input$travelMeans, -10)
   })
   
   output$legend <- renderPlot({biLegend()})
