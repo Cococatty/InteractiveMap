@@ -78,6 +78,7 @@ colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), -1
 
 
 
+
 ?plot
 colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), -10
 
