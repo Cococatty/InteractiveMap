@@ -31,18 +31,40 @@ head(dat)
 
 
 # 2. NEED TO FIX THE 0,0 SAME AS 1.
-dat <- expand.grid(blue=seq(0, 255, by=10), red=seq(0, 255, by=10))
-dat <- within(dat, mix <- rgb(green=0, red=red, blue=blue, maxColorValue=255))
+    dat <- expand.grid(blue=seq(0, 255, by=10), red=seq(0, 255, by=10))
+    dat <- within(dat, mix <- rgb(green=0, red=red, blue=blue, maxColorValue=255))
+    
+    library(ggplot2)
+    ggplot(dat, aes(x=red, y=blue)) + 
+      geom_tile(aes(fill=mix)) + 
+      scale_fill_identity()
 
+
+    # green=seq(255, 0, by = -10) -- R, P, B & BLACK
+    
+    
+    dat <- expand.grid(red=seq(255, 0, by=-10), blue=seq(255, 0, by=-10), green = 175)
+    dat <- within(dat, mix <- rgb(green=green, red=rev(red), blue=rev(blue), maxColorValue=255))
+    
+    library(ggplot2)
+    ggplot(dat, aes(x=red, y=blue)) + 
+      geom_tile(aes(fill=mix)) + 
+      scale_fill_identity()
+    
+    
+# 4. WHITE AT 0,0 BUT YELLOW, BLUE & GREEN
+dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10), green=seq(0,255, by = 10))
+dat <- within(dat, mix <- rgb(green=green, red=rev(red), blue=rev(blue), maxColorValue=255))
 library(ggplot2)
 ggplot(dat, aes(x=red, y=blue)) + 
   geom_tile(aes(fill=mix)) + 
   scale_fill_identity()
 
 
-# 3. NEED TO FIX THE 0,0 SAME AS 2.
-dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10))
-dat <- within(dat, mix <- rgb(green=0, red=rev(red), blue=rev(blue), maxColorValue=255))
+
+
+dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10), green=seq(255,0, by = -5))
+dat <- within(dat, mix <- rgb(green=green, red=rev(red), blue=rev(blue), maxColorValue=255))
 library(ggplot2)
 ggplot(dat, aes(x=red, y=blue)) + 
   geom_tile(aes(fill=mix)) + 
@@ -50,6 +72,7 @@ ggplot(dat, aes(x=red, y=blue)) +
 
 
 
+# UGLY!!
 image(matrix(1:400, 20), col = blue2red(400))
 matrix(1:400, 20)
 image(matrix(1:400, 20), col = blue2green(400))
@@ -74,13 +97,6 @@ colorbar <- function(lut, min, max=-min, nticks=5, ticks=seq(min, max, len=ntick
 }
 
 colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), -10)
-
-
-
-
-
-?plot
-colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), -10
 
 
 
