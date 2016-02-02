@@ -32,8 +32,8 @@ library(shiny)
 
 
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
- setwd("/home/cococatty/Desktop/InteractiveMap")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
@@ -85,7 +85,7 @@ ui <- shinyUI(fluidPage(
       , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")
                  , verbatimTextOutput("biMapText"))
-      , tabPanel("legend", plotOutput("legend"))
+      #, tabPanel("legend", plotOutput("legend"))
     )
     
     , position="center"

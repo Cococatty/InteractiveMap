@@ -31,8 +31,9 @@ head(dat)
 
 
 # 2. NEED TO FIX THE 0,0 SAME AS 1.
-dat <- expand.grid(blue=seq(0, 255, by=10), red=seq(0, 255, by=10))
-dat <- within(dat, mix <- rgb(green=0, red=red, blue=blue, maxColorValue=255))
+dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10),green=seq(0, 255, by=10))
+dat$green <- (dat$red + dat$blue)/2
+dat <- within(dat, mix <- rgb(green=green, red=red, blue=blue, maxColorValue=255))
 
 library(ggplot2)
 ggplot(dat, aes(x=red, y=blue)) + 
