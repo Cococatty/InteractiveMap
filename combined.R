@@ -2,20 +2,10 @@
 # 
 # NEXT TO DO: CHANGE THE "MIX" TO A MEANINGFUL NAME
 
-# defining a function 
-# is.installed <- function(pkg_list) {
-#   if (install.packages(pkg_list))
-  
-  #is.element(mypkg, installed.packages()[,1]) 
-# }
-
-# update.packages("DT")
-# update.packages("htmltools")
-
 
 if (!require("devtools"))
   install.packages("devtools")
-# devtools::install_github("rstudio/shiny")
+devtools::install_github("rstudio/shiny")
 
 # Loading the requiring sources
 require("devtools") || install.packages("devtools")
@@ -85,6 +75,7 @@ ui <- shinyUI(fluidPage(
       , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")
                  , verbatimTextOutput("biMapText"))
+
       #, tabPanel("legend", plotOutput("legend"))
     )
     
@@ -154,12 +145,6 @@ server <- function(input, output, session) {
     )
     return (plot)
   })
-  
-  biLegend <- reactive({
-      colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), input$travelMeans, -10)
-  })
-  
-  output$legend <- renderPlot({biLegend()})
 }
 
 shinyApp(ui = ui, server = server)
