@@ -17,9 +17,9 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
 # setwd("/home/cococatty/Desktop/InteractiveMap")
-# setwd("C:/Users/User/Desktop/InteractiveMap")
+ setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
 # Reading required data
@@ -144,12 +144,13 @@ prepareTwoMeans <- function(travelMeans) {
 
 
 # Function to plot color bar
-colorbar <- function(lut, travelMeans, min, max=-min, nticks=5, ticks=seq(min, max, len=nticks)) {#, travelMeans
+colorbar <- function(colourlist, travelMeans, min, max=-min, nticks=5, ticks=seq(min, max, len=nticks)) {#, travelMeans
+  lut <- colorRampPalette(colourlist)(100)
   scale = (length(lut)-1)/(max-min)
-  
-  plot(c(0,10), c(min,max), type='n', bty='n', xaxt='n', xlab=travelMeans[1], yaxt='n', ylab=travelMeans[2]
-       , main='Legend', border = 'black')
-  axis(2, ticks, las=1)
+  plot(c(0,10), c(min,max), type='n', bty='n', xaxt='n', yaxt='n', ylab= NA, xlab=NA
+       , main='Legend')#, border = 'black'
+  axis(2, ticks, labels = c('Neutral', as.character(meandata$MeanName[meandata$MeanCode == travelMeans[1]])
+                            , 'Both', as.character(meandata$MeanName[meandata$MeanCode == travelMeans[2]]), 'Neutral'), las=1)
   for (i in 1:(length(lut)-1)) {
     y = (i-1)/scale + min
     rect(0,y,10,y+1/scale, col=lut[i], border= NA)#, border= "solid"
@@ -163,7 +164,8 @@ biMap <- function(travelMeans)
   fullList <- prepareTwoMeans(travelMeans)
   par(mfrow=c(1,2))
   plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
-  colorbar(colorRampPalette(c("white", "red", "purple", "blue", "white"))(100), travelMeans, -10)
+  #plot.new()
+  colorbar(c("white", "red", "purple", "blue", "white"), travelMeans, -10)
 }
 
 

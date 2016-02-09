@@ -4,7 +4,7 @@ remove(shape)
 remove(allgeodata)
 closeAllConnections()
 
-
+c(-10,10)
 
 help(classIntervals)
 
@@ -17,7 +17,7 @@ singleMap(numQUan, travelMean, classIntMethod)
 numQUan=5; travelMeans = c('03','09'); classIntMethod="pretty";
 t <- prepareTwoMeans(travelMean)
 head(t)
-biMap(travelMean)
+biMap(travelMeans)
 legend('bottomright', legend = "x,y", title = 'Legend', fill= pal(fullList$mix), bty = 'o')#, pch= 1
 
 
