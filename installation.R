@@ -1,9 +1,14 @@
-install.packages('devtools', lib = '\\file/UsersY$/yzh215/Home/Desktop/InteractiveMap/library')
+install.packages('devtools', lib='\\\\file/UsersY$/yzh215/Home/Desktop/InteractiveMap/library')
+devtools::install_github('rstudio/shinyapps')
+devtools::install_github('rstudio/shinyapps', lib='\\\\file/UsersY$/yzh215/Home/Desktop/InteractiveMap/library')
+devtools::install_github('rstudio/rsconnect', lib='\\\\file/UsersY$/yzh215/Home/Desktop/InteractiveMap/library')
+
+library(rsconnect)
 library(devtools)
 require(devtools)
-devtools::install_github('rstudio/shinyapps')
-devtools::install_github('rstudio/rsconnect')
-library(rsconnect)
+shinyapps::setAccountInfo(name='cococatty',
+                          token='BAA55CC8266D6568314316A22101AEEA',
+                          secret='<SECRET>')
 
 
 ####################################################################################################

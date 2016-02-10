@@ -1,4 +1,4 @@
-# LAST UPDATED AT 28/1 17.26
+# LAST UPDATED AT 10/2, 12pm
 # 
 # NEXT TO DO: CHANGE THE "MIX" TO A MEANINGFUL NAME
 
@@ -18,13 +18,10 @@ library(shiny)
 #devtools::install_github("juba/scatterD3")
 
 
-
-
-
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
 # setwd("/home/cococatty/Desktop/InteractiveMap")
- setwd("C:/Users/User/Desktop/InteractiveMap")
+# setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
 source("helper.R")
@@ -71,7 +68,8 @@ ui <- shinyUI(fluidPage(
   mainPanel(
     tabsetPanel(#type = "tabs",
       tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
-      , tabPanel("Single-Mean Plot", plotOutput("oneMap", width = "800px", height = "800px"))
+      , tabPanel("Single-Mean Plot", #textOutput("oneMapText"),  
+                 plotOutput("oneMap", width = "800px", height = "800px"))
       , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")
                  , verbatimTextOutput("biMapText"))
@@ -127,6 +125,7 @@ server <- function(input, output, session) {
   })
   
   output$oneMap <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
+#  output$oneMapText <- renderText({ paste("Selected travel mean: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[2]] )})
   output$biMap  <- renderPlot(biMap(input$travelMeans))
   
   biList <- reactive({
