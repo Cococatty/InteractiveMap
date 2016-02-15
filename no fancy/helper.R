@@ -17,8 +17,8 @@ require("stringr") || install.packages("stringr")
 travelMean <- c()
 
 # Set the working directory and read the required data
-# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
- setwd("/home/cococatty/Desktop/InteractiveMap")
+ setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
@@ -143,65 +143,31 @@ prepareTwoMeans <- function(travelMeans) {
 }
 
 
-# Required function 'val2col' is from: http://www.menugget.blogspot.de/2011/09/converting-values-to-color-levels.html
-val2col<-function(z, zlim, col = heat.colors(12), breaks){
-  if(!missing(breaks)){
-    if(length(breaks) != (length(col)+1)){stop("must have one more break than colour")}
+# Function to plot color bar
+colorbar <- function(colourlist, travelMeans, min, max=-min, nticks=5, ticks=seq(min, max, len=nticks)) {#, travelMeans
+  lut <- colorRampPalette(colourlist)(100)
+  scale = (length(lut)-1)/(max-min)
+  plot(c(0,10), c(min,max), type='n', bty='n', xaxt='n', yaxt='n', ylab= NA, xlab=NA
+       , main='Legend')#, border = 'black'
+  axis(2, ticks, labels = c('Neutral', as.character(meandata$MeanName[meandata$MeanCode == travelMeans[1]])
+                            , 'Both', as.character(meandata$MeanName[meandata$MeanCode == travelMeans[2]]), 'Neutral'), las=1)
+  for (i in 1:(length(lut)-1)) {
+    y = (i-1)/scale + min
+    rect(0,y,10,y+1/scale, col=lut[i], border= NA)#, border= "solid"
   }
-  if(missing(breaks) & !missing(zlim)){
-    zlim[2] <- zlim[2]+c(zlim[2]-zlim[1])*(1E-3)#adds a bit to the range in both directions
-    zlim[1] <- zlim[1]-c(zlim[2]-zlim[1])*(1E-3)
-    breaks <- seq(zlim[1], zlim[2], length.out=(length(col)+1)) 
-  }
-  if(missing(breaks) & missing(zlim)){
-    zlim <- range(z, na.rm=TRUE)
-    zlim[2] <- zlim[2]+c(zlim[2]-zlim[1])*(1E-3)#adds a bit to the range in both directions
-    zlim[1] <- zlim[1]-c(zlim[2]-zlim[1])*(1E-3)
-    breaks <- seq(zlim[1], zlim[2], length.out=(length(col)+1))
-  }
-  colorlevels <- col[((as.vector(z)-breaks[1])/(range(breaks)[2]-range(breaks)[1]))*(length(breaks)-1)+1] # assign colors to heights for each point
-  colorlevels
 }
 
-
-plotLegend <- function(travelMeans){
-  x <- seq(255)
-  y <- seq(255)
-  grd <- expand.grid(x=x,y=y)
-  
-  #assign colors to grd levels
-  pal1 <- colorRampPalette(c("white", "red"), space = "rgb")
-  col1 <- val2col(x, col=pal1(255))
-  pal2 <- colorRampPalette(c("white", "blue"), space = "rgb")
-  col2 <- val2col(y, col=pal2(255))
-  col3 <- NA*seq(nrow(grd)) 
-  for(i in seq(nrow(grd))){
-    xpos <- grd$x[i]
-    ypos <- grd$y[i]
-    coltmp <- (col2rgb(col1[xpos])/2) + (col2rgb(col2[ypos])/2)
-    col3[i] <- rgb(coltmp[1], coltmp[2], coltmp[3], maxColorValue = 255)
-    # grd$col[grd$x==xpos & grd$y==ypos] <- col3[i]
-    
-  }
-#  head(grd)
-  layout(matrix(c(1,2,3), nrow=1, ncol=3), widths=c(2,1,1), heights=2, respect=T)
-  plot(grd,col=col3, pch=19, xlab= meandata$MeanName[meandata$MeanCode==travelMeans[2]]
-       , ylab= meandata$MeanName[meandata$MeanCode==travelMeans[1]] , xaxt='n', yaxt='n')
-  return(grd)
-}
 
 # This function plots the colored map of two travel means
 biMap <- function(travelMeans)
 {
   fullList <- prepareTwoMeans(travelMeans)
-#   grd <- plotLegend(travelMeans)
-#   for (i in nrow(fullList)){
-#     fullList$col <- grd$col[grd$x==fullList$xpos & grd$y==fullList$ypos]
-#   }
-
-  # plot(shape, legend=FALSE, border = "Black", col= fullList$col)
+  par(mfrow=c(1,2))
   plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
+  #plot.new()
+  colorbar(c("white", "red", "purple", "blue", "white"), travelMeans, -10)
 }
+
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")
 #title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))

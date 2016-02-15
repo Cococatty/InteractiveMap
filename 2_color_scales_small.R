@@ -21,15 +21,15 @@ val2col<-function(z, zlim, col = heat.colors(12), breaks){
 
 
 #data
-x <- seq(5)
-y <- seq(5)
+x <- seq(255)
+y <- seq(255)
 grd <- expand.grid(x=x,y=y)
 
 #assign colors to grd levels
 pal1 <- colorRampPalette(c("white", "red"), space = "rgb")
-col1 <- val2col(x, col=pal1(5))
+col1 <- val2col(x, col=pal1(255))
 pal2 <- colorRampPalette(c("white", "blue"), space = "rgb")
-col2 <- val2col(y, col=pal2(5))
+col2 <- val2col(y, col=pal2(255))
 col3 <- NA*seq(nrow(grd))
 for(i in seq(nrow(grd))){
   xpos <- grd$x[i]
