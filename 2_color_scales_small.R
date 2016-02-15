@@ -1,4 +1,4 @@
-# Required function 'val2col' is from: http://www.menugget.blogspot.de/2011/09/converting-values-to-color-levels.html
+#required function 'val2col' from: http://www.menugget.blogspot.de/2011/09/converting-values-to-color-levels.html
 
 val2col<-function(z, zlim, col = heat.colors(12), breaks){
   if(!missing(breaks)){
@@ -21,37 +21,29 @@ val2col<-function(z, zlim, col = heat.colors(12), breaks){
 
 
 #data
-x <- seq(255)
-y <- seq(255)
+x <- seq(5)
+y <- seq(5)
 grd <- expand.grid(x=x,y=y)
 
 #assign colors to grd levels
 pal1 <- colorRampPalette(c("white", "red"), space = "rgb")
-col1 <- val2col(x, col=pal1(255))
+col1 <- val2col(x, col=pal1(5))
 pal2 <- colorRampPalette(c("white", "blue"), space = "rgb")
-col2 <- val2col(y, col=pal2(255))
+col2 <- val2col(y, col=pal2(5))
 col3 <- NA*seq(nrow(grd))
 for(i in seq(nrow(grd))){
   xpos <- grd$x[i]
   ypos <- grd$y[i]
+  cat(paste('xpos-', xpos, '\n') )
+  cat(paste('ypos-', ypos, '\n') )
   coltmp <- (col2rgb(col1[xpos])/2) + (col2rgb(col2[ypos])/2)
+  cat(paste('coltmp-', coltmp[1], coltmp[2], coltmp[3], '\n', '\n') ) 
   col3[i] <- rgb(coltmp[1], coltmp[2], coltmp[3], maxColorValue = 255)
 }
 # head(col3)
 #plot
 # png("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/2_color_scales_test.png", width=6, height=4, units="in", res=200)
-#plot.new()
+plot.new()
 layout(matrix(c(1,2,3), nrow=1, ncol=3), widths=c(4,1,1), heights=4, respect=T)
 par(mar=c(4,4,2,2))
 plot(grd,col=col3, pch=19)
-# par(mar=c(4,0,2,5))
-# image(x=1, y=x, z=t(as.matrix(x)), col=pal1(10), xaxt="n", yaxt="n", xlab="", ylab="")
-# box()
-# axis(4)
-# mtext("x", side=4, line=3, cex=0.7)
-# par(mar=c(4,0,2,5))
-# image(x=1, y=y, z=t(as.matrix(y)), col=pal2(10), xaxt="n", yaxt="n", xlab="", ylab="")
-# box()
-# axis(4)
-# mtext("y", side=4, line=3, cex=0.7)
-# dev.off()

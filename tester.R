@@ -9,6 +9,10 @@ c(-10,10)
 help(classIntervals)
 
 
+plotLegend()
+
+
+
 #Testing the code
 numQUan=5; travelMean = c('03'); classIntMethod="pretty";
 singleMap(numQUan, travelMean, classIntMethod)

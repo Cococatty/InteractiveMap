@@ -19,8 +19,8 @@ library(shiny)
 
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
-# setwd("/home/cococatty/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+ setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
 
 
@@ -29,60 +29,6 @@ source("helper.R")
 # Initializing the variables
 minGrp <- 1
 maxGrp <- 2
-
-
-#Definte UI for the application
-ui <- shinyUI(fluidPage(
-  titlePanel(title = "Interactive Map of New Zealand", windowTitle = "Interactive Map of New Zealand"),
-  
-  sidebarPanel(
-    sliderInput("categories", "Number of Categories", min = 1, max = 10, value = 5
-    )
-    , br()
-    , selectInput(
-      "classIntMethod"#, "Division Method"
-      , label = "Select the intervals"
-      , choices = list("Equal" = "equal"
-                       , "Fixed"= "fixed"
-                       , "Pretty" = "pretty"
-                       , "Quantiles" = "quantile"
-                       , "Standard Deviation" = "sd"
-      )
-      , selected = "quantile"
-      , multiple = FALSE
-    )
-    , br()
-    
-    # The following part is groupCheckBox format for the travelMeans
-    , checkboxGroupInput(
-      "travelMeans"
-      , label = "Select the mean below:"
-      , choices = meanChoices
-      , selected = NULL
-    )
-    
-    , br()
-  ),
-  
-  #Show the map
-  mainPanel(
-    tabsetPanel(#type = "tabs",
-      tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
-      , tabPanel("Single-Mean Plot", #textOutput("oneMapText"),  
-                 plotOutput("oneMap", width = "800px", height = "800px"))
-      , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
-      , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")
-                 , verbatimTextOutput("biMapText"))
-
-      #, tabPanel("legend", plotOutput("legend"))
-    )
-    
-    , position="center"
-    , height= "auto"
-  )
-)
-)
-
 
 
 #Definte server logic required to draw the map
@@ -127,6 +73,7 @@ server <- function(input, output, session) {
   output$oneMap <- renderPlot(singleMap(input$categories, input$travelMeans, input$classIntMethod))
 #  output$oneMapText <- renderText({ paste("Selected travel mean: ", meandata$MeanName[meandata$MeanCode == input$travelMeans[2]] )})
   output$biMap  <- renderPlot(biMap(input$travelMeans))
+  output$biMapLegend  <- renderPlot(plotLegend(input$travelMeans))#, width = "auto", height = "auto"
   
   biList <- reactive({
     prepareTwoMeans(input$travelMeans)
@@ -145,5 +92,58 @@ server <- function(input, output, session) {
     return (plot)
   })
 }
+
+
+
+#Definte UI for the application
+ui <- shinyUI(fluidPage(
+  titlePanel(title = "Interactive Map of New Zealand", windowTitle = "Interactive Map of New Zealand"),
+  
+  sidebarPanel(
+    sliderInput("categories", "Number of Categories", min = 1, max = 10, value = 5
+    )
+    , br()
+    , selectInput(
+      "classIntMethod"#, "Division Method"
+      , label = "Select the intervals"
+      , choices = list("Equal" = "equal"
+                       , "Fixed"= "fixed"
+                       , "Pretty" = "pretty"
+                       , "Quantiles" = "quantile"
+                       , "Standard Deviation" = "sd"
+      )
+      , selected = "quantile"
+      , multiple = FALSE
+    )
+    , br()
+    
+    # The following part is groupCheckBox format for the travelMeans
+    , checkboxGroupInput(
+      "travelMeans"
+      , label = "Select the mean below:"
+      , choices = meanChoices
+      , selected = NULL
+    )
+    
+    , br()
+  ),
+  
+  #Show the map
+  mainPanel(
+    tabsetPanel(#type = "tabs",
+      tabPanel("Single-Mean Table", DT::dataTableOutput("onetable"), hr())
+      , tabPanel("Single-Mean Plot", #textOutput("oneMapText"),  
+                 plotOutput("oneMap", width = "800px", height = "800px"))
+      , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
+      , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")#
+                              ,plotOutput("biMapLegend")#, width = "auto", height = "auto", inline = TRUE
+                , verbatimTextOutput("biMapText"))
+    )
+    
+    , position="center"
+    , height= "auto"
+  )
+)
+)
 
 shinyApp(ui = ui, server = server)
