@@ -39,7 +39,7 @@ for(i in seq(nrow(grd))){
 }
 
 #plot
-png("2_color_scales.png", width=6, height=4, units="in", res=200)
+png("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/2_color_scales.png", width=6, height=4, units="in", res=200)
 layout(matrix(c(1,2,3), nrow=1, ncol=3), widths=c(4,1,1), heights=4, respect=T)
 par(mar=c(4,4,2,2))
 plot(grd,col=col3, pch=19)

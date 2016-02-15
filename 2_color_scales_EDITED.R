@@ -20,26 +20,16 @@ val2col<-function(z, zlim, col = heat.colors(12), breaks){
 }
 
 
-z <- x
-zlim <-pal1(10)
-col = heat.colors(12)
-
-plot(seq(12), col=heat.colors(12))
-
 #data
-x <- seq(100)
-y <- seq(100)
+x <- seq(200)
+y <- seq(200)
 grd <- expand.grid(x=x,y=y)
-
-# head()head(grd)
-# tail(grd)
-
 
 #assign colors to grd levels
 pal1 <- colorRampPalette(c("white", rgb(1,0,0)), space = "rgb")
-col1 <- val2col(x, col=pal1(10))
+col1 <- val2col(x, col=pal1(40))
 pal2 <- colorRampPalette(c("white", rgb(0,0,1)), space = "rgb")
-col2 <- val2col(y, col=pal2(10))
+col2 <- val2col(y, col=pal2(40))
 col3 <- NA*seq(nrow(grd))
 for(i in seq(nrow(grd))){
   xpos <- grd$x[i]
@@ -49,18 +39,19 @@ for(i in seq(nrow(grd))){
 }
 
 #plot
-# png("2_color_scales.png", width=6, height=4, units="in", res=200)
+# png("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/2_color_scales_test.png", width=6, height=4, units="in", res=200)
+plot.new()
 layout(matrix(c(1,2,3), nrow=1, ncol=3), widths=c(4,1,1), heights=4, respect=T)
 par(mar=c(4,4,2,2))
 plot(grd,col=col3, pch=19)
 par(mar=c(4,0,2,5))
 image(x=1, y=x, z=t(as.matrix(x)), col=pal1(10), xaxt="n", yaxt="n", xlab="", ylab="")
-# box()
-# axis(4)
-# mtext("x", side=4, line=3, cex=0.7)
-# par(mar=c(4,0,2,5))
+box()
+axis(4)
+mtext("x", side=4, line=3, cex=0.7)
+par(mar=c(4,0,2,5))
 image(x=1, y=y, z=t(as.matrix(y)), col=pal2(10), xaxt="n", yaxt="n", xlab="", ylab="")
-# box()
-# axis(4)
-# mtext("y", side=4, line=3, cex=0.7)
+box()
+axis(4)
+mtext("y", side=4, line=3, cex=0.7)
 # dev.off()
