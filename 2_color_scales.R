@@ -54,3 +54,7 @@ box()
 axis(4)
 mtext("y", side=4, line=3, cex=0.7)
 dev.off()
+
+
+
+#?readPNG

@@ -21,7 +21,8 @@ singleMap(numQUan, travelMean, classIntMethod)
 numQUan=5; travelMeans = c('03','09'); classIntMethod="pretty";
 t <- prepareTwoMeans(travelMeans)
 head(t)
-biMap(travelMeans)
+bi <- biMap(travelMeans)
+levelplot(bi)
 legend('bottomright', legend = "x,y", title = 'Legend', fill= pal(fullList$mix), bty = 'o')#, pch= 1
 
 

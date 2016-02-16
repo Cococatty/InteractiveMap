@@ -42,8 +42,10 @@ for(i in seq(nrow(grd))){
 }
 # head(col3)
 #plot
-# png("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/2_color_scales_test.png", width=6, height=4, units="in", res=200)
+library(png)
+png("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/test.png", width=6, height=4, units="in", res=200)
 plot.new()
 layout(matrix(c(1,2,3), nrow=1, ncol=3), widths=c(4,1,1), heights=4, respect=T)
 par(mar=c(4,4,2,2))
 plot(grd,col=col3, pch=19)
+png <- readPNG(source = "//file/UsersY$/yzh215/Home/Desktop/InteractiveMap/2_color_scales.png")

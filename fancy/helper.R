@@ -143,34 +143,7 @@ prepareTwoMeans <- function(travelMeans) {
 }
 
 
-# Function to plot color bar
-colorbar <- function(colourlist, travelMeans, min, max=-min, nticks=5, ticks=seq(min, max, len=nticks)) {#, travelMeans
-  lut <- colorRampPalette(colourlist)(100)
-  scale = (length(lut)-1)/(max-min)
-  plot(c(0,10), c(min,max), type='n', bty='n', xaxt='n', yaxt='n', ylab= NA, xlab=NA
-       , main='Legend')#, border = 'black'
-  axis(2, ticks, labels = c('Neutral', as.character(meandata$MeanName[meandata$MeanCode == travelMeans[1]])
-                            , 'Both', as.character(meandata$MeanName[meandata$MeanCode == travelMeans[2]]), 'Neutral'), las=1)
-  for (i in 1:(length(lut)-1)) {
-    y = (i-1)/scale + min
-    rect(0,y,10,y+1/scale, col=lut[i], border= NA)#, border= "solid"
-  }
-}
-
-
-# This function plots the colored map of two travel means
-biMap <- function(travelMeans)
-{
-  fullList <- prepareTwoMeans(travelMeans)
-  par(mfrow=c(1,2))
-  plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
-  colorbar(c("black", "red", "purple", "blue", "black"), travelMeans, -10)
-}
-
-
-
-#required function 'val2col' from: http://www.menugget.blogspot.de/2011/09/converting-values-to-color-levels.html
-
+# Required function 'val2col' is from: http://www.menugget.blogspot.de/2011/09/converting-values-to-color-levels.html
 val2col<-function(z, zlim, col = heat.colors(12), breaks){
   if(!missing(breaks)){
     if(length(breaks) != (length(col)+1)){stop("must have one more break than colour")}
@@ -190,9 +163,8 @@ val2col<-function(z, zlim, col = heat.colors(12), breaks){
   colorlevels
 }
 
-plotLegend <- function() {
-  library(png)
-  #data
+
+plotLegend <- function(travelMeans){
   x <- seq(255)
   y <- seq(255)
   grd <- expand.grid(x=x,y=y)
@@ -202,20 +174,33 @@ plotLegend <- function() {
   col1 <- val2col(x, col=pal1(255))
   pal2 <- colorRampPalette(c("white", "blue"), space = "rgb")
   col2 <- val2col(y, col=pal2(255))
-  col3 <- NA*seq(nrow(grd))
+  col3 <- NA*seq(nrow(grd)) 
   for(i in seq(nrow(grd))){
     xpos <- grd$x[i]
     ypos <- grd$y[i]
     coltmp <- (col2rgb(col1[xpos])/2) + (col2rgb(col2[ypos])/2)
     col3[i] <- rgb(coltmp[1], coltmp[2], coltmp[3], maxColorValue = 255)
+    # grd$col[grd$x==xpos & grd$y==ypos] <- col3[i]
+    
   }
-  
-  #plot
-  png("./test.png", width=6, height=4, units="in", res=200)
-  layout(matrix(c(1,2,3), nrow=1, ncol=3), widths=c(4,1,1), heights=4, respect=T)
-  par(mar=c(4,4,2,2))
-  plot(grd,col=col3, pch=19, xaxt='n', yaxt='n') # axes=FALSE, 
-  dev.off()
+#  head(grd)
+  layout(matrix(c(1,2,3), nrow=1, ncol=3), widths=c(2,1,1), heights=2, respect=T)
+  plot(grd,col=col3, pch=19, xlab= meandata$MeanName[meandata$MeanCode==travelMeans[2]]
+       , ylab= meandata$MeanName[meandata$MeanCode==travelMeans[1]] , xaxt='n', yaxt='n')
+  return(grd)
+}
+
+# This function plots the colored map of two travel means
+biMap <- function(travelMeans)
+{
+  fullList <- prepareTwoMeans(travelMeans)
+#   grd <- plotLegend(travelMeans)
+#   for (i in nrow(fullList)){
+#     fullList$col <- grd$col[grd$x==fullList$xpos & grd$y==fullList$ypos]
+#   }
+
+  # plot(shape, legend=FALSE, border = "Black", col= fullList$col)
+  plot(shape, legend=FALSE, border = "Black", col= fullList$mix)
 }
 
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")
