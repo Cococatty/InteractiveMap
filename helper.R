@@ -1,25 +1,25 @@
 # LAST UPDATED AT 10/2, 12pm
 # 
-# NEXT TO DO: CHANGE THE "MIX" TO A MEANINGFUL NAME
-
 
 # Clearing up the data
-# rm(list=ls())
+rm(list=ls())
 
 # Loading the requiring sources
 require("classInt") || install.packages("classInt")
 require("colorRamps") || install.packages("colorRamps")
 require("maptools") || install.packages("maptools")
 require("stringr") || install.packages("stringr")
-
+require("ggplot2") || install.packages("ggplot2")
+require("png") || install.packages("png")
 
 # Initializing the variables
 travelMean <- c()
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
 # setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
+setwd("C:/Users/Josh/Desktop/InteractiveMap")
 
 
 # Reading required data
@@ -142,7 +142,6 @@ prepareTwoMeans <- function(travelMeans) {
   return(listx)  
 }
 
-
 # Function to plot color bar
 colorbar <- function(colourlist, travelMeans, min, max=-min, nticks=5, ticks=seq(min, max, len=nticks)) {#, travelMeans
   lut <- colorRampPalette(colourlist)(100)
@@ -218,5 +217,6 @@ plotLegend <- function() {
   dev.off()
 }
 
+plotLegend()
 #singleMap(5, travelMean = as.character(meandata$MeanCode[1]), "pretty")
 #title(paste ("Map of New Zealand \n Travel mean: ", meandata$MeanName[meandata$MeanCode == travelMean]))

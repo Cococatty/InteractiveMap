@@ -20,9 +20,10 @@ library(shiny)
 
 
 # Set the working directory and read the required data
- setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
+# setwd("//file/UsersY$/yzh215/Home/Desktop/InteractiveMap")
 # setwd("/home/cococatty/Desktop/InteractiveMap")
 # setwd("C:/Users/User/Desktop/InteractiveMap")
+ setwd("C:/Users/Josh/Desktop/InteractiveMap")
 
 
 source("helper.R")
@@ -73,10 +74,10 @@ ui <- shinyUI(fluidPage(
                  plotOutput("oneMap", width = "800px", height = "800px"))
       , tabPanel("Scatterplot", scatterD3Output("biScatter", width = "100%", height = "600px"))
       , tabPanel("Two-Mean Plot", plotOutput("biMap", width = "800px", height = "800px")
-                 #,imageOutput("biMapLegend", width = "auto", height = "auto")
+                 #,br(), imageOutput("boxLegend") #, width = "auto", height = "auto"
                  , verbatimTextOutput("biMapText"))
-
-      , tabPanel("Legend Image", imageOutput("biMapLegend"))
+      , tabPanel("ggplot Legend", imageOutput("boxLegend"))
+      , tabPanel("Ideal Legend", imageOutput("biMapLegend"))
     )
     
     , position="center"
@@ -146,12 +147,39 @@ server <- function(input, output, session) {
     )
     return (plot)
   })
+  
+  #img <- reactive({legendBox(input$travelMeans)})  
+  #reactive({legendBox(input$travelMeans)})  
+  
+  output$boxLegend <- renderImage(
+    #renderPlot(
+    {
+      library(png)
+      dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10))
+      dat <- within(dat, mix <- rgb(green=0, red=red, blue=blue, maxColorValue=255))
+
+      outfile <- tempfile(fileext='.png')
+      png(outfile, width = 600, height = 600)
+      print(
+        ggplot(dat, aes(x=red, y=blue)) +
+          geom_tile(aes(fill=mix)) +
+          scale_fill_identity() +
+          xlab(as.character(meandata$MeanName[meandata$MeanCode == input$travelMeans[1]])) +
+          ylab(as.character(meandata$MeanName[meandata$MeanCode == input$travelMeans[2]]))
+      )
+      dev.off()
+
+      list(src = outfile
+           , alt = 'alt')
+    }
+    , deleteFile = TRUE)
+  
 
   output$biMapLegend <- renderImage(
                 {return(list(src="./test.png"
                             , contentType = "image/png"
-                            , height = 200
-                            , width = 300
+                            , height = 600
+                            , width = 900
                             , alt = "Image"))
                 }, deleteFile = FALSE)
 }

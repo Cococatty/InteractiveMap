@@ -7,10 +7,14 @@
 
 # The following is for "selecting the cell and information shall be displayed on the RHS
 
-travelMeans <- c('02', '04')
 test <- prepareTwoMeans(travelMeans)
 head(test[1:6,])
 #attributes(test) 
+
+travelMeans <- c('02', '04')
+biMap(travelMeans)
+legendBox(c('02', '06'))
+
 
 dat <- expand.grid(blue=seq(255, 0, by=10), red=seq(255, 0, by=10))
 
@@ -30,8 +34,10 @@ ggplot(dat, aes(x=red, y=blue)) +
 head(dat)
 
 
+legendBox(travelMeans)
+
+
 # 2. NEED TO FIX THE 0,0 SAME AS 1.
-<<<<<<< HEAD
 dat <- expand.grid(blue=seq(255, 0, by=-10), red=seq(255, 0, by=-10),green=seq(0, 255, by=10))
 dat$green <- (dat$red + dat$blue)/2
 dat <- within(dat, mix <- rgb(green=green, red=red, blue=blue, maxColorValue=255))
